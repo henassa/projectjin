@@ -28,7 +28,6 @@ export default function Home() {
               JÎN
             </h1>
           </div>
-          <div className="mt-5 h-1.5 w-32 bg-accent" />
 
           <p className="mt-6 max-w-2xl font-body text-lg text-text md:text-xl">
             {siteConfig.tagline}

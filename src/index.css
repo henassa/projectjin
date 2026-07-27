@@ -37,12 +37,12 @@
   --color-accent: #f2f1ec;
   --color-accent-dim: #b9b7b0;
 
-  /* Typo — une seule famille sur tout le site (SF Pro Display,
-     auto-hébergée), pour une cohérence totale. Repli propre sur
-     Helvetica/Arial si jamais le fichier woff2 ne charge pas. */
+  /* Typo — SF Pro Display pour titres/corps. Police mono système pour
+     les petits labels/données (eyebrows, stats, tags) : ça leur donne
+     un traitement distinct, sans charger de fichier supplémentaire. */
   --font-display: "SF Pro Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
   --font-body: "SF Pro Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  --font-mono: "SF Pro Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", "Cascadia Code", Consolas, monospace;
 }
 
 @layer base {
