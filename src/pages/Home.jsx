@@ -18,11 +18,7 @@ export default function Home() {
         }}
       >
         <div className="mx-auto max-w-6xl px-6 pb-12 pt-16 md:pt-20">
-          <div className="font-mono text-xs uppercase tracking-widest text-accent">
-            Tournoi CS2 amateur
-          </div>
-
-          <div className="mt-6 flex flex-col items-start gap-5 md:flex-row md:items-center md:gap-8">
+          <div className="flex flex-col items-start gap-5 md:flex-row md:items-center md:gap-8">
             <RojLogo className="h-16 w-16 flex-shrink-0 text-text md:h-24 md:w-24" />
             <h1 className="font-display text-6xl font-bold leading-[0.9] tracking-tight md:text-8xl">
               JÎN
