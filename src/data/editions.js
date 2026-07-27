@@ -245,7 +245,7 @@ export const teams = [
         pseudo: "ZeroX",
         pronouns: "elle / she",
         nationality: "ES-EV",
-        flagImage: "/flags/ES-EV//.png",
+        flagImage: "/flags/ES-EV.png",
       },
     ],
     coach: null, // laisse `null` si pas de coach
