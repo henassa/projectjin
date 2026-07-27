@@ -1,0 +1,165 @@
+@import "tailwindcss";
+
+/* SF Pro Display, auto-hébergée (fichiers fournis, convertis en woff2). */
+@font-face {
+  font-family: "SF Pro Display";
+  src: url("/fonts/sf-pro-display-regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "SF Pro Display";
+  src: url("/fonts/sf-pro-display-medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "SF Pro Display";
+  src: url("/fonts/sf-pro-display-bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  /* Couleurs — monochrome, calqué sur les visuels d'annonce (noir/blanc,
+     pas de teinte). Le "grain" et le contraste font le travail visuel,
+     pas une couleur de marque. */
+  --color-bg: #000000;
+  --color-bg-elevated: #101010;
+  --color-bg-card: #0c0c0c;
+  --color-border: #2b2b2b;
+  --color-border-strong: #474747;
+  --color-text: #f2f1ec;
+  --color-text-muted: #8c8a84;
+  --color-accent: #f2f1ec;
+  --color-accent-dim: #b9b7b0;
+
+  /* Typo — une seule famille sur tout le site (SF Pro Display,
+     auto-hébergée), pour une cohérence totale. Repli propre sur
+     Helvetica/Arial si jamais le fichier woff2 ne charge pas. */
+  --font-display: "SF Pro Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-body: "SF Pro Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-mono: "SF Pro Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+  ::selection {
+    background-color: var(--color-accent);
+    color: var(--color-bg);
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  .reticle {
+    display: inline-block;
+    width: 0.9em;
+    height: 0.9em;
+    flex-shrink: 0;
+  }
+
+  /* Grain photo fixe, superposé à toute la page — même texture que les
+     visuels d'annonce (noise + mix-blend-mode overlay). */
+  .grain-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    pointer-events: none;
+    opacity: 0.06;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-size: 260px 260px;
+  }
+
+  /* ─── Surfaces sobres ────────────────────────────────────────────────
+     Plat, lisible, pas d'effet décoratif : fond plein, bordure fine,
+     ombre discrète (ou aucune). Pas de flou, pas de dégradé, pas de
+     reflet — la palette monochrome et le contraste font le travail. */
+
+  /* Carte/surface (cartes équipes, blocs de règlement, table) */
+  .surface {
+    border-radius: 0;
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+  }
+
+  /* Bouton plein (CTA principal) */
+  .btn-glass-primary {
+    border-radius: 0;
+    background: var(--color-text);
+    color: var(--color-bg);
+    transition: opacity 0.15s ease;
+  }
+  .btn-glass-primary:hover {
+    opacity: 0.85;
+  }
+
+  /* Bouton bordé (secondaire, filtres, nav) */
+  .btn-glass {
+    border-radius: 0;
+    background: transparent;
+    border: 1px solid var(--color-border-strong);
+    transition: background-color 0.15s ease, border-color 0.15s ease;
+  }
+  .btn-glass:hover {
+    background: var(--color-bg-elevated);
+  }
+
+  /* Pilule active (filtres sélectionnés, toggle "on") */
+  .chip-active {
+    border-radius: 0;
+    background: var(--color-text);
+    color: var(--color-bg);
+  }
+
+  /* Petite pastille (VAINQUEUR...) */
+  .chip-badge {
+    border-radius: 0;
+    background: transparent;
+    border: 1px solid var(--color-border-strong);
+  }
+
+  /* Pastille MVP : or, sans fond */
+  .chip-mvp {
+    border-radius: 0;
+    background: transparent;
+    border: 1px solid rgba(212, 175, 55, 0.55);
+    color: #d4af37;
+  }
+
+  /* Pastille EVP : argent, sans fond */
+  .chip-evp {
+    border-radius: 0;
+    background: transparent;
+    border: 1px solid rgba(196, 196, 196, 0.55);
+    color: #c4c4c4;
+  }
+}
