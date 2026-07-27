@@ -9,7 +9,7 @@ export default function Editions() {
       </div>
       <h1 className="mt-4 font-display text-5xl font-bold md:text-6xl">Éditions</h1>
       <p className="mt-4 max-w-2xl text-text-muted">
-        Chaque édition regroupe son règlement propre, ses équipes et ses statistiques.
+        Chaque édition regroupe ses équipes et ses statistiques.
       </p>
 
       <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">

@@ -1,7 +1,7 @@
 // Config générale du site — liens et infos à remplacer par les vraies.
 export const siteConfig = {
   discordUrl: "https://discord.gg/3CJ7ucMHDx",
-  tagline: "Féministe. Inclusif. Sans compromis.",
+  tagline: "Féministe et inclusif.",
   meaning: "« Jîn » signifie « vie » et « femme » en kurde.",
   teamsCount: 8,
   competitionDays: 1,
