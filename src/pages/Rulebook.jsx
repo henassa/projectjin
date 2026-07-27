@@ -3,9 +3,6 @@ import { rulebook } from "../data/rulebook";
 export default function Rulebook() {
   return (
     <div className="mx-auto max-w-4xl px-6 py-14">
-      <div className="font-mono text-xs uppercase tracking-widest text-accent">
-        Cadre du tournoi
-      </div>
       <h1 className="mt-4 font-display text-5xl font-bold md:text-6xl">Règlement</h1>
       <p className="mt-4 max-w-2xl text-text-muted">
         Ce règlement encadre le déroulement du tournoi et les conditions de

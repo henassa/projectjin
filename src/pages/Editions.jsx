@@ -2,18 +2,18 @@ import { Link } from "react-router-dom";
 import { editions, teams } from "../data/editions";
 
 export default function Editions() {
+  const sortedEditions = [...editions].sort((a, b) => b.number - a.number);
+
   return (
     <div className="mx-auto max-w-6xl px-6 py-14">
-      <div className="font-mono text-xs uppercase tracking-widest text-accent">
-        Le tournoi
-      </div>
       <h1 className="mt-4 font-display text-5xl font-bold md:text-6xl">Éditions</h1>
       <p className="mt-4 max-w-2xl text-text-muted">
-        Chaque édition regroupe ses équipes et ses statistiques.
+        Chaque édition regroupe son règlement propre, ses équipes et ses statistiques.
+        Clique sur une édition pour tout voir.
       </p>
 
       <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-        {editions.map((ed) => {
+        {sortedEditions.map((ed) => {
           const teamsCount = teams.filter((t) => t.editionId === ed.id).length;
           return (
             <Link
