@@ -158,8 +158,8 @@ export const teams = [
       {
         pseudo: "ZeroX",
         pronouns: "elle / she",
-        nationality: "ES",
-        flagImage: "/flags/ES.png",
+        nationality: "ES-EV",
+        flagImage: "/flags/ES-EV.png",
       },
     ],
     subs: [
@@ -244,8 +244,8 @@ export const teams = [
       {
         pseudo: "ZeroX",
         pronouns: "elle / she",
-        nationality: "FR",
-        flagImage: "/flags/FR.png",
+        nationality: "ES-EV",
+        flagImage: "/flags/ES-EV//.png",
       },
     ],
     coach: null, // laisse `null` si pas de coach
@@ -714,8 +714,8 @@ export const playerStats = [
   {
     editionId: "ep-1",
     pseudo: "ZeroX",
-    nationality: "FR",
-    flagImage: "/flags/FR.png",
+    nationality: "ES-EV",
+    flagImage: "/flags/ES-EV.png",
     mvp: false,
     evp: false,
     team: "BRITNEY SPEED",
