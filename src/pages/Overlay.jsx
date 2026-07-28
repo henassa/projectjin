@@ -56,7 +56,12 @@ export default function Overlay() {
 
   return (
     <div className="flex min-h-screen items-start justify-start p-6">
-      <div className="overlay-neon flex h-[155px] w-[340px] items-center overflow-hidden bg-black/90 px-5">
+      <div
+        className="overlay-neon flex h-[155px] w-[340px] items-center overflow-hidden px-5"
+        style={{
+          background: "linear-gradient(155deg, rgba(20,20,20,0.95), rgba(0,0,0,0.97) 60%)",
+        }}
+      >
           <AnimatePresence mode="wait">
             {current === "sun" && (
               <motion.div
