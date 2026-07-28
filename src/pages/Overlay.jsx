@@ -6,9 +6,8 @@ import { editions } from "../data/editions";
 
 // Widget destiné à être utilisé comme source navigateur dans OBS Studio
 // (overlay de stream). Page nue : pas de Nav, pas de grain, fond
-// transparent. Bordure façon "chenillard" néon noir/blanc qui tourne
-// autour du cadre, et un carrousel à 4 temps avec transition "glass"
-// (flou qui se referme/rouvre entre les slides) :
+// transparent. Contour néon en glow pulsant, et un carrousel à 4 temps
+// avec transition "glass" (flou qui se referme/rouvre entre les slides) :
 //   1. Le soleil qui tourne, seul
 //   2. PROJECT JÎN + infos du prochain tournoi
 //   3. Tagline "Tournoi CS2 inclusif et antifasciste"
@@ -57,8 +56,7 @@ export default function Overlay() {
 
   return (
     <div className="flex min-h-screen items-start justify-start p-6">
-      <div className="overlay-border-spin">
-        <div className="relative flex h-[155px] w-[340px] items-center overflow-hidden bg-black/90 px-5">
+      <div className="overlay-neon flex h-[155px] w-[340px] items-center overflow-hidden bg-black/90 px-5">
           <AnimatePresence mode="wait">
             {current === "sun" && (
               <motion.div
@@ -121,7 +119,6 @@ export default function Overlay() {
               </motion.div>
             )}
           </AnimatePresence>
-        </div>
       </div>
     </div>
   );
