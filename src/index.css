@@ -188,4 +188,26 @@
       box-shadow: 0 0 10px rgba(242, 241, 236, 0.5);
     }
   }
+
+  /* Le soleil du logo tourne sur lui-même puis marque une pause,
+     en boucle — uniquement sur le widget overlay OBS. */
+  .overlay-sun {
+    animation: sun-spin-pause 5s linear infinite;
+  }
+  @keyframes sun-spin-pause {
+    0% {
+      transform: rotate(0deg);
+    }
+    35% {
+      transform: rotate(360deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .overlay-sun {
+      animation: none;
+    }
+  }
 }

@@ -56,16 +56,6 @@ export const credits = {
         ],
       },
     ],
-    closing: {
-      heading: "Project Jîn n'est pas juste un tournoi",
-      paragraphs: [
-        "C'est une réponse à une scène esport qui ne laisse pas de place à celles et ceux qu'on marginalise.",
-        "Que ce soit pour leur genre, leur identité, leur couleur de peau, leur condition sociale ou simplement parce qu'iels ne rentrent pas dans la norme qu'on nous impose.",
-        "Nous croyons profondément que chaque espace qu'on crée, chaque équipe qu'on forme, chaque personne qu'on met en lumière, c'est une brique de plus posée vers une scène plus juste, plus ouverte, à l'image de celles et ceux qui la font vivre.",
-        "Merci d'y croire avec nous.",
-      ],
-      tagline: "Une scène pour toustes, une lutte pour de bon",
-    },
   },
   // "ep-2": { ... } — à compléter une fois l'édition terminée.
 };
