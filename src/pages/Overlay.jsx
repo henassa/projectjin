@@ -58,7 +58,7 @@ export default function Overlay() {
   return (
     <div className="flex min-h-screen items-start justify-start p-6">
       <div className="overlay-border-spin">
-        <div className="relative flex h-[140px] w-[340px] items-center overflow-hidden bg-black/90 px-5">
+        <div className="relative flex h-[155px] w-[340px] items-center overflow-hidden bg-black/90 px-5">
           <AnimatePresence mode="wait">
             {current === "sun" && (
               <motion.div
@@ -82,10 +82,10 @@ export default function Overlay() {
                 transition={glassTransition.transition}
                 className="absolute inset-0 flex flex-col items-center justify-center px-5 text-center"
               >
-                <div className="font-display text-2xl font-bold leading-tight text-text">
+                <div className="font-display text-3xl font-bold leading-tight text-text">
                   PROJECT JÎN
                 </div>
-                <div className="mt-1.5 text-sm uppercase tracking-wide text-text-muted">
+                <div className="mt-1.5 text-base uppercase tracking-wide text-text-muted">
                   {latest.label} · {latest.date}
                 </div>
               </motion.div>
@@ -100,7 +100,7 @@ export default function Overlay() {
                 transition={glassTransition.transition}
                 className="absolute inset-0 flex items-center justify-center px-5 text-center"
               >
-                <div className="font-display text-xl font-bold leading-snug text-text">
+                <div className="font-display text-2xl font-bold leading-snug text-text">
                   TOURNOI CS2 INCLUSIF ET ANTIFASCISTE
                 </div>
               </motion.div>
@@ -115,7 +115,7 @@ export default function Overlay() {
                 transition={glassTransition.transition}
                 className="absolute inset-0 flex items-center justify-center px-5 text-center"
               >
-                <div className="font-display text-xl font-bold leading-snug text-text">
+                <div className="font-display text-2xl font-bold leading-snug text-text">
                   !DISCORD POUR REJOINDRE LE PROJET
                 </div>
               </motion.div>
