@@ -103,7 +103,7 @@ export default function Overlay() {
                 transition={glassTransition.transition}
                 className="absolute inset-0 flex items-center justify-center px-5 text-center"
               >
-                <div className="font-display text-2xl font-bold leading-snug text-text">
+                <div className="w-full break-words font-display text-lg font-bold leading-snug text-text">
                   TOURNOI CS2 INCLUSIF ET ANTIFASCISTE
                 </div>
               </motion.div>
@@ -118,7 +118,7 @@ export default function Overlay() {
                 transition={glassTransition.transition}
                 className="absolute inset-0 flex items-center justify-center px-5 text-center"
               >
-                <div className="font-display text-2xl font-bold leading-snug text-text">
+                <div className="w-full break-words font-display text-lg font-bold leading-snug text-text">
                   !DISCORD POUR REJOINDRE LE PROJET
                 </div>
               </motion.div>
