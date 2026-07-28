@@ -7,15 +7,18 @@ import { editions } from "../data/editions";
 // Widget destiné à être utilisé comme source navigateur dans OBS Studio
 // (overlay de stream). Page nue : pas de Nav, pas de grain, fond
 // transparent. Bordure façon "chenillard" néon noir/blanc qui tourne
-// autour du cadre, logo qui tourne en boucle, et un carrousel à 3 temps
-// (édition en cours → tagline → appel Discord) avec une transition
-// "glass" (flou qui se referme/rouvre entre les slides).
+// autour du cadre, et un carrousel à 4 temps avec transition "glass"
+// (flou qui se referme/rouvre entre les slides) :
+//   1. Le soleil qui tourne, seul
+//   2. PROJECT JÎN + infos du prochain tournoi
+//   3. Tagline "Tournoi CS2 inclusif et antifasciste"
+//   4. Appel à rejoindre le Discord
 //
 // SECRET_TOKEN : change cette valeur (et l'URL que tu utilises dans OBS)
 // si jamais elle a fuité. Ce n'est pas une vraie authentification —
 // juste une URL non devinable, non listée nulle part sur le site.
 const SECRET_TOKEN = "a2a238057c4799bcf26df7aee322546c";
-const SLIDE_DURATION_MS = 6000;
+const SLIDE_DURATION_MS = 5000;
 
 const glassTransition = {
   initial: { opacity: 0, filter: "blur(14px)" },
@@ -39,7 +42,7 @@ export default function Overlay() {
 
   const latest = useMemo(() => [...editions].sort((a, b) => b.number - a.number)[0], []);
 
-  const slides = ["edition", "tagline", "discord"];
+  const slides = ["sun", "edition", "tagline", "discord"];
 
   useEffect(() => {
     const id = setInterval(() => {
@@ -55,60 +58,69 @@ export default function Overlay() {
   return (
     <div className="flex min-h-screen items-start justify-start p-6">
       <div className="overlay-border-spin">
-        <div className="relative flex h-[140px] w-[340px] items-center gap-3 overflow-hidden bg-black/90 px-5">
-          <RojLogo className="overlay-sun h-12 w-12 flex-shrink-0 text-text" />
+        <div className="relative flex h-[140px] w-[340px] items-center overflow-hidden bg-black/90 px-5">
+          <AnimatePresence mode="wait">
+            {current === "sun" && (
+              <motion.div
+                key="sun"
+                initial={glassTransition.initial}
+                animate={glassTransition.animate}
+                exit={glassTransition.exit}
+                transition={glassTransition.transition}
+                className="absolute inset-0 flex items-center justify-center"
+              >
+                <RojLogo className="overlay-sun h-20 w-20 text-text" />
+              </motion.div>
+            )}
 
-          <div className="relative h-full flex-1 overflow-hidden">
-            <AnimatePresence mode="wait">
-              {current === "edition" && (
-                <motion.div
-                  key="edition"
-                  initial={glassTransition.initial}
-                  animate={glassTransition.animate}
-                  exit={glassTransition.exit}
-                  transition={glassTransition.transition}
-                  className="absolute inset-0 flex flex-col justify-center"
-                >
-                  <div className="font-display text-2xl font-bold leading-tight text-text">
-                    PROJECT JÎN
-                  </div>
-                  <div className="mt-1.5 text-sm uppercase tracking-wide text-text-muted">
-                    {latest.label} · {latest.date}
-                  </div>
-                </motion.div>
-              )}
+            {current === "edition" && (
+              <motion.div
+                key="edition"
+                initial={glassTransition.initial}
+                animate={glassTransition.animate}
+                exit={glassTransition.exit}
+                transition={glassTransition.transition}
+                className="absolute inset-0 flex flex-col items-center justify-center px-5 text-center"
+              >
+                <div className="font-display text-2xl font-bold leading-tight text-text">
+                  PROJECT JÎN
+                </div>
+                <div className="mt-1.5 text-sm uppercase tracking-wide text-text-muted">
+                  {latest.label} · {latest.date}
+                </div>
+              </motion.div>
+            )}
 
-              {current === "tagline" && (
-                <motion.div
-                  key="tagline"
-                  initial={glassTransition.initial}
-                  animate={glassTransition.animate}
-                  exit={glassTransition.exit}
-                  transition={glassTransition.transition}
-                  className="absolute inset-0 flex flex-col justify-center"
-                >
-                  <div className="font-display text-xl font-bold leading-snug text-text">
-                    TOURNOI CS2 INCLUSIF ET ANTIFASCISTE
-                  </div>
-                </motion.div>
-              )}
+            {current === "tagline" && (
+              <motion.div
+                key="tagline"
+                initial={glassTransition.initial}
+                animate={glassTransition.animate}
+                exit={glassTransition.exit}
+                transition={glassTransition.transition}
+                className="absolute inset-0 flex items-center justify-center px-5 text-center"
+              >
+                <div className="font-display text-xl font-bold leading-snug text-text">
+                  TOURNOI CS2 INCLUSIF ET ANTIFASCISTE
+                </div>
+              </motion.div>
+            )}
 
-              {current === "discord" && (
-                <motion.div
-                  key="discord"
-                  initial={glassTransition.initial}
-                  animate={glassTransition.animate}
-                  exit={glassTransition.exit}
-                  transition={glassTransition.transition}
-                  className="absolute inset-0 flex flex-col justify-center"
-                >
-                  <div className="font-display text-xl font-bold leading-snug text-text">
-                    !DISCORD POUR REJOINDRE LE PROJET
-                  </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </div>
+            {current === "discord" && (
+              <motion.div
+                key="discord"
+                initial={glassTransition.initial}
+                animate={glassTransition.animate}
+                exit={glassTransition.exit}
+                transition={glassTransition.transition}
+                className="absolute inset-0 flex items-center justify-center px-5 text-center"
+              >
+                <div className="font-display text-xl font-bold leading-snug text-text">
+                  !DISCORD POUR REJOINDRE LE PROJET
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
       </div>
     </div>
