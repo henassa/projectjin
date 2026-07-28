@@ -6,9 +6,10 @@ import { editions } from "../data/editions";
 
 // Widget destiné à être utilisé comme source navigateur dans OBS Studio
 // (overlay de stream). Page nue : pas de Nav, pas de grain, fond
-// transparent. Contour néon animé, logo qui tourne en boucle, et un
-// carrousel à 3 temps (édition en cours → tagline → appel Discord) avec
-// une transition "glass" (flou qui se referme/rouvre entre les slides).
+// transparent. Bordure façon "chenillard" néon noir/blanc qui tourne
+// autour du cadre, logo qui tourne en boucle, et un carrousel à 3 temps
+// (édition en cours → tagline → appel Discord) avec une transition
+// "glass" (flou qui se referme/rouvre entre les slides).
 //
 // SECRET_TOKEN : change cette valeur (et l'URL que tu utilises dans OBS)
 // si jamais elle a fuité. Ce n'est pas une vraie authentification —
@@ -53,59 +54,61 @@ export default function Overlay() {
 
   return (
     <div className="flex min-h-screen items-start justify-start p-6">
-      <div className="overlay-neon flex h-[100px] w-[560px] items-center gap-4 overflow-hidden bg-black/85 px-6">
-        <RojLogo className="overlay-sun h-11 w-11 flex-shrink-0 text-text" />
+      <div className="overlay-border-spin">
+        <div className="relative flex h-[140px] w-[340px] items-center gap-3 overflow-hidden bg-black/90 px-5">
+          <RojLogo className="overlay-sun h-12 w-12 flex-shrink-0 text-text" />
 
-        <div className="relative h-full flex-1 overflow-hidden">
-          <AnimatePresence mode="wait">
-            {current === "edition" && (
-              <motion.div
-                key="edition"
-                initial={glassTransition.initial}
-                animate={glassTransition.animate}
-                exit={glassTransition.exit}
-                transition={glassTransition.transition}
-                className="absolute inset-0 flex flex-col justify-center"
-              >
-                <div className="font-display text-lg font-bold leading-tight text-text">
-                  PROJECT JÎN
-                </div>
-                <div className="mt-1 text-xs uppercase tracking-widest text-text-muted">
-                  {latest.label} · {latest.date}
-                </div>
-              </motion.div>
-            )}
+          <div className="relative h-full flex-1 overflow-hidden">
+            <AnimatePresence mode="wait">
+              {current === "edition" && (
+                <motion.div
+                  key="edition"
+                  initial={glassTransition.initial}
+                  animate={glassTransition.animate}
+                  exit={glassTransition.exit}
+                  transition={glassTransition.transition}
+                  className="absolute inset-0 flex flex-col justify-center"
+                >
+                  <div className="font-display text-2xl font-bold leading-tight text-text">
+                    PROJECT JÎN
+                  </div>
+                  <div className="mt-1.5 text-sm uppercase tracking-wide text-text-muted">
+                    {latest.label} · {latest.date}
+                  </div>
+                </motion.div>
+              )}
 
-            {current === "tagline" && (
-              <motion.div
-                key="tagline"
-                initial={glassTransition.initial}
-                animate={glassTransition.animate}
-                exit={glassTransition.exit}
-                transition={glassTransition.transition}
-                className="absolute inset-0 flex flex-col justify-center"
-              >
-                <div className="font-display text-base font-bold leading-snug text-text">
-                  TOURNOI CS2 INCLUSIF ET ANTIFASCISTE
-                </div>
-              </motion.div>
-            )}
+              {current === "tagline" && (
+                <motion.div
+                  key="tagline"
+                  initial={glassTransition.initial}
+                  animate={glassTransition.animate}
+                  exit={glassTransition.exit}
+                  transition={glassTransition.transition}
+                  className="absolute inset-0 flex flex-col justify-center"
+                >
+                  <div className="font-display text-xl font-bold leading-snug text-text">
+                    TOURNOI CS2 INCLUSIF ET ANTIFASCISTE
+                  </div>
+                </motion.div>
+              )}
 
-            {current === "discord" && (
-              <motion.div
-                key="discord"
-                initial={glassTransition.initial}
-                animate={glassTransition.animate}
-                exit={glassTransition.exit}
-                transition={glassTransition.transition}
-                className="absolute inset-0 flex flex-col justify-center"
-              >
-                <div className="font-display text-base font-bold leading-snug text-text">
-                  !DISCORD POUR REJOINDRE
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
+              {current === "discord" && (
+                <motion.div
+                  key="discord"
+                  initial={glassTransition.initial}
+                  animate={glassTransition.animate}
+                  exit={glassTransition.exit}
+                  transition={glassTransition.transition}
+                  className="absolute inset-0 flex flex-col justify-center"
+                >
+                  <div className="font-display text-xl font-bold leading-snug text-text">
+                    !DISCORD POUR REJOINDRE LE PROJET
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
         </div>
       </div>
     </div>

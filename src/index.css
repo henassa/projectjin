@@ -163,29 +163,48 @@
     color: #c4c4c4;
   }
 
-  /* Contour néon animé — uniquement pour le widget overlay OBS, pas
-     utilisé ailleurs sur le site (qui reste monochrome/plat). */
-  .overlay-neon {
-    border: 2px solid rgba(242, 241, 236, 0.8);
-    animation: neon-pulse 2.4s ease-in-out infinite;
+  /* Bordure "chenillard" néon noir/blanc qui tourne autour du cadre —
+     uniquement pour le widget overlay OBS, pas utilisé ailleurs sur le
+     site (qui reste monochrome/plat). Technique : un pseudo-élément
+     surdimensionné avec un dégradé conique tournant, découpé par
+     l'overflow:hidden du conteneur pour ne laisser voir que la fine
+     bande de bordure (le contenu, lui, est opaque et cache le centre). */
+  .overlay-border-spin {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    padding: 3px;
   }
-  @keyframes neon-pulse {
-    0%,
-    100% {
-      box-shadow: 0 0 6px rgba(242, 241, 236, 0.5), 0 0 16px rgba(242, 241, 236, 0.25),
-        inset 0 0 6px rgba(242, 241, 236, 0.15);
-      border-color: rgba(242, 241, 236, 0.6);
-    }
-    50% {
-      box-shadow: 0 0 14px rgba(242, 241, 236, 0.9), 0 0 34px rgba(242, 241, 236, 0.5),
-        inset 0 0 10px rgba(242, 241, 236, 0.3);
-      border-color: rgba(242, 241, 236, 1);
+  .overlay-border-spin::before {
+    content: "";
+    position: absolute;
+    inset: -300px;
+    background: conic-gradient(
+      from 0deg,
+      #050505 0deg,
+      #f2f1ec 45deg,
+      #050505 90deg,
+      #f2f1ec 135deg,
+      #050505 180deg,
+      #f2f1ec 225deg,
+      #050505 270deg,
+      #f2f1ec 315deg,
+      #050505 360deg
+    );
+    animation: overlay-border-rotate 4s linear infinite;
+  }
+  .overlay-border-spin > div {
+    position: relative;
+    z-index: 1;
+  }
+  @keyframes overlay-border-rotate {
+    to {
+      transform: rotate(360deg);
     }
   }
   @media (prefers-reduced-motion: reduce) {
-    .overlay-neon {
+    .overlay-border-spin::before {
       animation: none;
-      box-shadow: 0 0 10px rgba(242, 241, 236, 0.5);
     }
   }
 
