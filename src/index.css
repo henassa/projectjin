@@ -162,4 +162,30 @@
     border: 1px solid rgba(196, 196, 196, 0.55);
     color: #c4c4c4;
   }
+
+  /* Contour néon animé — uniquement pour le widget overlay OBS, pas
+     utilisé ailleurs sur le site (qui reste monochrome/plat). */
+  .overlay-neon {
+    border: 2px solid rgba(242, 241, 236, 0.8);
+    animation: neon-pulse 2.4s ease-in-out infinite;
+  }
+  @keyframes neon-pulse {
+    0%,
+    100% {
+      box-shadow: 0 0 6px rgba(242, 241, 236, 0.5), 0 0 16px rgba(242, 241, 236, 0.25),
+        inset 0 0 6px rgba(242, 241, 236, 0.15);
+      border-color: rgba(242, 241, 236, 0.6);
+    }
+    50% {
+      box-shadow: 0 0 14px rgba(242, 241, 236, 0.9), 0 0 34px rgba(242, 241, 236, 0.5),
+        inset 0 0 10px rgba(242, 241, 236, 0.3);
+      border-color: rgba(242, 241, 236, 1);
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .overlay-neon {
+      animation: none;
+      box-shadow: 0 0 10px rgba(242, 241, 236, 0.5);
+    }
+  }
 }

@@ -302,31 +302,33 @@ export default function EditionDetail() {
 
       {/* CRÉDITS */}
       {editionCredits && (
-        <div className="mt-20 border-t border-white/5 pt-16 text-center">
-          <p className="font-display text-2xl font-bold">PROJECT JÎN</p>
-          <p className="mt-1 text-sm text-text-muted">{editionCredits.subtitle}</p>
+        <div className="mt-20 border-t border-white/5 pt-16">
+          <div className="text-center">
+            <p className="font-display text-2xl font-bold">PROJECT JÎN</p>
+            <p className="mt-1 text-sm text-text-muted">{editionCredits.subtitle}</p>
+          </div>
 
-          <div className="mx-auto mt-12 max-w-2xl space-y-10">
+          <div className="mx-auto mt-10 grid max-w-4xl gap-x-10 gap-y-6 sm:grid-cols-2">
             {editionCredits.blocks.map((block) => (
-              <div key={block.label}>
-                <p className="font-mono text-xs uppercase tracking-widest text-text-muted">
-                  {block.label}
-                </p>
+              <div key={block.label} className={block.teams ? "sm:col-span-2" : ""}>
+                <p className="text-xs uppercase tracking-widest text-text-muted">{block.label}</p>
+
                 {block.lines && (
-                  <div className="mt-2 space-y-1">
+                  <div className="mt-1.5 space-y-0.5">
                     {block.lines.map((line, i) => (
-                      <p key={i} className="text-text">
+                      <p key={i} className="text-sm text-text">
                         {line}
                       </p>
                     ))}
                   </div>
                 )}
+
                 {block.teams && (
-                  <div className="mt-3 space-y-3">
+                  <div className="mt-2 grid gap-x-8 gap-y-2 sm:grid-cols-2 lg:grid-cols-3">
                     {block.teams.map((t) => (
                       <div key={t.name}>
-                        <p className="font-semibold text-text">{t.name}</p>
-                        <p className="text-sm text-text-muted">{t.roster}</p>
+                        <p className="text-sm font-semibold text-text">{t.name}</p>
+                        <p className="text-xs text-text-muted">{t.roster}</p>
                       </div>
                     ))}
                   </div>
@@ -336,16 +338,16 @@ export default function EditionDetail() {
           </div>
 
           {editionCredits.closing && (
-            <div className="mx-auto mt-16 max-w-xl">
+            <div className="mx-auto mt-12 max-w-xl text-center">
               <p className="font-display text-xl font-bold">{editionCredits.closing.heading}</p>
-              <div className="mt-4 space-y-3">
+              <div className="mt-3 space-y-2">
                 {editionCredits.closing.paragraphs.map((p, i) => (
                   <p key={i} className="text-sm leading-relaxed text-text-muted">
                     {p}
                   </p>
                 ))}
               </div>
-              <p className="mt-6 font-semibold text-text">{editionCredits.closing.tagline}</p>
+              <p className="mt-4 font-semibold text-text">{editionCredits.closing.tagline}</p>
               <p className="mt-2 text-accent">♥︎</p>
             </div>
           )}
