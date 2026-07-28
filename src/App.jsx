@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import Rulebook from "./pages/Rulebook";
 import Editions from "./pages/Editions";
 import EditionDetail from "./pages/EditionDetail";
+import Overlay from "./pages/Overlay";
 
 function AnimatedPage({ children }) {
   const reduce = useReducedMotion();
@@ -22,6 +23,16 @@ function AnimatedPage({ children }) {
 
 export default function App() {
   const location = useLocation();
+
+  // Route "nue" pour l'overlay OBS : ni Nav, ni grain, ni transitions —
+  // juste le widget, sur fond transparent.
+  if (location.pathname.startsWith("/overlay/")) {
+    return (
+      <Routes>
+        <Route path="/overlay/:token" element={<Overlay />} />
+      </Routes>
+    );
+  }
 
   return (
     <div className="flex min-h-screen flex-col">

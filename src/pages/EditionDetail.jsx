@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import TeamBadge from "../components/TeamBadge";
 import Flag from "../components/Flag";
 import { editions, teams, playerStats } from "../data/editions";
+import { credits } from "../data/credits";
 
 const columns = [
   { key: "pseudo", label: "Joueur·se" },
@@ -20,6 +21,7 @@ export default function EditionDetail() {
   const [sortDir, setSortDir] = useState("desc");
 
   const edition = editions.find((e) => e.id === editionId);
+  const editionCredits = credits[editionId] ?? null;
   const editionTeams = useMemo(
     () => teams.filter((t) => t.editionId === editionId),
     [editionId]
@@ -295,6 +297,58 @@ export default function EditionDetail() {
               ))}
             </tbody>
           </table>
+        </div>
+      )}
+
+      {/* CRÉDITS */}
+      {editionCredits && (
+        <div className="mt-20 border-t border-white/5 pt-16 text-center">
+          <p className="font-display text-2xl font-bold">PROJECT JÎN</p>
+          <p className="mt-1 text-sm text-text-muted">{editionCredits.subtitle}</p>
+
+          <div className="mx-auto mt-12 max-w-2xl space-y-10">
+            {editionCredits.blocks.map((block) => (
+              <div key={block.label}>
+                <p className="font-mono text-xs uppercase tracking-widest text-text-muted">
+                  {block.label}
+                </p>
+                {block.lines && (
+                  <div className="mt-2 space-y-1">
+                    {block.lines.map((line, i) => (
+                      <p key={i} className="text-text">
+                        {line}
+                      </p>
+                    ))}
+                  </div>
+                )}
+                {block.teams && (
+                  <div className="mt-3 space-y-3">
+                    {block.teams.map((t) => (
+                      <div key={t.name}>
+                        <p className="font-semibold text-text">{t.name}</p>
+                        <p className="text-sm text-text-muted">{t.roster}</p>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+
+          {editionCredits.closing && (
+            <div className="mx-auto mt-16 max-w-xl">
+              <p className="font-display text-xl font-bold">{editionCredits.closing.heading}</p>
+              <div className="mt-4 space-y-3">
+                {editionCredits.closing.paragraphs.map((p, i) => (
+                  <p key={i} className="text-sm leading-relaxed text-text-muted">
+                    {p}
+                  </p>
+                ))}
+              </div>
+              <p className="mt-6 font-semibold text-text">{editionCredits.closing.tagline}</p>
+              <p className="mt-2 text-accent">♥︎</p>
+            </div>
+          )}
         </div>
       )}
     </div>
