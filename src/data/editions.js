@@ -129,7 +129,7 @@ export const teams = [
   {
     id: "team-3",
     editionId: "ep-2",
-    name: "TBD",
+    name: "ÉQUIPE 3",
     logo: "/team-logos/tbd.png",
     players: [
       {
@@ -208,6 +208,7 @@ export const teams = [
     coach: null,
     result: null,
   },
+  
   {
     id: "team-5",
     editionId: "ep-2",
@@ -237,6 +238,47 @@ export const teams = [
         pronouns: "",
         nationality: "FR",
         flagImage: "/flags/FR.png",
+      },
+      {
+        pseudo: "TBD",
+        pronouns: "",
+        nationality: "FR",
+        flagImage: "/flags/FR.png",
+      },
+    ],
+    subs: [],
+    coach: null,
+    result: null,
+  },
+  {
+    id: "team-6",
+    editionId: "ep-2",
+    name: "ÉQUIPE 6",
+    logo: "/team-logos/tbd.png",
+    players: [
+      {
+        pseudo: "",
+        pronouns: "",
+        nationality: "FR",
+        flagImage: "/flags/FR.png",
+      },
+      {
+        pseudo: "",
+        pronouns: "",
+        nationality: "FR",
+        flagImage: "/flags/FR.png",
+      },
+      {
+        pseudo: "",
+        pronouns: "",
+        nationality: "FR",
+        flagImage: "/flags/FR.png",
+      },
+      {
+        pseudo: "",
+        pronouns: "",
+        nationality: "",
+        flagImage: "",
       },
       {
         pseudo: "TBD",
@@ -1279,4 +1321,4 @@ export const playerStats = [
     kd: 0.11,
     rating: 0.02,
   },
-];
+]; 
