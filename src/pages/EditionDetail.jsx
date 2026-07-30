@@ -167,9 +167,6 @@ export default function EditionDetail() {
     return "text-red-400";
   }
 
-  // Même traitement visuel que MVP : Vainqueur en or, tout le reste en
-  // pastille neutre.
-
   function isWinningTeam(teamName) {
     return teams.find((t) => t.editionId === editionId && t.name === teamName)?.result === "Vainqueur";
   }
