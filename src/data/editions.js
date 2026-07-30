@@ -4,7 +4,7 @@
 // ─────────────────────────────────────────────────────────────
 
 export const editions = [
-    {
+  {
     id: "ep-2",
     number: 2,
     label: "ÉPISODE 2",
@@ -76,11 +76,9 @@ export const teams = [
         flagImage: "/flags/CH.png",
       },
     ],
-    subs: [
-      // { pseudo: "Remplaçant·e 1", pronouns: "il / he", nationality: "FR", flagImage: "/flags/FR.png" },
-    ],
-    coach: null, // laisse `null` si pas de coach
-    result: null, // ex: "Vainqueur", "Finaliste", "1/2 finale"...
+    subs: [],
+    coach: null,
+    result: null,
   },
   {
     id: "team-2",
@@ -119,11 +117,9 @@ export const teams = [
         flagImage: "/flags/FR.png",
       },
     ],
-    subs: [
-      // { pseudo: "Remplaçant·e 1", pronouns: "il / he", nationality: "FR", flagImage: "/flags/FR.png" },
-    ],
-    coach: null, // laisse `null` si pas de coach
-    result: null, // ex: "Vainqueur", "Finaliste", "1/2 finale"...
+    subs: [],
+    coach: null,
+    result: null,
   },
   {
     id: "team-3",
@@ -162,11 +158,91 @@ export const teams = [
         flagImage: "/flags/ES-EV.png",
       },
     ],
-    subs: [
-      // { pseudo: "Remplaçant·e 1", pronouns: "il / he", nationality: "FR", flagImage: "/flags/FR.png" },
+    subs: [],
+    coach: null,
+    result: null,
+  },
+  {
+    id: "team-4",
+    editionId: "ep-2",
+    name: "TBD",
+    logo: "/team-logos/tbd.png",
+    players: [
+      {
+        pseudo: "Chaps",
+        pronouns: "elle / she",
+        nationality: "FR",
+        flagImage: "/flags/FR.png",
+      },
+      {
+        pseudo: "Shana",
+        pronouns: "elle / she",
+        nationality: "FR",
+        flagImage: "/flags/FR.png",
+      },
+      {
+        pseudo: "Slatacos",
+        pronouns: "elle / she",
+        nationality: "FR",
+        flagImage: "/flags/FR.png",
+      },
+      {
+        pseudo: "TDB",
+        pronouns: "",
+        nationality: "FR",
+        flagImage: "/flags/FR.png",
+      },
+      {
+        pseudo: "TDB",
+        pronouns: "",
+        nationality: "FR",
+        flagImage: "/flags/FR.png",
+      },
     ],
-    coach: null, // laisse `null` si pas de coach
-    result: null, // ex: "Vainqueur", "Finaliste", "1/2 finale"...
+    subs: [],
+    coach: null,
+    result: null,
+  },
+  {
+    id: "team-5",
+    editionId: "ep-2",
+    name: "TBD",
+    logo: "/team-logos/tbd.png",
+    players: [
+      {
+        pseudo: "abwi",
+        pronouns: "il / he",
+        nationality: "DZ",
+        flagImage: "/flags/DZ.png",
+      },
+      {
+        pseudo: "Nepo",
+        pronouns: "il / he",
+        nationality: "FR",
+        flagImage: "/flags/FR.png",
+      },
+      {
+        pseudo: "watZ",
+        pronouns: "elle / she",
+        nationality: "FR",
+        flagImage: "/flags/FR.png",
+      },
+      {
+        pseudo: "TDB",
+        pronouns: "",
+        nationality: "FR",
+        flagImage: "/flags/FR.png",
+      },
+      {
+        pseudo: "TDB",
+        pronouns: "",
+        nationality: "FR",
+        flagImage: "/flags/FR.png",
+      },
+    ],
+    subs: [],
+    coach: null,
+    result: null,
   },
   {
     id: "team-1",
@@ -205,11 +281,9 @@ export const teams = [
         flagImage: "/flags/FR.png",
       },
     ],
-    subs: [
-      // { pseudo: "Remplaçant·e 1", pronouns: "il / he", nationality: "FR", flagImage: "/flags/FR.png" },
-    ],
-    coach: null, // laisse `null` si pas de coach
-    result: "Vainqueur", // ex: "Vainqueur", "Finaliste", "1/2 finale"...
+    subs: [],
+    coach: null,
+    result: "Vainqueur",
   },
   {
     id: "team-3",
@@ -248,8 +322,8 @@ export const teams = [
         flagImage: "/flags/ES-EV.png",
       },
     ],
-    coach: null, // laisse `null` si pas de coach
-    result: "Finaliste", // ex: "Vainqueur", "Finaliste", "1/2 finale"...
+    coach: null,
+    result: "Finaliste",
   },
   {
     id: "team-2",
@@ -293,8 +367,8 @@ export const teams = [
       pronouns: "il / he",
       nationality: "FR",
       flagImage: "/flags/FR.png",
-    }, // laisse `null` si pas de coach
-    result: "1/2 finale", // ex: "Vainqueur", "Finaliste", "1/2 finale"...
+    },
+    result: "1/2 finale",
   },
   {
     id: "team-4",
@@ -333,8 +407,8 @@ export const teams = [
         flagImage: "/flags/FR.png",
       },
     ],
-    coach: null, // laisse `null` si pas de coach
-    result: "1/2 finale", // ex: "Vainqueur", "Finaliste", "1/2 finale"...
+    coach: null,
+    result: "1/2 finale",
   },
   {
     id: "team-5",
@@ -373,8 +447,8 @@ export const teams = [
         flagImage: "/flags/FR.png",
       },
     ],
-    coach: null, // laisse `null` si pas de coach
-    result: "5-6e place", // ex: "Vainqueur", "Finaliste", "1/2 finale"...
+    coach: null,
+    result: "5-6e place",
   },
   {
     id: "team-6",
@@ -420,10 +494,9 @@ export const teams = [
         nationality: "FR",
         flagImage: "/flags/FR.png",
       },
-      // { pseudo: "Remplaçant·e 1", pronouns: "il / he", nationality: "FR", flagImage: "/flags/FR.png" },
     ],
-    coach: null, // laisse `null` si pas de coach
-    result: "5-6e place", // ex: "Vainqueur", "Finaliste", "1/2 finale"...
+    coach: null,
+    result: "5-6e place",
   },
   {
     id: "team-7",
@@ -462,8 +535,8 @@ export const teams = [
         flagImage: "/flags/FR.png",
       },
     ],
-    coach: null, // laisse `null` si pas de coach
-    result: "7-8e place", // ex: "Vainqueur", "Finaliste", "1/2 finale"...
+    coach: null,
+    result: "7-8e place",
   },
   {
     id: "team-8",
@@ -502,13 +575,10 @@ export const teams = [
         flagImage: "/flags/DE.png",
       },
     ],
-    coach: null, // laisse `null` si pas de coach
-    result: "7-8e place", // ex: "Vainqueur", "Finaliste", "1/2 finale"...
+    coach: null,
+    result: "7-8e place",
   },
 ];
-
-// Statistiques individuelles par édition. Une ligne = une personne sur une édition.
-// kdDiff = différentiel kills - deaths sur l'édition (peut être négatif).
 export const playerStats = [
   {
     editionId: "ep-1",
@@ -580,7 +650,6 @@ export const playerStats = [
     kd: 1.44,
     rating: 1.5,
   },
-
   {
     editionId: "ep-1",
     pseudo: "Aurèle",
@@ -595,7 +664,6 @@ export const playerStats = [
     kd: 0.63,
     rating: 0.72,
   },
-
   {
     editionId: "ep-1",
     pseudo: "Shyz",
@@ -610,7 +678,6 @@ export const playerStats = [
     kd: 1.62,
     rating: 1.46,
   },
-
   {
     editionId: "ep-1",
     pseudo: "SirDaewen",
@@ -625,7 +692,6 @@ export const playerStats = [
     kd: 0.71,
     rating: 0.85,
   },
-
   {
     editionId: "ep-1",
     pseudo: "Sxcret",
@@ -640,7 +706,6 @@ export const playerStats = [
     kd: 1.0,
     rating: 1.14,
   },
-
   {
     editionId: "ep-1",
     pseudo: "wall",
@@ -949,7 +1014,7 @@ export const playerStats = [
     kd: 1.4,
     rating: 1.36,
   },
-    {
+  {
     editionId: "ep-1",
     pseudo: "Flamyft",
     nationality: "BE",
@@ -963,7 +1028,7 @@ export const playerStats = [
     kd: 0.86,
     rating: 0.94,
   },
-      {
+  {
     editionId: "ep-1",
     pseudo: "axperial",
     nationality: "FI",
@@ -975,9 +1040,9 @@ export const playerStats = [
     rounds: 34,
     kdDiff: -7,
     kd: 0.75,
-    rating: 0.80,
+    rating: 0.8,
   },
-        {
+  {
     editionId: "ep-1",
     pseudo: "Amy",
     nationality: "DE",
@@ -991,7 +1056,7 @@ export const playerStats = [
     kd: 0.61,
     rating: 0.69,
   },
-          {
+  {
     editionId: "ep-1",
     pseudo: "The_Toble",
     nationality: "DE",
@@ -1005,7 +1070,7 @@ export const playerStats = [
     kd: 0.41,
     rating: 0.46,
   },
-            {
+  {
     editionId: "ep-1",
     pseudo: "Mimiah",
     nationality: "DE",
@@ -1019,7 +1084,7 @@ export const playerStats = [
     kd: 0.75,
     rating: 0.93,
   },
-              {
+  {
     editionId: "ep-1",
     pseudo: "Ambraser",
     nationality: "FR",
@@ -1031,9 +1096,9 @@ export const playerStats = [
     rounds: 28,
     kdDiff: -15,
     kd: 0.44,
-    rating: 0.50,
+    rating: 0.5,
   },
-                {
+  {
     editionId: "ep-1",
     pseudo: "Mangeuse2prout",
     nationality: "FR",
@@ -1044,10 +1109,10 @@ export const playerStats = [
     maps: 2,
     rounds: 28,
     kdDiff: -13,
-    kd: 0.50,
+    kd: 0.5,
     rating: 0.47,
   },
-                  {
+  {
     editionId: "ep-1",
     pseudo: "Elic0pt3r",
     nationality: "FR",
@@ -1059,9 +1124,9 @@ export const playerStats = [
     rounds: 28,
     kdDiff: -24,
     kd: 0.11,
-    rating: 0.00,
+    rating: 0.0,
   },
-                   {
+  {
     editionId: "ep-1",
     pseudo: "Sophie",
     nationality: "FR",
@@ -1075,7 +1140,7 @@ export const playerStats = [
     kd: 0.68,
     rating: 0.88,
   },
-                     {
+  {
     editionId: "ep-1",
     pseudo: "SillyJune",
     nationality: "FR",
