@@ -685,7 +685,7 @@ export const teams = [
         pseudo: "wall",
         pronouns: "il / he",
         nationality: "VN",
-        flagImage: "/flags/VI.png",
+        flagImage: "/flags/VN.png",
       },
           {
         pseudo: "xagro",
