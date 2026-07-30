@@ -39,77 +39,7 @@ export const editions = [
 // - `coach` : `null` si pas de coach, sinon même structure que les
 //   joueur·ses (pseudo, pronouns, nationality, flagImage).
 export const teams = [
-  {
-    id: "team-99",
-    editionId: "ep-2",
-    name: "JOUEURS ET JOUEUSES LIBRES",
-    logo: "/team-logos/tbd.png",
-    players: [
-      {
-        pseudo: "AST",
-        pronouns: "il / he",
-        nationality: "KR",
-        flagImage: "/flags/KR.png",
-      },
-      {
-        pseudo: "Alua",
-        pronouns: "elle / she",
-        nationality: "DZ",
-        flagImage: "/flags/DZ.png",
-      },
-      {
-        pseudo: "Arjuna",
-        pronouns: "elle / she",
-        nationality: "FR-BR",
-        flagImage: "/flags/FR-BR.png",
-      },
-      {
-        pseudo: "Awful",
-        pronouns: "il / he",
-        nationality: "FR",
-        flagImage: "/flags/FR.png",
-      },
-      {
-        pseudo: "Bloupe",
-        pronouns: "il / he",
-        nationality: "CH",
-        flagImage: "/flags/CH.png",
-      },
-       {
-        pseudo: "Gebonimo",
-        pronouns: "il / he",
-        nationality: "CH",
-        flagImage: "/flags/CH.png",
-      },
-       {
-        pseudo: "Hugo",
-        pronouns: "il / he",
-        nationality: "CH",
-        flagImage: "/flags/CH.png",
-      },
-       {
-        pseudo: "Jupiter",
-        pronouns: "il / he",
-        nationality: "CH",
-        flagImage: "/flags/CH.png",
-      },
-       {
-        pseudo: "LeiCO",
-        pronouns: "il / he",
-        nationality: "CH",
-        flagImage: "/flags/CH.png",
-      },
-       {
-        pseudo: "MehdiAndCo",
-        pronouns: "il / he",
-        nationality: "CH",
-        flagImage: "/flags/CH.png",
-      },
-    ],
-    subs: [],
-    coach: null,
-    result: null,
-  },
+  
   {
     id: "team-1",
     editionId: "ep-2",
@@ -648,6 +578,125 @@ export const teams = [
     ],
     coach: null,
     result: "7-8e place",
+  },
+  {
+    id: "team-99",
+    editionId: "ep-2",
+    name: "JOUEURS ET JOUEUSES LIBRES",
+    logo: "/team-logos/tbd.png",
+    players: [
+      {
+        pseudo: "AST",
+        pronouns: "she / elle",
+        nationality: "FR",
+        flagImage: "/flags/FR.png",
+      },
+      {
+        pseudo: "Alua",
+        pronouns: "il / he",
+        nationality: "CH",
+        flagImage: "/flags/CH.png",
+      },
+      {
+        pseudo: "Arjuna",
+        pronouns: "elle / she",
+        nationality: "FR",
+        flagImage: "/flags/FR.png",
+      },
+      {
+        pseudo: "Awful",
+        pronouns: "il / he",
+        nationality: "FR-BR",
+        flagImage: "/flags/FR-BR.png",
+      },
+      {
+        pseudo: "Bloupe",
+        pronouns: "il / he",
+        nationality: "FR",
+        flagImage: "/flags/FR.png",
+      },
+        {
+        pseudo: "elfosoo",
+        pronouns: "il / he",
+        nationality: "FR",
+        flagImage: "/flags/FR.png",
+      },
+       {
+        pseudo: "Gebonimo",
+        pronouns: "il / he",
+        nationality: "FR-SA",
+        flagImage: "/flags/FR-SA.png",
+      },
+       {
+        pseudo: "Hugo",
+        pronouns: "il / he",
+        nationality: "FR-BR",
+        flagImage: "/flags/FR-BR.png",
+      },
+       {
+        pseudo: "Jupiter",
+        pronouns: "il / he",
+        nationality: "FR",
+        flagImage: "/flags/FR.png",
+      },
+       {
+        pseudo: "LeiCO",
+        pronouns: "il / he",
+        nationality: "FR-FC",
+        flagImage: "/flags/FR-FC.png",
+      },
+       {
+        pseudo: "MehdiAndCo",
+        pronouns: "il / he",
+        nationality: "FR",
+        flagImage: "/flags/FR.png",
+      },
+          {
+        pseudo: "Shyz",
+        pronouns: "il / he",
+        nationality: "XZ",
+        flagImage: "/flags/XZ.png",
+      },
+          {
+        pseudo: "Stannah",
+        pronouns: "iel / they",
+        nationality: "FR",
+        flagImage: "/flags/CFRH.png",
+      },
+          {
+        pseudo: "Static2k",
+        pronouns: "il / he",
+        nationality: "FR",
+        flagImage: "/flags/FR.png",
+      },
+          {
+        pseudo: "TOM",
+        pronouns: "il / he",
+        nationality: "FR",
+        flagImage: "/flags/FR.png",
+      },
+          {
+        pseudo: "phiVe",
+        pronouns: "il / he",
+        nationality: "FR",
+        flagImage: "/flags/FR.png",
+      },
+          {
+        pseudo: "wall",
+        pronouns: "il / he",
+        nationality: "VI",
+        flagImage: "/flags/VI.png",
+      },
+          {
+        pseudo: "xagro",
+        pronouns: "il / he",
+        nationality: "FR",
+        flagImage: "/flags/FR.png",
+      },
+    ],
+    subs: [],
+    coach: null,
+    result: null,
   },
 ];
 export const playerStats = [
