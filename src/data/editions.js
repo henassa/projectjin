@@ -257,8 +257,14 @@ export const teams = [
     logo: "/team-logos/tbd.png",
     players: [
       {
-        pseudo: "",
-        pronouns: "",
+        pseudo: " ",
+        pronouns: " ",
+        nationality: "FR",
+        flagImage: "/flags/FR.png",
+      },
+      {
+        pseudo: " ",
+        pronouns: " ",
         nationality: "FR",
         flagImage: "/flags/FR.png",
       },
@@ -269,20 +275,14 @@ export const teams = [
         flagImage: "/flags/FR.png",
       },
       {
-        pseudo: "",
-        pronouns: "",
+        pseudo: " ",
+        pronouns: " ",
         nationality: "FR",
         flagImage: "/flags/FR.png",
       },
       {
-        pseudo: "",
-        pronouns: "",
-        nationality: "",
-        flagImage: "",
-      },
-      {
-        pseudo: "TBD",
-        pronouns: "",
+        pseudo: " ",
+        pronouns: " ",
         nationality: "FR",
         flagImage: "/flags/FR.png",
       },
