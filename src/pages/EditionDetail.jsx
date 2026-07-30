@@ -15,6 +15,113 @@ const columns = [
   { key: "rating", label: "Rating" },
 ];
 
+// Même traitement visuel que MVP : Vainqueur en or, tout le reste en
+// pastille neutre.
+function resultChipClass(result) {
+  if (result === "Vainqueur") return "chip-mvp";
+  return "chip-badge text-accent";
+}
+
+function TeamCard({ team, statsFor }) {
+  const players = (team.players || []).filter(Boolean);
+  return (
+    <div className="surface flex flex-col overflow-hidden">
+      <div className="flex items-start gap-3 p-5">
+        <TeamBadge name={team.name} logo={team.logo} size="md" />
+        <div className="min-w-0 flex-1">
+          <h3 className="break-words font-display text-lg font-bold leading-snug">
+            {team.name}
+          </h3>
+        </div>
+        {team.result && team.result !== "—" && (
+          <span
+            className={`whitespace-nowrap px-3 py-1 text-[10px] uppercase tracking-widest ${resultChipClass(
+              team.result
+            )}`}
+          >
+            {team.result}
+          </span>
+        )}
+      </div>
+
+      {players.length > 0 && (
+        <ul className="mt-2 divide-y divide-border px-2 pb-2">
+          {players.map((p) => {
+            const stat = statsFor(team.name, p.pseudo);
+            return (
+              <li
+                key={p.pseudo}
+                className="flex items-center justify-between gap-2 px-3 py-2.5 text-sm text-text"
+              >
+                <span className="flex min-w-0 items-center gap-2">
+                  <Flag code={p.nationality} image={p.flagImage} />
+                  <span className="truncate">{p.pseudo}</span>
+                  {stat.mvp && (
+                    <span className="chip-mvp whitespace-nowrap px-2 py-0.5 text-[9px] uppercase tracking-widest">
+                      MVP
+                    </span>
+                  )}
+                  {stat.evp && (
+                    <span className="chip-evp whitespace-nowrap px-2 py-0.5 text-[9px] uppercase tracking-widest">
+                      EVP
+                    </span>
+                  )}
+                </span>
+                {p.pronouns && (
+                  <span className="whitespace-nowrap font-mono text-[10px] uppercase tracking-widest text-text-muted">
+                    {p.pronouns}
+                  </span>
+                )}
+              </li>
+            );
+          })}
+          {team.coach && (
+            <li className="flex items-center justify-between gap-2 px-3 py-2.5 text-sm text-text-muted">
+              <span className="flex min-w-0 items-center gap-2">
+                {team.coach.nationality && (
+                  <Flag code={team.coach.nationality} image={team.coach.flagImage} />
+                )}
+                <span className="truncate">{team.coach.pseudo}</span>
+              </span>
+              <span className="flex items-center gap-2 whitespace-nowrap">
+                {team.coach.pronouns && (
+                  <span className="font-mono text-[10px] uppercase tracking-widest">
+                    {team.coach.pronouns}
+                  </span>
+                )}
+                <span className="chip-badge px-2 py-0.5 font-mono text-[9px] uppercase tracking-widest">
+                  Coach
+                </span>
+              </span>
+            </li>
+          )}
+          {(team.subs || []).filter(Boolean).map((s) => (
+            <li
+              key={s.pseudo}
+              className="flex items-center justify-between gap-2 px-3 py-2.5 text-sm text-text-muted"
+            >
+              <span className="flex min-w-0 items-center gap-2">
+                <Flag code={s.nationality} image={s.flagImage} />
+                <span className="truncate">{s.pseudo}</span>
+              </span>
+              <span className="flex items-center gap-2 whitespace-nowrap">
+                {s.pronouns && (
+                  <span className="font-mono text-[10px] uppercase tracking-widest">
+                    {s.pronouns}
+                  </span>
+                )}
+                <span className="chip-badge px-2 py-0.5 font-mono text-[9px] uppercase tracking-widest">
+                  Sub
+                </span>
+              </span>
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  );
+}
+
 export default function EditionDetail() {
   const { editionId } = useParams();
   const [sortKey, setSortKey] = useState("rating");
@@ -22,10 +129,12 @@ export default function EditionDetail() {
 
   const edition = editions.find((e) => e.id === editionId);
   const editionCredits = credits[editionId] ?? null;
-  const editionTeams = useMemo(
+  const allEditionTeams = useMemo(
     () => teams.filter((t) => t.editionId === editionId),
     [editionId]
   );
+  const editionTeams = allEditionTeams.filter((t) => !t.pool);
+  const poolTeams = allEditionTeams.filter((t) => t.pool);
   const rows = useMemo(() => {
     const filtered = playerStats.filter((r) => r.editionId === editionId);
     return [...filtered].sort((a, b) => {
@@ -60,10 +169,6 @@ export default function EditionDetail() {
 
   // Même traitement visuel que MVP : Vainqueur en or, tout le reste en
   // pastille neutre.
-  function resultChipClass(result) {
-    if (result === "Vainqueur") return "chip-mvp";
-    return "chip-badge text-accent";
-  }
 
   function isWinningTeam(teamName) {
     return teams.find((t) => t.editionId === editionId && t.name === teamName)?.result === "Vainqueur";
@@ -115,105 +220,21 @@ export default function EditionDetail() {
         <p className="mt-6 text-text-muted">Aucune équipe enregistrée pour cette édition.</p>
       ) : (
         <div className="mt-6 grid items-start gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {editionTeams.map((team) => {
-            const players = (team.players || []).filter(Boolean);
-            return (
-              <div key={team.id} className="surface flex flex-col overflow-hidden">
-                <div className="flex items-start gap-3 p-5">
-                  <TeamBadge name={team.name} logo={team.logo} size="md" />
-                  <div className="min-w-0 flex-1">
-                    <h3 className="break-words font-display text-lg font-bold leading-snug">
-                      {team.name}
-                    </h3>
-                  </div>
-                  {team.result && team.result !== "—" && (
-                    <span
-                      className={`whitespace-nowrap px-3 py-1 text-[10px] uppercase tracking-widest ${resultChipClass(
-                        team.result
-                      )}`}
-                    >
-                      {team.result}
-                    </span>
-                  )}
-                </div>
+          {editionTeams.map((team) => (
+            <TeamCard key={team.id} team={team} statsFor={statsFor} />
+          ))}
+        </div>
+      )}
 
-                {players.length > 0 && (
-                  <ul className="mt-2 divide-y divide-border px-2 pb-2">
-                    {players.map((p) => {
-                      const stat = statsFor(team.name, p.pseudo);
-                      return (
-                        <li
-                          key={p.pseudo}
-                          className="flex items-center justify-between gap-2 px-3 py-2.5 text-sm text-text"
-                        >
-                          <span className="flex min-w-0 items-center gap-2">
-                            <Flag code={p.nationality} image={p.flagImage} />
-                            <span className="truncate">{p.pseudo}</span>
-                            {stat.mvp && (
-                              <span className="chip-mvp whitespace-nowrap px-2 py-0.5 text-[9px] uppercase tracking-widest">
-                                MVP
-                              </span>
-                            )}
-                            {stat.evp && (
-                              <span className="chip-evp whitespace-nowrap px-2 py-0.5 text-[9px] uppercase tracking-widest">
-                                EVP
-                              </span>
-                            )}
-                          </span>
-                          {p.pronouns && (
-                            <span className="whitespace-nowrap font-mono text-[10px] uppercase tracking-widest text-text-muted">
-                              {p.pronouns}
-                            </span>
-                          )}
-                        </li>
-                      );
-                    })}
-                    {team.coach && (
-                      <li className="flex items-center justify-between gap-2 px-3 py-2.5 text-sm text-text-muted">
-                        <span className="flex min-w-0 items-center gap-2">
-                          {team.coach.nationality && (
-                            <Flag code={team.coach.nationality} image={team.coach.flagImage} />
-                          )}
-                          <span className="truncate">{team.coach.pseudo}</span>
-                        </span>
-                        <span className="flex items-center gap-2 whitespace-nowrap">
-                          {team.coach.pronouns && (
-                            <span className="font-mono text-[10px] uppercase tracking-widest">
-                              {team.coach.pronouns}
-                            </span>
-                          )}
-                          <span className="chip-badge px-2 py-0.5 font-mono text-[9px] uppercase tracking-widest">
-                            Coach
-                          </span>
-                        </span>
-                      </li>
-                    )}
-                    {(team.subs || []).filter(Boolean).map((s) => (
-                      <li
-                        key={s.pseudo}
-                        className="flex items-center justify-between gap-2 px-3 py-2.5 text-sm text-text-muted"
-                      >
-                        <span className="flex min-w-0 items-center gap-2">
-                          <Flag code={s.nationality} image={s.flagImage} />
-                          <span className="truncate">{s.pseudo}</span>
-                        </span>
-                        <span className="flex items-center gap-2 whitespace-nowrap">
-                          {s.pronouns && (
-                            <span className="font-mono text-[10px] uppercase tracking-widest">
-                              {s.pronouns}
-                            </span>
-                          )}
-                          <span className="chip-badge px-2 py-0.5 font-mono text-[9px] uppercase tracking-widest">
-                            Sub
-                          </span>
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </div>
-            );
-          })}
+      {/* Catégories hors compétition (joueur·ses libres, etc.) : à part,
+          centrées, sous les vraies équipes. */}
+      {poolTeams.length > 0 && (
+        <div className="mt-8 grid items-start gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="sm:col-start-2">
+            {poolTeams.map((team) => (
+              <TeamCard key={team.id} team={team} statsFor={statsFor} />
+            ))}
+          </div>
         </div>
       )}
 

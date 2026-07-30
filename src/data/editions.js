@@ -38,6 +38,10 @@ export const editions = [
 //   Laisse un tableau vide `[]` (ou omets le champ) s'il n'y en a pas.
 // - `coach` : `null` si pas de coach, sinon même structure que les
 //   joueur·ses (pseudo, pronouns, nationality, flagImage).
+// - `pool` : mets `true` pour une catégorie qui n'est pas une vraie
+//   équipe en compétition (ex. "Joueur·ses libres", groupe d'attente,
+//   etc.) — elle s'affiche alors seule sur sa ligne, centrée, sous les
+//   vraies équipes, plutôt que dans la grille normale.
 export const teams = [
   
   {
@@ -583,6 +587,7 @@ export const teams = [
     id: "team-99",
     editionId: "ep-2",
     name: "JOUEURS ET JOUEUSES LIBRES",
+    pool: true,
     logo: "/team-logos/tbd.png",
     players: [
       {
