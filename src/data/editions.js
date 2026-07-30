@@ -40,6 +40,77 @@ export const editions = [
 //   joueur·ses (pseudo, pronouns, nationality, flagImage).
 export const teams = [
   {
+    id: "team-99",
+    editionId: "ep-2",
+    name: "JOUEURS ET JOUEUSES LIBRES",
+    logo: "/team-logos/tbd.png",
+    players: [
+      {
+        pseudo: "AST",
+        pronouns: "il / he",
+        nationality: "KR",
+        flagImage: "/flags/KR.png",
+      },
+      {
+        pseudo: "Alua",
+        pronouns: "elle / she",
+        nationality: "DZ",
+        flagImage: "/flags/DZ.png",
+      },
+      {
+        pseudo: "Arjuna",
+        pronouns: "elle / she",
+        nationality: "FR-BR",
+        flagImage: "/flags/FR-BR.png",
+      },
+      {
+        pseudo: "Awful",
+        pronouns: "il / he",
+        nationality: "FR",
+        flagImage: "/flags/FR.png",
+      },
+      {
+        pseudo: "Bloupe",
+        pronouns: "il / he",
+        nationality: "CH",
+        flagImage: "/flags/CH.png",
+      },
+       {
+        pseudo: "Gebonimo",
+        pronouns: "il / he",
+        nationality: "CH",
+        flagImage: "/flags/CH.png",
+      },
+       {
+        pseudo: "Hugo",
+        pronouns: "il / he",
+        nationality: "CH",
+        flagImage: "/flags/CH.png",
+      },
+       {
+        pseudo: "Jupiter",
+        pronouns: "il / he",
+        nationality: "CH",
+        flagImage: "/flags/CH.png",
+      },
+       {
+        pseudo: "LeiCO",
+        pronouns: "il / he",
+        nationality: "CH",
+        flagImage: "/flags/CH.png",
+      },
+       {
+        pseudo: "MehdiAndCo",
+        pronouns: "il / he",
+        nationality: "CH",
+        flagImage: "/flags/CH.png",
+      },
+    ],
+    subs: [],
+    coach: null,
+    result: null,
+  },
+  {
     id: "team-1",
     editionId: "ep-2",
     name: "PROLÉTAIRES V2",
@@ -165,7 +236,7 @@ export const teams = [
   {
     id: "team-4",
     editionId: "ep-2",
-    name: "TBD",
+    name: "LARME À GAUCHE",
     logo: "/team-logos/tbd.png",
     players: [
       {
@@ -187,13 +258,13 @@ export const teams = [
         flagImage: "/flags/FR.png",
       },
       {
-        pseudo: "TDB",
+        pseudo: "TBD",
         pronouns: "",
         nationality: "FR",
         flagImage: "/flags/FR.png",
       },
       {
-        pseudo: "TDB",
+        pseudo: "TBD",
         pronouns: "",
         nationality: "FR",
         flagImage: "/flags/FR.png",
@@ -228,13 +299,13 @@ export const teams = [
         flagImage: "/flags/FR.png",
       },
       {
-        pseudo: "TDB",
+        pseudo: "TBD",
         pronouns: "",
         nationality: "FR",
         flagImage: "/flags/FR.png",
       },
       {
-        pseudo: "TDB",
+        pseudo: "TBD",
         pronouns: "",
         nationality: "FR",
         flagImage: "/flags/FR.png",
