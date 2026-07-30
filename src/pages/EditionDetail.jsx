@@ -114,7 +114,7 @@ export default function EditionDetail() {
       {editionTeams.length === 0 ? (
         <p className="mt-6 text-text-muted">Aucune équipe enregistrée pour cette édition.</p>
       ) : (
-        <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-6 grid items-start gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {editionTeams.map((team) => {
             const players = (team.players || []).filter(Boolean);
             return (
