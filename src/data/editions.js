@@ -82,7 +82,12 @@ export const teams = [
       },
     ],
     subs: [],
-    coach: null,
+       coach: {
+      pseudo: "vyia",
+      pronouns: "elle / she",
+      nationality: "PT",
+      flagImage: "/flags/PT.png",
+    },
     result: null,
   },
   {
@@ -250,48 +255,7 @@ export const teams = [
     coach: null,
     result: null,
   },
-  {
-    id: "team-6",
-    editionId: "ep-2",
-    name: "ÉQUIPE 6",
-    logo: "/team-logos/tbd.png",
-    players: [
-      {
-        pseudo: " ",
-        pronouns: " ",
-        nationality: "FR",
-        flagImage: "/flags/FR.png",
-      },
-      {
-        pseudo: " ",
-        pronouns: " ",
-        nationality: "FR",
-        flagImage: "/flags/FR.png",
-      },
-      {
-        pseudo: "",
-        pronouns: "",
-        nationality: "FR",
-        flagImage: "/flags/FR.png",
-      },
-      {
-        pseudo: " ",
-        pronouns: " ",
-        nationality: "FR",
-        flagImage: "/flags/FR.png",
-      },
-      {
-        pseudo: " ",
-        pronouns: " ",
-        nationality: "FR",
-        flagImage: "/flags/FR.png",
-      },
-    ],
-    subs: [],
-    coach: null,
-    result: null,
-  },
-  {
+    {
     id: "team-1",
     editionId: "ep-1",
     name: "VÉRITABLES PROLÉTAIRES",

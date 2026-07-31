@@ -129,12 +129,10 @@ export default function EditionDetail() {
 
   const edition = editions.find((e) => e.id === editionId);
   const editionCredits = credits[editionId] ?? null;
-  const allEditionTeams = useMemo(
+  const editionTeams = useMemo(
     () => teams.filter((t) => t.editionId === editionId),
     [editionId]
   );
-  const editionTeams = allEditionTeams.filter((t) => !t.pool);
-  const poolTeams = allEditionTeams.filter((t) => t.pool);
   const rows = useMemo(() => {
     const filtered = playerStats.filter((r) => r.editionId === editionId);
     return [...filtered].sort((a, b) => {
@@ -166,6 +164,9 @@ export default function EditionDetail() {
     if (rating >= 0.96) return "text-text-muted";
     return "text-red-400";
   }
+
+  // Même traitement visuel que MVP : Vainqueur en or, tout le reste en
+  // pastille neutre.
 
   function isWinningTeam(teamName) {
     return teams.find((t) => t.editionId === editionId && t.name === teamName)?.result === "Vainqueur";
@@ -220,18 +221,6 @@ export default function EditionDetail() {
           {editionTeams.map((team) => (
             <TeamCard key={team.id} team={team} statsFor={statsFor} />
           ))}
-        </div>
-      )}
-
-      {/* Catégories hors compétition (joueur·ses libres, etc.) : à part,
-          centrées, sous les vraies équipes. */}
-      {poolTeams.length > 0 && (
-        <div className="mt-8 grid items-start gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          <div className="sm:col-start-2">
-            {poolTeams.map((team) => (
-              <TeamCard key={team.id} team={team} statsFor={statsFor} />
-            ))}
-          </div>
         </div>
       )}
 
