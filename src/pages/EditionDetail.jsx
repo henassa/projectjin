@@ -82,17 +82,15 @@ function TeamCard({ team, statsFor }) {
                   <Flag code={team.coach.nationality} image={team.coach.flagImage} />
                 )}
                 <span className="truncate">{team.coach.pseudo}</span>
-              </span>
-              <span className="flex items-center gap-2 whitespace-nowrap">
-                {team.coach.pronouns && (
-                  <span className="font-mono text-[10px] uppercase tracking-widest">
-                    {team.coach.pronouns}
-                  </span>
-                )}
-                <span className="chip-badge px-2 py-0.5 font-mono text-[9px] uppercase tracking-widest">
+                <span className="chip-badge whitespace-nowrap px-2 py-0.5 font-mono text-[9px] uppercase tracking-widest">
                   Coach
                 </span>
               </span>
+              {team.coach.pronouns && (
+                <span className="whitespace-nowrap font-mono text-[10px] uppercase tracking-widest">
+                  {team.coach.pronouns}
+                </span>
+              )}
             </li>
           )}
           {(team.subs || []).filter(Boolean).map((s) => (
@@ -103,17 +101,15 @@ function TeamCard({ team, statsFor }) {
               <span className="flex min-w-0 items-center gap-2">
                 <Flag code={s.nationality} image={s.flagImage} />
                 <span className="truncate">{s.pseudo}</span>
-              </span>
-              <span className="flex items-center gap-2 whitespace-nowrap">
-                {s.pronouns && (
-                  <span className="font-mono text-[10px] uppercase tracking-widest">
-                    {s.pronouns}
-                  </span>
-                )}
-                <span className="chip-badge px-2 py-0.5 font-mono text-[9px] uppercase tracking-widest">
+                <span className="chip-badge whitespace-nowrap px-2 py-0.5 font-mono text-[9px] uppercase tracking-widest">
                   Sub
                 </span>
               </span>
+              {s.pronouns && (
+                <span className="whitespace-nowrap font-mono text-[10px] uppercase tracking-widest">
+                  {s.pronouns}
+                </span>
+              )}
             </li>
           ))}
         </ul>

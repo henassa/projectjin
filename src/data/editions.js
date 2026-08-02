@@ -187,14 +187,14 @@ export const teams = [
       {
         pseudo: "Shana",
         pronouns: "elle / she",
-        nationality: "FR",
-        flagImage: "/flags/FR.png",
+        nationality: "MA",
+        flagImage: "/flags/MA.png",
       },
       {
         pseudo: "Slatacos",
         pronouns: "elle / she",
-        nationality: "FR",
-        flagImage: "/flags/FR.png",
+        nationality: "BE",
+        flagImage: "/flags/BE.png",
       },
       {
         pseudo: "TBD",
@@ -661,6 +661,12 @@ export const teams = [
         pronouns: "il / he",
         nationality: "FR",
         flagImage: "/flags/FR.png",
+      },
+       {
+        pseudo: "sharko",
+        pronouns: "il / he",
+        nationality: "MA",
+        flagImage: "/flags/MA.png",
       },
           {
         pseudo: "Shyz",
