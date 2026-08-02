@@ -185,7 +185,7 @@ export const teams = [
         flagImage: "/flags/FR.png",
       },
       {
-        pseudo: "Shana",
+        pseudo: "Shaana",
         pronouns: "elle / she",
         nationality: "MA",
         flagImage: "/flags/MA.png",
