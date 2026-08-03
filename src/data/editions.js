@@ -43,7 +43,6 @@ export const editions = [
 //   etc.) — elle s'affiche alors seule sur sa ligne, centrée, sous les
 //   vraies équipes, plutôt que dans la grille normale.
 export const teams = [
-  
   {
     id: "team-1",
     editionId: "ep-2",
@@ -82,7 +81,7 @@ export const teams = [
       },
     ],
     subs: [],
-       coach: {
+    coach: {
       pseudo: "vyia",
       pronouns: "elle / she",
       nationality: "PT",
@@ -190,7 +189,7 @@ export const teams = [
         nationality: "MA",
         flagImage: "/flags/MA.png",
       },
-           {
+      {
         pseudo: "Shyz",
         pronouns: "il / he",
         nationality: "XZ",
@@ -203,8 +202,8 @@ export const teams = [
         flagImage: "/flags/BE.png",
       },
       {
-        pseudo: "TBD",
-        pronouns: "",
+        pseudo: "Static2k",
+        pronouns: "il / he",
         nationality: "FR",
         flagImage: "/flags/FR.png",
       },
@@ -213,7 +212,7 @@ export const teams = [
     coach: null,
     result: null,
   },
-  
+
   {
     id: "team-5",
     editionId: "ep-2",
@@ -255,7 +254,7 @@ export const teams = [
     coach: null,
     result: null,
   },
-    {
+  {
     id: "team-1",
     editionId: "ep-1",
     name: "VÉRITABLES PROLÉTAIRES",
@@ -626,79 +625,73 @@ export const teams = [
         nationality: "FR",
         flagImage: "/flags/FR.png",
       },
-        {
+      {
         pseudo: "elfosoo",
         pronouns: "il / he",
         nationality: "FR",
         flagImage: "/flags/FR.png",
       },
-       {
+      {
         pseudo: "Gebonimo",
         pronouns: "il / he",
         nationality: "FR-SA",
         flagImage: "/flags/FR-SA.png",
       },
-       {
+      {
         pseudo: "Hugo",
         pronouns: "il / he",
         nationality: "FR-BR",
         flagImage: "/flags/FR-BR.png",
       },
-       {
+      {
         pseudo: "Jupiter",
         pronouns: "il / he",
         nationality: "FR",
         flagImage: "/flags/FR.png",
       },
-       {
+      {
         pseudo: "LeiCO",
         pronouns: "il / he",
         nationality: "FR-FC",
         flagImage: "/flags/FR-FC.png",
       },
-       {
+      {
         pseudo: "MehdiAndCo",
         pronouns: "il / he",
         nationality: "FR",
         flagImage: "/flags/FR.png",
       },
-       {
+      {
         pseudo: "sharko",
         pronouns: "il / he",
         nationality: "MA",
         flagImage: "/flags/MA.png",
       },
-          {
+      {
         pseudo: "Stannah",
         pronouns: "iel / they",
         nationality: "FR",
         flagImage: "/flags/FR.png",
       },
-          {
-        pseudo: "Static2k",
-        pronouns: "il / he",
-        nationality: "FR",
-        flagImage: "/flags/FR.png",
-      },
-          {
+      {
         pseudo: "TOM",
         pronouns: "il / he",
         nationality: "FR",
         flagImage: "/flags/FR.png",
       },
-          {
+      {
         pseudo: "phiVe",
         pronouns: "il / he",
         nationality: "FR",
         flagImage: "/flags/FR.png",
       },
-          {
+      {
         pseudo: "wall",
         pronouns: "il / he",
         nationality: "VN",
         flagImage: "/flags/VN.png",
       },
-          {
+      {
         pseudo: "xagro",
         pronouns: "il / he",
         nationality: "FR",
@@ -1285,4 +1278,4 @@ export const playerStats = [
     kd: 0.11,
     rating: 0.02,
   },
-]; 
+];
