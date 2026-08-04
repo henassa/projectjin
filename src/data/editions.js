@@ -161,12 +161,6 @@ export const teams = [
         nationality: "ES-EV",
         flagImage: "/flags/ES-EV.png",
       },
-            {
-        pseudo: "TBD",
-        pronouns: "",
-        nationality: "FR",
-        flagImage: "/flags/FR.png",
-      },
     ],
     subs: [],
     coach: null,
@@ -217,7 +211,7 @@ export const teams = [
   {
     id: "team-5",
     editionId: "ep-2",
-    name: "TBD",
+    name: "ÉQUIPE 5",
     logo: "/team-logos/tbd.png",
     players: [
       {
@@ -238,18 +232,19 @@ export const teams = [
         nationality: "FR",
         flagImage: "/flags/FR.png",
       },
+            {
+        pseudo: "wall",
+        pronouns: "il / he",
+        nationality: "VN",
+        flagImage: "/flags/VN.png",
+      },
       {
         pseudo: "watZ",
         pronouns: "elle / she",
         nationality: "FR",
         flagImage: "/flags/FR.png",
       },
-      {
-        pseudo: "wall",
-        pronouns: "il / he",
-        nationality: "VN",
-        flagImage: "/flags/VN.png",
-      },
+
     ],
     subs: [],
     coach: null,
