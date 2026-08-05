@@ -223,8 +223,8 @@ export const teams = [
             {
         pseudo: "davy",
         pronouns: "elle / she",
-        nationality: "FR",
-        flagImage: "/flags/FR.png",
+        nationality: "KH",
+        flagImage: "/flags/KH.png",
       },
       {
         pseudo: "Nepo",
