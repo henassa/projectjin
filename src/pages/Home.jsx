@@ -2,10 +2,19 @@ import { Link } from "react-router-dom";
 import RojLogo from "../components/RojLogo";
 import { siteConfig } from "../data/config";
 import { editions } from "../data/editions";
+import { teams } from "../data/teams";
 
 export default function Home() {
   const latest = [...editions].sort((a, b) => b.number - a.number)[0];
-  const done = editions.filter((e) => e.status === "terminée").length;
+
+  const teamsCount = teams.filter((t) => !t.pool).length;
+
+  const uniquePlayers = new Set();
+  teams.forEach((team) => {
+    (team.players || []).filter(Boolean).forEach((p) => uniquePlayers.add(p.pseudo));
+    (team.subs || []).filter(Boolean).forEach((p) => uniquePlayers.add(p.pseudo));
+    if (team.coach) uniquePlayers.add(team.coach.pseudo);
+  });
 
   return (
     <div>
@@ -57,12 +66,9 @@ export default function Home() {
       <section className="mx-auto max-w-6xl px-6 py-10">
         <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
           {[
-            { label: "Éditions organisées", value: String(done).padStart(2, "0") },
-            { label: "Équipes par édition", value: String(siteConfig.teamsCount).padStart(2, "0") },
-            {
-              label: "Format",
-              value: `${siteConfig.competitionDays} jour${siteConfig.competitionDays > 1 ? "s" : ""}`,
-            },
+            { label: "Éditions organisées", value: String(editions.length).padStart(2, "0") },
+            { label: "Équipes ayant participé", value: String(teamsCount).padStart(2, "0") },
+            { label: "Joueur·ses uniques", value: String(uniquePlayers.size).padStart(2, "0") },
             { label: "Prochaine édition", value: latest?.date ?? "—" },
           ].map((stat) => (
             <div key={stat.label} className="surface px-5 py-4">
