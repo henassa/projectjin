@@ -41,7 +41,6 @@ export default function Editions() {
                 <div>
                   <h2 className="font-display text-lg font-bold">{ed.label}</h2>
                   <p className="mt-0.5 text-xs uppercase tracking-widest text-text-muted">
-                    {ed.game && <>{ed.game} · </>}
                     {ed.date} · {teamsCount} équipe{teamsCount > 1 ? "s" : ""}
                   </p>
                 </div>
