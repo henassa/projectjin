@@ -2,7 +2,9 @@ import { useMemo, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import TeamBadge from "../components/TeamBadge";
 import Flag from "../components/Flag";
-import { editions, teams, playerStats } from "../data/editions";
+import { editions } from "../data/editions";
+import { teams } from "../data/teams";
+import { playerStats } from "../data/stats";
 import { credits } from "../data/credits";
 
 const columns = [
@@ -204,6 +206,11 @@ export default function EditionDetail() {
         </span>
       </div>
       <p className="mt-3 text-text-muted">{edition.date}</p>
+      {edition.game && (
+        <p className="mt-1 font-mono text-xs uppercase tracking-widest text-accent">
+          {edition.game}
+        </p>
+      )}
 
       {/* ÉQUIPES */}
       <div className="mt-16">

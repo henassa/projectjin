@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import { editions, teams } from "../data/editions";
+import { editions } from "../data/editions";
+import { teams } from "../data/teams";
 
 export default function Editions() {
   const sortedEditions = [...editions].sort((a, b) => b.number - a.number);
@@ -39,6 +40,11 @@ export default function Editions() {
               <div className="flex items-center justify-between px-5 py-4">
                 <div>
                   <h2 className="font-display text-lg font-bold">{ed.label}</h2>
+                  {ed.game && (
+                    <p className="mt-0.5 font-mono text-[10px] uppercase tracking-widest text-accent">
+                      {ed.game}
+                    </p>
+                  )}
                   <p className="mt-0.5 text-xs uppercase tracking-widest text-text-muted">
                     {ed.date} · {teamsCount} équipe{teamsCount > 1 ? "s" : ""}
                   </p>
