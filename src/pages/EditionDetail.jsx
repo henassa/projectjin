@@ -205,12 +205,10 @@ export default function EditionDetail() {
           {edition.status}
         </span>
       </div>
-      <p className="mt-3 text-text-muted">{edition.date}</p>
-      {edition.game && (
-        <p className="mt-1 font-mono text-xs uppercase tracking-widest text-accent">
-          {edition.game}
-        </p>
-      )}
+      <p className="mt-3 text-text-muted">
+        {edition.game && <>{edition.game} · </>}
+        {edition.date}
+      </p>
 
       {/* ÉQUIPES */}
       <div className="mt-16">
