@@ -16,7 +16,7 @@ export const playerStats = [
   { editionId: "ep-1", pseudo: "Sxcret", nationality: "FR", flagImage: "/flags/FR.png", mvp: false, evp: false, team: "MOG-7", maps: 4, rounds: 64, kdDiff: 0, kd: 1.0, rating: 1.14 },
   { editionId: "ep-1", pseudo: "wall", nationality: "VN", flagImage: "/flags/VN.png", mvp: false, evp: false, team: "MOG-7", maps: 4, rounds: 64, kdDiff: 10, kd: 1.24, rating: 1.28 },
   { editionId: "ep-1", pseudo: "neear", nationality: "FR", flagImage: "/flags/FR.png", mvp: false, evp: true, team: "BRITNEY SPEED", maps: 7, rounds: 157, kdDiff: 44, kd: 1.46, rating: 1.45 },
-  { editionId: "ep-1", pseudo: "Liquidz", nationality: "FR", flagImage: "/flags/FR.png", mvp: false, evp: true, team: "BRITNEY SPEED", maps: 7, rounds: 157, kdDiff: 29, kd: 1.56, rating: 1.56 },
+  { editionId: "ep-1", pseudo: "Liquidz", nationality: "FR-BR", flagImage: "/flags/FR-BR.png", mvp: false, evp: true, team: "BRITNEY SPEED", maps: 7, rounds: 157, kdDiff: 29, kd: 1.56, rating: 1.56 },
   { editionId: "ep-1", pseudo: "Togrqm", nationality: "FR", flagImage: "/flags/FR.png", mvp: false, evp: false, team: "BRITNEY SPEED", maps: 7, rounds: 157, kdDiff: -14, kd: 0.88, rating: 1.08 },
   { editionId: "ep-1", pseudo: "xagro", nationality: "FR", flagImage: "/flags/FR.png", mvp: false, evp: false, team: "BRITNEY SPEED", maps: 7, rounds: 157, kdDiff: -12, kd: 0.89, rating: 1.14 },
   { editionId: "ep-1", pseudo: "ZeroX", nationality: "ES-EV", flagImage: "/flags/ES-EV.png", mvp: false, evp: false, team: "BRITNEY SPEED", maps: 7, rounds: 157, kdDiff: -5, kd: 0.95, rating: 1.1 },
