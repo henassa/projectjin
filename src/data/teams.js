@@ -21,7 +21,7 @@
 
 export const teams = [
     {
-    id: "team-1,
+    id: "team-1",
     editionId: "ep-3",
     name: "ROUX NATION",
     logo: "/team-logos/tbd.png",
@@ -32,7 +32,7 @@ export const teams = [
     result: null,
   },
     {
-    id: "team-2,
+    id: "team-2",
     editionId: "ep-3",
     name: "CALDYA ESPORT",
     logo: "/team-logos/caldya-esport.png",
