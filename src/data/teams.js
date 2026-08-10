@@ -20,6 +20,28 @@
 // ─────────────────────────────────────────────────────────────
 
 export const teams = [
+    {
+    id: "team-1,
+    editionId: "ep-3",
+    name: "ROUX NATION",
+    logo: "/team-logos/tbd.png",
+    players: [
+    ],
+    subs: [],
+    coach: null,
+    result: null,
+  },
+    {
+    id: "team-2,
+    editionId: "ep-3",
+    name: "CALDYA ESPORT",
+    logo: "/team-logos/caldya-esport.png",
+    players: [
+    ],
+    subs: [],
+    coach: null,
+    result: null,
+  },
   {
     id: "team-1",
     editionId: "ep-2",
@@ -76,7 +98,7 @@ export const teams = [
       { pseudo: "Chaps", pronouns: "elle / she", nationality: "FR", flagImage: "/flags/FR.png" },
       { pseudo: "Shaana", pronouns: "elle / she", nationality: "AMAZ", flagImage: "/flags/AMAZ.png" },
       { pseudo: "Shyz", pronouns: "il / he", nationality: "XZ", flagImage: "/flags/XZ.png" },
-      { pseudo: "Slatacos", pronouns: "elle / she", nationality: "RIF", flagImage: "/flags/RIF.png" },
+      { pseudo: "Slatacos", pronouns: "elle / she", nationality: "AMAZ", flagImage: "/flags/AMAZ.png" },
       { pseudo: "Static2k", pronouns: "il / he", nationality: "FR", flagImage: "/flags/FR.png" },
     ],
     subs: [],
@@ -240,7 +262,7 @@ export const teams = [
       { pseudo: "LeiCO", pronouns: "il / he", nationality: "FR-FC", flagImage: "/flags/FR-FC.png" },
       { pseudo: "MehdiAndCo", pronouns: "il / he", nationality: "FR", flagImage: "/flags/FR.png" },
       { pseudo: "Sasha", pronouns: "il / he", nationality: "RS", flagImage: "/flags/RS.png" },
-      { pseudo: "sharko", pronouns: "il / he", nationality: "MA", flagImage: "/flags/MA.png" },
+      { pseudo: "sharko", pronouns: "il / he", nationality: "AMAZ", flagImage: "/flags/AMAZ.png" },
       { pseudo: "Stannah", pronouns: "iel / they", nationality: "FR", flagImage: "/flags/FR.png" },
       { pseudo: "Sxcret", pronouns: "il / he", nationality: "FR", flagImage: "/flags/FR.png" },
       { pseudo: "TOM", pronouns: "il / he", nationality: "FR", flagImage: "/flags/FR.png" },
