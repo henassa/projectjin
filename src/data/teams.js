@@ -694,12 +694,6 @@ export const teams = [
         flagImage: "/flags/RS.png",
       },
       {
-        pseudo: "SirDaewen",
-        pronouns: "iel / they",
-        nationality: "FR",
-        flagImage: "/flags/FR.png",
-      },
-      {
         pseudo: "sharko",
         pronouns: "il / he",
         nationality: "AMAZ",
@@ -725,12 +719,6 @@ export const teams = [
       },
       {
         pseudo: "phiVe",
-        pronouns: "il / he",
-        nationality: "FR",
-        flagImage: "/flags/FR.png",
-      },
-      {
-        pseudo: "Vital",
         pronouns: "il / he",
         nationality: "FR",
         flagImage: "/flags/FR.png",
