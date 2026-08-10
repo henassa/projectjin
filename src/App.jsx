@@ -1,10 +1,12 @@
 import { Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import Nav from "./components/Nav";
+import KonamiEgg from "./components/KonamiEgg";
 import Home from "./pages/Home";
 import Rulebook from "./pages/Rulebook";
 import Editions from "./pages/Editions";
 import EditionDetail from "./pages/EditionDetail";
+import Palmares from "./pages/Palmares";
 import Overlay from "./pages/Overlay";
 
 function AnimatedPage({ children }) {
@@ -37,6 +39,7 @@ export default function App() {
   return (
     <div className="flex min-h-screen flex-col">
       <div className="grain-overlay" aria-hidden="true" />
+      <KonamiEgg />
       <Nav />
       <main className="flex-1 overflow-hidden">
         <AnimatePresence mode="wait" initial={false}>
@@ -45,6 +48,7 @@ export default function App() {
             <Route path="/reglement" element={<AnimatedPage><Rulebook /></AnimatedPage>} />
             <Route path="/editions" element={<AnimatedPage><Editions /></AnimatedPage>} />
             <Route path="/editions/:editionId" element={<AnimatedPage><EditionDetail /></AnimatedPage>} />
+            <Route path="/palmares" element={<AnimatedPage><Palmares /></AnimatedPage>} />
           </Routes>
         </AnimatePresence>
       </main>

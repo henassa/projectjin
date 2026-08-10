@@ -10,7 +10,7 @@ import { editions } from "../data/editions";
 // avec transition "glass" (flou qui se referme/rouvre entre les slides) :
 //   1. Le soleil qui tourne, seul
 //   2. PROJECT JÎN + infos du prochain tournoi
-//   3. Tagline "Tournoi CS2 inclusif et antifasciste"
+//   3. Tagline "Circuit e-sport inclusif et antifasciste"
 //   4. Appel à rejoindre le Discord
 //
 // SECRET_TOKEN : change cette valeur (et l'URL que tu utilises dans OBS)
@@ -39,7 +39,15 @@ export default function Overlay() {
     };
   }, []);
 
-  const latest = useMemo(() => [...editions].sort((a, b) => b.number - a.number)[0], []);
+  // Même correctif que sur la page d'accueil : la "prochaine édition"
+  // affichée sur l'overlay doit être la plus proche à venir/en cours,
+  // pas la plus lointaine.
+  const latest = useMemo(() => {
+    const upcoming = [...editions]
+      .filter((e) => e.status !== "terminée")
+      .sort((a, b) => a.number - b.number)[0];
+    return upcoming ?? [...editions].sort((a, b) => b.number - a.number)[0];
+  }, []);
 
   const slides = ["sun", "edition", "tagline", "discord"];
 
@@ -104,9 +112,9 @@ export default function Overlay() {
                 className="absolute inset-0 flex items-center justify-center px-5 text-center"
               >
                 <div className="w-full font-display text-2xl font-bold leading-snug text-text">
-                  TOURNOI CS2 INCLUSIF
+                  CIRCUIT E-SPORT
                   <br />
-                  ET ANTIFASCISTE
+                  INCLUSIF ET ANTIFASCISTE
                 </div>
               </motion.div>
             )}

@@ -1,25 +1,19 @@
-// ─────────────────────────────────────────────────────────────
-// CRÉDITS PAR ÉDITION — façon générique "credits" de fin de film.
-// Affichés en bas de la page de chaque édition (EditionDetail),
-// sous le tableau des stats. Laisse une édition absente de cet objet
-// (ou mets `null`) si tu n'as pas encore ses crédits : la section ne
-// s'affiche simplement pas.
-//
-// Structure d'un bloc de `blocks` :
-// - { label, lines: [...] }               → texte simple, une ligne par entrée
-// - { label, teams: [{ name, roster }] }   → liste d'équipes + roster en une ligne
-// ─────────────────────────────────────────────────────────────
-
+// Crédits par édition, affichés sous le tableau des stats. `subtitle` et
+// `label` sont bilingues (fr/en) — les noms de personnes/équipes dans
+// `lines`/`teams` restent tels quels, ce sont des noms propres.
 export const credits = {
   "ep-1": {
-    subtitle: "Tournoi inclusif et antifasciste",
+    subtitle: {
+      fr: "Tournoi inclusif et antifasciste",
+      en: "Inclusive and antifascist tournament",
+    },
     blocks: [
       {
-        label: "Sur une idée originale de",
+        label: { fr: "Sur une idée originale de", en: "An original idea by" },
         lines: ["Quelques passionné·es voulant raviver la scène féminine"],
       },
       {
-        label: "Avec la participation de",
+        label: { fr: "Avec la participation de", en: "Featuring" },
         teams: [
           { name: "UNFRENCH", roster: "Amy · Axperial · Flamyft · Mimiah · The_Toble" },
           { name: "YOUNG PROLÉTAIRES", roster: "Abwi · Lune33 · Maxine · Rabenas · Watz" },
@@ -31,16 +25,19 @@ export const credits = {
           { name: "FRACTURE", roster: "Alyx Nevara · Ari · Arjuna · Ast · Clothure" },
         ],
       },
-      { label: "Régisseur", lines: ["Hezus"] },
-      { label: "Direction artistique", lines: ["Didou"] },
-      { label: "Habillage graphique en jeu", lines: ["John Timmermann · CSHUDS"] },
-      { label: "Casters", lines: ["Kyra · Hezus"] },
+      { label: { fr: "Régisseur", en: "Tournament organizer" }, lines: ["Hezus"] },
+      { label: { fr: "Direction artistique", en: "Art direction" }, lines: ["Didou"] },
       {
-        label: "Participants du programme artistique",
+        label: { fr: "Habillage graphique en jeu", en: "In-game graphic design" },
+        lines: ["John Timmermann · CSHUDS"],
+      },
+      { label: { fr: "Casters", en: "Casters" }, lines: ["Kyra · Hezus"] },
+      {
+        label: { fr: "Participants du programme artistique", en: "Art program participants" },
         lines: ["Moana Tuamasaga · Camille Azocar · GRËJ"],
       },
       {
-        label: "Crédits musicaux",
+        label: { fr: "Crédits musicaux", en: "Music credits" },
         lines: [
           "LinLin · Nia Archives · Color Plus · 2 Mello",
           "Bosked · Hydraa · DJ Swisha · OSSX · CLIPZ",
@@ -48,14 +45,13 @@ export const credits = {
           "Coco Bryce · Oklou · Bladee · Underscores · Frou Frou",
         ],
       },
-      { label: "Speedrun en fond", lines: ["Hövenmark"] },
+      { label: { fr: "Speedrun en fond", en: "Background speedrun" }, lines: ["Hövenmark"] },
       {
-        label: "Remerciements",
+        label: { fr: "Remerciements", en: "Thanks to" },
         lines: [
           "À tous les petits et grands acteurs et actrices de la scène esport nous ayant relayé·es, directement ou indirectement",
         ],
       },
     ],
   },
-  // "ep-2": { ... } — à compléter une fois l'édition terminée.
 };

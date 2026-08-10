@@ -6,26 +6,44 @@ import { editions } from "../data/editions";
 import { teams } from "../data/teams";
 import { playerStats } from "../data/stats";
 import { credits } from "../data/credits";
+import { useLanguage } from "../i18n/LanguageContext";
 
-const columns = [
-  { key: "pseudo", label: "Joueur·se" },
-  { key: "team", label: "Équipe" },
-  { key: "maps", label: "Maps" },
-  { key: "rounds", label: "Rounds" },
-  { key: "kdDiff", label: "K-D Diff" },
-  { key: "kd", label: "K/D" },
-  { key: "rating", label: "Rating" },
-];
+const statusKeys = {
+  "à venir": "status_upcoming",
+  "en cours": "status_ongoing",
+  "terminée": "status_done",
+};
 
-// Même traitement visuel que MVP : Vainqueur en or, tout le reste en
-// pastille neutre.
 function resultChipClass(result) {
   if (result === "Vainqueur") return "chip-mvp";
   return "chip-badge text-accent";
 }
 
-function TeamCard({ team, statsFor }) {
+function RosterRow({ person, role, t }) {
+  return (
+    <li className="flex items-center justify-between gap-2 px-3 py-2.5 text-sm text-text">
+      <span className="flex min-w-0 items-center gap-2">
+        {person.nationality && <Flag code={person.nationality} image={person.flagImage} />}
+        <span className="truncate">{person.pseudo}</span>
+        {role && (
+          <span className="whitespace-nowrap font-mono text-[10px] uppercase tracking-widest text-text-muted">
+            {role}
+          </span>
+        )}
+      </span>
+      {person.pronouns && (
+        <span className="whitespace-nowrap font-mono text-[10px] uppercase tracking-widest text-text-muted">
+          {person.pronouns}
+        </span>
+      )}
+    </li>
+  );
+}
+
+function TeamCard({ team, statsFor, t }) {
   const players = (team.players || []).filter(Boolean);
+  const subs = (team.subs || []).filter(Boolean);
+
   return (
     <div className="surface flex flex-col overflow-hidden">
       <div className="flex items-start gap-3 p-5">
@@ -41,7 +59,7 @@ function TeamCard({ team, statsFor }) {
               team.result
             )}`}
           >
-            {team.result}
+            {team.result === "Vainqueur" ? t("tag_winner") : team.result}
           </span>
         )}
       </div>
@@ -58,14 +76,19 @@ function TeamCard({ team, statsFor }) {
                 <span className="flex min-w-0 items-center gap-2">
                   <Flag code={p.nationality} image={p.flagImage} />
                   <span className="truncate">{p.pseudo}</span>
+                  {p.role && (
+                    <span className="whitespace-nowrap font-mono text-[10px] uppercase tracking-widest text-text-muted">
+                      {p.role}
+                    </span>
+                  )}
                   {stat.mvp && (
                     <span className="chip-mvp whitespace-nowrap px-2 py-0.5 text-[9px] uppercase tracking-widest">
-                      MVP
+                      {t("tag_mvp")}
                     </span>
                   )}
                   {stat.evp && (
                     <span className="chip-evp whitespace-nowrap px-2 py-0.5 text-[9px] uppercase tracking-widest">
-                      EVP
+                      {t("tag_evp")}
                     </span>
                   )}
                 </span>
@@ -78,41 +101,10 @@ function TeamCard({ team, statsFor }) {
             );
           })}
           {team.coach && (
-            <li className="flex items-center justify-between gap-2 px-3 py-2.5 text-sm text-text-muted">
-              <span className="flex min-w-0 items-center gap-2">
-                {team.coach.nationality && (
-                  <Flag code={team.coach.nationality} image={team.coach.flagImage} />
-                )}
-                <span className="truncate">{team.coach.pseudo}</span>
-                <span className="chip-badge whitespace-nowrap px-2 py-0.5 font-mono text-[9px] uppercase tracking-widest">
-                  Coach
-                </span>
-              </span>
-              {team.coach.pronouns && (
-                <span className="whitespace-nowrap font-mono text-[10px] uppercase tracking-widest">
-                  {team.coach.pronouns}
-                </span>
-              )}
-            </li>
+            <RosterRow person={team.coach} role={team.coach.role || t("tag_coach")} t={t} />
           )}
-          {(team.subs || []).filter(Boolean).map((s) => (
-            <li
-              key={s.pseudo}
-              className="flex items-center justify-between gap-2 px-3 py-2.5 text-sm text-text-muted"
-            >
-              <span className="flex min-w-0 items-center gap-2">
-                <Flag code={s.nationality} image={s.flagImage} />
-                <span className="truncate">{s.pseudo}</span>
-                <span className="chip-badge whitespace-nowrap px-2 py-0.5 font-mono text-[9px] uppercase tracking-widest">
-                  Sub
-                </span>
-              </span>
-              {s.pronouns && (
-                <span className="whitespace-nowrap font-mono text-[10px] uppercase tracking-widest">
-                  {s.pronouns}
-                </span>
-              )}
-            </li>
+          {subs.map((s) => (
+            <RosterRow key={s.pseudo} person={s} role={s.role || t("tag_sub")} t={t} />
           ))}
         </ul>
       )}
@@ -122,13 +114,24 @@ function TeamCard({ team, statsFor }) {
 
 export default function EditionDetail() {
   const { editionId } = useParams();
+  const { lang, t } = useLanguage();
   const [sortKey, setSortKey] = useState("rating");
   const [sortDir, setSortDir] = useState("desc");
+
+  const columns = [
+    { key: "pseudo", label: t("col_player") },
+    { key: "team", label: t("col_team") },
+    { key: "maps", label: t("col_maps") },
+    { key: "rounds", label: t("col_rounds") },
+    { key: "kdDiff", label: t("col_kd_diff") },
+    { key: "kd", label: t("col_kd") },
+    { key: "rating", label: t("col_rating") },
+  ];
 
   const edition = editions.find((e) => e.id === editionId);
   const editionCredits = credits[editionId] ?? null;
   const editionTeams = useMemo(
-    () => teams.filter((t) => t.editionId === editionId),
+    () => teams.filter((tm) => tm.editionId === editionId),
     [editionId]
   );
   const rows = useMemo(() => {
@@ -144,11 +147,9 @@ export default function EditionDetail() {
   }, [editionId, sortKey, sortDir]);
 
   function teamLogo(teamName) {
-    return teams.find((t) => t.name === teamName)?.logo ?? null;
+    return teams.find((tm) => tm.name === teamName)?.logo ?? null;
   }
 
-  // MVP/EVP ne sont saisis qu'une fois, dans playerStats — on les
-  // retrouve ici pour les afficher aussi sur les cartes équipes.
   function statsFor(teamName, pseudo) {
     return (
       playerStats.find(
@@ -163,11 +164,8 @@ export default function EditionDetail() {
     return "text-red-400";
   }
 
-  // Même traitement visuel que MVP : Vainqueur en or, tout le reste en
-  // pastille neutre.
-
   function isWinningTeam(teamName) {
-    return teams.find((t) => t.editionId === editionId && t.name === teamName)?.result === "Vainqueur";
+    return teams.find((tm) => tm.editionId === editionId && tm.name === teamName)?.result === "Vainqueur";
   }
 
   function toggleSort(key) {
@@ -182,9 +180,9 @@ export default function EditionDetail() {
   if (!edition) {
     return (
       <div className="mx-auto max-w-6xl px-6 py-14">
-        <p className="text-text-muted">Cette édition n'existe pas.</p>
+        <p className="text-text-muted">{t("edition_not_found")}</p>
         <Link to="/editions" className="btn-glass mt-6 inline-block px-4 py-2 text-sm text-text">
-          ← Retour aux éditions
+          {t("back_to_editions_full")}
         </Link>
       </div>
     );
@@ -196,39 +194,39 @@ export default function EditionDetail() {
         to="/editions"
         className="font-body text-xs uppercase tracking-widest text-text-muted hover:text-text"
       >
-        ← Éditions
+        {t("back_to_editions")}
       </Link>
 
       <div className="mt-4 flex flex-wrap items-center justify-between gap-4">
         <h1 className="font-display text-5xl font-bold md:text-6xl">{edition.label}</h1>
         <span className="chip-badge whitespace-nowrap px-3 py-1 text-xs uppercase tracking-widest text-accent">
-          {edition.status}
+          {t(statusKeys[edition.status] ?? "status_upcoming")}
         </span>
       </div>
       <p className="mt-3 text-text-muted">{edition.date}</p>
 
       {/* ÉQUIPES */}
       <div className="mt-16">
-        <h2 className="font-display text-2xl font-bold">Équipes</h2>
+        <h2 className="font-display text-2xl font-bold">{t("section_teams")}</h2>
       </div>
 
       {editionTeams.length === 0 ? (
-        <p className="mt-6 text-text-muted">Aucune équipe enregistrée pour cette édition.</p>
+        <p className="mt-6 text-text-muted">{t("no_teams_yet")}</p>
       ) : (
         <div className="mt-6 grid items-start gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {editionTeams.map((team) => (
-            <TeamCard key={team.id} team={team} statsFor={statsFor} />
+            <TeamCard key={team.id} team={team} statsFor={statsFor} t={t} />
           ))}
         </div>
       )}
 
       {/* STATS */}
       <div className="mt-16">
-        <h2 className="font-display text-2xl font-bold">Stats</h2>
+        <h2 className="font-display text-2xl font-bold">{t("section_stats")}</h2>
       </div>
 
       {rows.length === 0 ? (
-        <p className="mt-6 text-text-muted">Aucune statistique pour cette édition.</p>
+        <p className="mt-6 text-text-muted">{t("no_stats_yet")}</p>
       ) : (
         <div className="surface mt-6 overflow-x-auto">
           <table className="w-full min-w-[720px] border-collapse font-body text-sm">
@@ -258,17 +256,17 @@ export default function EditionDetail() {
                       {row.pseudo}
                       {isWinningTeam(row.team) && (
                         <span className="chip-mvp whitespace-nowrap px-2 py-0.5 text-[9px] uppercase tracking-widest">
-                          Vainqueur
+                          {t("tag_winner")}
                         </span>
                       )}
                       {row.mvp && (
                         <span className="chip-mvp whitespace-nowrap px-2 py-0.5 text-[9px] uppercase tracking-widest">
-                          MVP
+                          {t("tag_mvp")}
                         </span>
                       )}
                       {row.evp && (
                         <span className="chip-evp whitespace-nowrap px-2 py-0.5 text-[9px] uppercase tracking-widest">
-                          EVP
+                          {t("tag_evp")}
                         </span>
                       )}
                     </span>
@@ -310,14 +308,15 @@ export default function EditionDetail() {
         <div className="mt-20 border-t border-white/5 pt-16">
           <div className="text-center">
             <p className="font-display text-2xl font-bold">PROJECT JÎN</p>
-            <p className="mt-1 text-sm text-text-muted">{editionCredits.subtitle}</p>
+            <p className="mt-1 text-sm text-text-muted">{editionCredits.subtitle[lang]}</p>
           </div>
 
           <div className="mx-auto mt-10 grid max-w-4xl gap-x-10 gap-y-6 sm:grid-cols-2">
             {editionCredits.blocks.map((block) => (
-              <div key={block.label} className={block.teams ? "sm:col-span-2" : ""}>
-                <p className="text-xs uppercase tracking-widest text-text-muted">{block.label}</p>
-
+              <div key={block.label.fr} className={block.teams ? "sm:col-span-2" : ""}>
+                <p className="text-xs uppercase tracking-widest text-text-muted">
+                  {block.label[lang]}
+                </p>
                 {block.lines && (
                   <div className="mt-1.5 space-y-0.5">
                     {block.lines.map((line, i) => (
@@ -327,13 +326,12 @@ export default function EditionDetail() {
                     ))}
                   </div>
                 )}
-
                 {block.teams && (
                   <div className="mt-2 grid gap-x-8 gap-y-2 sm:grid-cols-2 lg:grid-cols-3">
-                    {block.teams.map((t) => (
-                      <div key={t.name}>
-                        <p className="text-sm font-semibold text-text">{t.name}</p>
-                        <p className="text-xs text-text-muted">{t.roster}</p>
+                    {block.teams.map((tm) => (
+                      <div key={tm.name}>
+                        <p className="text-sm font-semibold text-text">{tm.name}</p>
+                        <p className="text-xs text-text-muted">{tm.roster}</p>
                       </div>
                     ))}
                   </div>
@@ -341,21 +339,6 @@ export default function EditionDetail() {
               </div>
             ))}
           </div>
-
-          {editionCredits.closing && (
-            <div className="mx-auto mt-12 max-w-xl text-center">
-              <p className="font-display text-xl font-bold">{editionCredits.closing.heading}</p>
-              <div className="mt-3 space-y-2">
-                {editionCredits.closing.paragraphs.map((p, i) => (
-                  <p key={i} className="text-sm leading-relaxed text-text-muted">
-                    {p}
-                  </p>
-                ))}
-              </div>
-              <p className="mt-4 font-semibold text-text">{editionCredits.closing.tagline}</p>
-              <p className="mt-2 text-accent">♥︎</p>
-            </div>
-          )}
         </div>
       )}
     </div>

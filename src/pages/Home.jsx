@@ -3,9 +3,15 @@ import RojLogo from "../components/RojLogo";
 import { siteConfig } from "../data/config";
 import { editions } from "../data/editions";
 import { teams } from "../data/teams";
+import { useLanguage } from "../i18n/LanguageContext";
 
 export default function Home() {
-  const latest = [...editions].sort((a, b) => b.number - a.number)[0];
+  const { t } = useLanguage();
+
+  const upcoming = [...editions]
+    .filter((e) => e.status !== "terminée")
+    .sort((a, b) => a.number - b.number)[0];
+  const latest = upcoming ?? [...editions].sort((a, b) => b.number - a.number)[0];
 
   const teamsCount = teams.filter((t) => !t.pool).length;
 
@@ -35,12 +41,10 @@ export default function Home() {
           </div>
 
           <p className="mt-6 max-w-2xl font-body text-lg text-text md:text-xl">
-            {siteConfig.tagline}
+            {t("site_tagline")}
           </p>
           <p className="mt-3 max-w-xl text-sm leading-relaxed text-text-muted">
-            Un tournoi CS2 antifasciste, organisé bénévolement, loin de la toxicité qui
-            gangrène le reste de la scène. Un espace sûr n'est pas un slogan, c'est une
-            exigence. {siteConfig.meaning}
+            {t("home_intro")} {t("site_meaning")}
           </p>
 
           <div className="mt-7 flex flex-wrap gap-3">
@@ -50,13 +54,13 @@ export default function Home() {
               rel="noreferrer"
               className="btn-glass-primary px-6 py-2.5 font-body text-sm font-medium"
             >
-              Rejoindre le Discord
+              {t("home_join_discord")}
             </a>
             <Link to="/editions" className="btn-glass px-6 py-2.5 font-body text-sm font-medium text-text">
-              Voir les éditions
+              {t("home_view_editions")}
             </Link>
             <Link to="/reglement" className="btn-glass px-6 py-2.5 font-body text-sm font-medium text-text">
-              Lire le règlement
+              {t("home_read_rulebook")}
             </Link>
           </div>
         </div>
@@ -66,10 +70,10 @@ export default function Home() {
       <section className="mx-auto max-w-6xl px-6 py-10">
         <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
           {[
-            { label: "Éditions organisées", value: String(editions.length).padStart(2, "0") },
-            { label: "Équipes ayant participé", value: String(teamsCount).padStart(2, "0") },
-            { label: "Joueur·ses uniques", value: String(uniquePlayers.size).padStart(2, "0") },
-            { label: "Prochaine édition", value: latest?.date ?? "—" },
+            { label: t("stat_editions_run"), value: String(editions.length).padStart(2, "0") },
+            { label: t("stat_teams"), value: String(teamsCount).padStart(2, "0") },
+            { label: t("stat_unique_players"), value: String(uniquePlayers.size).padStart(2, "0") },
+            { label: t("stat_next_edition"), value: latest?.date ?? "—" },
           ].map((stat) => (
             <div key={stat.label} className="surface px-5 py-4">
               <div className="font-mono text-2xl font-semibold text-accent">{stat.value}</div>
@@ -83,9 +87,7 @@ export default function Home() {
 
       {/* CTA FINAL */}
       <section className="mx-auto max-w-6xl border-t border-white/5 px-6 py-14 text-center">
-        <p className="font-display text-2xl font-bold md:text-4xl">
-          On ne demande pas notre place, on la crée.
-        </p>
+        <p className="font-display text-2xl font-bold md:text-4xl">{t("home_cta")}</p>
         <div className="mt-6 flex justify-center">
           <a
             href={siteConfig.discordUrl}
@@ -93,7 +95,7 @@ export default function Home() {
             rel="noreferrer"
             className="btn-glass-primary px-6 py-2.5 font-body text-sm font-medium"
           >
-            Rejoindre le Discord
+            {t("home_join_discord")}
           </a>
         </div>
       </section>
