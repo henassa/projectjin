@@ -42,6 +42,21 @@ export const teams = [
     coach: null,
     result: null,
   },
+        {
+    id: "team-3",
+    editionId: "ep-3",
+    name: "ÉQUIPE 3",
+    logo: "/team-logos/tbd.png",
+    players: [
+        { pseudo: "Aos Sith", pronouns: "elle / she", nationality: "FR", flagImage: "/flags/FR.png" },
+      { pseudo: "Kassime", pronouns: "il / he", nationality: "FR", flagImage: "/flags/FR.png" },
+      { pseudo: "S0bek", pronouns: "il / he", nationality: "FR", flagImage: "/flags/FR.png" },
+    ],
+    subs: [],
+    coach: null,
+    result: null,
+  },
+    
   {
     id: "team-1",
     editionId: "ep-2",
