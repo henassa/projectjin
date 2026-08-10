@@ -260,6 +260,8 @@ export const teams = [
     players: [
       { pseudo: "Colevag", pronouns: "il / he", nationality: "FR-NORM", flagImage: "/flags/FR-NORM.png" },
       { pseudo: "felschrr", pronouns: "il / he", nationality: "FR", flagImage: "/flags/FR.png" },
+      { pseudo: "Kesscro", pronouns: "il / he", nationality: "BE", flagImage: "/flags/BE.png" },
+      { pseudo: "Static2k", pronouns: "il / he", nationality: "FR", flagImage: "/flags/FR.png" },      
       { pseudo: "Liquidz", pronouns: "il / he", nationality: "FR-BR", flagImage: "/flags/FR-BR.png" },
       { pseudo: "Mael", pronouns: "il / he", nationality: "FR", flagImage: "/flags/FR.png" },
       { pseudo: "Maghrebiere", pronouns: "il / he", nationality: "DZ", flagImage: "/flags/DZ.png" },
