@@ -365,8 +365,8 @@ export const teams = [
   {
     id: "team-8",
     editionId: "ep-2",
-    name: "ÉQUIPE 8",
-    logo: "/team-logos/tbd.png",
+    name: "CYPRIEN GAMING",
+    logo: "/team-logos/cyprien-gaming.png",
     players: [
       {
         pseudo: "Konai",
@@ -389,8 +389,8 @@ export const teams = [
       {
         pseudo: "Wik",
         pronouns: "il / he",
-        nationality: "FR",
-        flagImage: "/flags/FR.png",
+        nationality: "JP",
+        flagImage: "/flags/JP.png",
       },
  
     ],
