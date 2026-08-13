@@ -26,16 +26,49 @@
 // ─────────────────────────────────────────────────────────────
 
 export const teams = [
-  {
+  /* {
+    
     id: "team-1",
     editionId: "ep-3",
     name: "ROUX NATION",
     logo: "/team-logos/tbd.png",
-    players: [],
+    players: [
+      {
+        pseudo: "Lunattack",
+        pronouns: "elle / she",
+        nationality: "FR",
+        flagImage: "/flags/FR.png",
+      },
+      {
+        pseudo: "Kyo",
+        pronouns: "il / he",
+        nationality: "FR",
+        flagImage: "/flags/FR.png",
+      },
+      {
+        pseudo: "Lilith",
+        pronouns: "elle / she",
+        nationality: "FR",
+        flagImage: "/flags/FR.png",
+      },
+      {
+        pseudo: "roux",
+        pronouns: "iel / they",
+        nationality: "FR",
+        flagImage: "/flags/FR.png",
+      },
+      {
+        pseudo: "Melinoë",
+        pronouns: "elle / she",
+        nationality: "FR",
+        flagImage: "/flags/FR.png",
+      },
+    ],
     subs: [],
     coach: null,
     result: null,
   },
+  */
   {
     id: "team-2",
     editionId: "ep-3",
@@ -75,7 +108,80 @@ export const teams = [
     coach: null,
     result: null,
   },
-
+  {
+    id: "team-4",
+    editionId: "ep-3",
+    name: "MIMI CORP",
+    logo: "/team-logos/tbd.png",
+    players: [],
+    subs: [],
+    coach: null,
+    result: null,
+  },
+  {
+    id: "team-5",
+    editionId: "ep-3",
+    name: "ÉQUIPE 5",
+    logo: "/team-logos/tbd.png",
+    players: [
+      {
+        pseudo: "Alua",
+        pronouns: "elle / she",
+        nationality: "IT",
+        flagImage: "/flags/IT.png",
+      },
+      {
+        pseudo: "Maghrebiere",
+        pronouns: "il / he",
+        nationality: "DZ",
+        flagImage: "/flags/DZ.png",
+      },
+      {
+        pseudo: "Steve",
+        pronouns: "il / he",
+        nationality: "FR",
+        flagImage: "/flags/FR.png",
+      },
+      {
+        pseudo: "Wik",
+        pronouns: "il / he",
+        nationality: "JP",
+        flagImage: "/flags/JP.png",
+      },
+    ],
+    subs: [],
+    coach: null,
+    result: null,
+  },
+  {
+    id: "team-6",
+    editionId: "ep-3",
+    name: "ÉQUIPE 6",
+    logo: "/team-logos/tbd.png",
+    players: [
+      {
+        pseudo: "felschrr",
+        pronouns: "il / he",
+        nationality: "FR",
+        flagImage: "/flags/FR.png",
+      },
+      {
+        pseudo: "Liquidz",
+        pronouns: "il / he",
+        nationality: "FR-BR",
+        flagImage: "/flags/FR-BR.png",
+      },
+      {
+        pseudo: "Mael",
+        pronouns: "il / he",
+        nationality: "FR",
+        flagImage: "/flags/FR.png",
+      },
+    ],
+    subs: [],
+    coach: null,
+    result: null,
+  },
   {
     id: "team-1",
     editionId: "ep-2",
@@ -135,6 +241,12 @@ export const teams = [
         flagImage: "/flags/FR.png",
       },
       {
+        pseudo: "chichi",
+        pronouns: "elle / she",
+        nationality: "TR",
+        flagImage: "/flags/TR.png",
+      },
+      {
         pseudo: "Herra",
         pronouns: "elle / she",
         nationality: "FR",
@@ -146,12 +258,7 @@ export const teams = [
         nationality: "FR",
         flagImage: "/flags/FR.png",
       },
-      {
-        pseudo: "Katkame (à confirmer)",
-        pronouns: "il / he",
-        nationality: "FR",
-        flagImage: "/flags/FR.png",
-      },
+
       {
         pseudo: "Neex",
         pronouns: "elle / she",
@@ -159,7 +266,14 @@ export const teams = [
         flagImage: "/flags/FR.png",
       },
     ],
-    subs: [],
+    subs: [
+      {
+        pseudo: "matrix",
+        pronouns: "elle / she",
+        nationality: "BE",
+        flagImage: "/flags/BE.png",
+      },
+    ],
     coach: null,
     result: null,
   },
@@ -392,10 +506,14 @@ export const teams = [
         nationality: "JP",
         flagImage: "/flags/JP.png",
       },
- 
     ],
     subs: [],
-    coach: null,
+    coach: {
+      pseudo: "Finite",
+      pronouns: "il / he",
+      nationality: "OCC",
+      flagImage: "/flags/OCC.png",
+    },
     result: null,
   },
   {
