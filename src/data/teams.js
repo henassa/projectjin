@@ -135,7 +135,7 @@ export const teams = [
         flagImage: "/flags/FR.png",
       },
       {
-        pseudo: "clotildeee",
+        pseudo: "Herra",
         pronouns: "elle / she",
         nationality: "FR",
         flagImage: "/flags/FR.png",
@@ -174,6 +174,12 @@ export const teams = [
         pronouns: "il / he",
         nationality: "FR-BR",
         flagImage: "/flags/FR-BR.png",
+      },
+      {
+        pseudo: "MaasKyyy",
+        pronouns: "il / he",
+        nationality: "CH",
+        flagImage: "/flags/CH.png",
       },
       {
         pseudo: "Maxine",
@@ -242,7 +248,7 @@ export const teams = [
   {
     id: "team-5",
     editionId: "ep-2",
-    name: "ÉQUIPE 5",
+    name: "PAUVRES N LOVÉS",
     logo: "/team-logos/tbd.png",
     players: [
       {
@@ -275,6 +281,118 @@ export const teams = [
         nationality: "FR",
         flagImage: "/flags/FR.png",
       },
+    ],
+    subs: [],
+    coach: null,
+    result: null,
+  },
+  {
+    id: "team-6",
+    editionId: "ep-2",
+    name: "SAUCISSE MERGUEZ UNITED",
+    logo: "/team-logos/saucisse-merguez.png",
+    players: [
+      {
+        pseudo: "Avy",
+        pronouns: "il / he",
+        nationality: "FR",
+        flagImage: "/flags/FR.png",
+      },
+      {
+        pseudo: "LeiCO",
+        pronouns: "il / he",
+        nationality: "FR-FC",
+        flagImage: "/flags/FR-FC.png",
+      },
+      {
+        pseudo: "Lockjaw",
+        pronouns: "il / he",
+        nationality: "FR",
+        flagImage: "/flags/FR.png",
+      },
+      {
+        pseudo: "Resval",
+        pronouns: "il / he",
+        nationality: "ES-EV",
+        flagImage: "/flags/ES-EV.png",
+      },
+      {
+        pseudo: "Stannah",
+        pronouns: "iel / they",
+        nationality: "FR",
+        flagImage: "/flags/FR.png",
+      },
+    ],
+    subs: [],
+    coach: null,
+    result: null,
+  },
+  {
+    id: "team-7",
+    editionId: "ep-2",
+    name: "ÉQUIPE 7",
+    logo: "/team-logos/tbd.png",
+    players: [
+      {
+        pseudo: "Awful",
+        pronouns: "il / he",
+        nationality: "FR",
+        flagImage: "/flags/FR.png",
+      },
+      {
+        pseudo: "sharko",
+        pronouns: "il / he",
+        nationality: "AMAZI",
+        flagImage: "/flags/AMAZI.png",
+      },
+      {
+        pseudo: "SirDaewen",
+        pronouns: "iel / they",
+        nationality: "FR",
+        flagImage: "/flags/FR.png",
+      },
+      {
+        pseudo: "Sxcret",
+        pronouns: "il / he",
+        nationality: "FR",
+        flagImage: "/flags/FR.png",
+      },
+    ],
+    subs: [],
+    coach: null,
+    result: null,
+  },
+  {
+    id: "team-8",
+    editionId: "ep-2",
+    name: "ÉQUIPE 8",
+    logo: "/team-logos/tbd.png",
+    players: [
+      {
+        pseudo: "Konai",
+        pronouns: "il / he",
+        nationality: "FR",
+        flagImage: "/flags/FR.png",
+      },
+      {
+        pseudo: "Porco",
+        pronouns: "il / he",
+        nationality: "FR",
+        flagImage: "/flags/FR.png",
+      },
+      {
+        pseudo: "wati",
+        pronouns: "elle / she",
+        nationality: "FR",
+        flagImage: "/flags/FR.png",
+      },
+      {
+        pseudo: "Wik",
+        pronouns: "il / he",
+        nationality: "FR",
+        flagImage: "/flags/FR.png",
+      },
+ 
     ],
     subs: [],
     coach: null,
@@ -517,7 +635,7 @@ export const teams = [
         flagImage: "/flags/FR.png",
       },
       {
-        pseudo: "Pazuzu",
+        pseudo: "Resval",
         pronouns: "il / he",
         nationality: "ES-EV",
         flagImage: "/flags/ES-EV.png",
@@ -640,12 +758,6 @@ export const teams = [
         flagImage: "/flags/FR.png",
       },
       {
-        pseudo: "Awful",
-        pronouns: "il / he",
-        nationality: "FR-BR",
-        flagImage: "/flags/FR-BR.png",
-      },
-      {
         pseudo: "Bloupe",
         pronouns: "il / he",
         nationality: "FR",
@@ -676,12 +788,6 @@ export const teams = [
         flagImage: "/flags/FR.png",
       },
       {
-        pseudo: "LeiCO",
-        pronouns: "il / he",
-        nationality: "FR-FC",
-        flagImage: "/flags/FR-FC.png",
-      },
-      {
         pseudo: "MehdiAndCo",
         pronouns: "il / he",
         nationality: "FR",
@@ -692,24 +798,6 @@ export const teams = [
         pronouns: "il / he",
         nationality: "RS",
         flagImage: "/flags/RS.png",
-      },
-      {
-        pseudo: "sharko",
-        pronouns: "il / he",
-        nationality: "AMAZ",
-        flagImage: "/flags/AMAZ.png",
-      },
-      {
-        pseudo: "Stannah",
-        pronouns: "iel / they",
-        nationality: "FR",
-        flagImage: "/flags/FR.png",
-      },
-      {
-        pseudo: "Sxcret",
-        pronouns: "il / he",
-        nationality: "FR",
-        flagImage: "/flags/FR.png",
       },
       {
         pseudo: "TOM",
