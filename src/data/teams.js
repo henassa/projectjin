@@ -342,8 +342,8 @@ export const teams = [
       {
         pseudo: "sharko",
         pronouns: "il / he",
-        nationality: "AMAZI",
-        flagImage: "/flags/AMAZI.png",
+        nationality: "AMAZ",
+        flagImage: "/flags/AMAZ.png",
       },
       {
         pseudo: "SirDaewen",
