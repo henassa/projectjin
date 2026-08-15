@@ -298,8 +298,8 @@ export const teams = [
       {
         pseudo: "Maxine",
         pronouns: "elle / she",
-        nationality: "FR",
-        flagImage: "/flags/FR.png",
+        nationality: "FR-NORM",
+        flagImage: "/flags/FR-NORM.png",
       },
       {
         pseudo: "neear",
@@ -517,6 +517,102 @@ export const teams = [
     result: null,
   },
   {
+    id: "team-9",
+    editionId: "ep-2",
+    name: "FREE ELO BOOST PEEK",
+    logo: "/team-logos/tbd.png",
+    players: [
+      {
+        pseudo: "aspppen (à confirmer)",
+        pronouns: "il / he",
+        nationality: "FR",
+        flagImage: "/flags/FR.png",
+      },
+      {
+        pseudo: "Blh1te (à confirmer)",
+        pronouns: "il / he",
+        nationality: "FR",
+        flagImage: "/flags/FR.png",
+      },
+      {
+        pseudo: "Emerald (à confirmer)",
+        pronouns: "elle / she",
+        nationality: "FR",
+        flagImage: "/flags/FR.png",
+      },
+
+      {
+        pseudo: "injuxta (à confirmer)",
+        pronouns: "il / he",
+        nationality: "KR",
+        flagImage: "/flags/KR.png",
+      },
+
+      {
+        pseudo: "Togrqm (à confirmer)",
+        pronouns: "elle / she",
+        nationality: "FR",
+        flagImage: "/flags/FR.png",
+      },
+    ],
+    subs: [],
+    coach: null,
+    result: null,
+  },
+  {
+    id: "team-10",
+    editionId: "ep-2",
+    name: "FRACTURE",
+    logo: "/team-logos/fracture.png",
+    players: [
+      {
+        pseudo: "Arjuna",
+        pronouns: "elle / she",
+        nationality: "FR",
+        flagImage: "/flags/FR.png",
+      },
+    ],
+    subs: [],
+    coach: null,
+    result: null,
+  },
+  {
+    id: "team-11",
+    editionId: "ep-2",
+    name: "ÉQUIPE 11",
+    logo: "/team-logos/tbd.png",
+    players: [
+      {
+        pseudo: "AST",
+        pronouns: "elle / she",
+        nationality: "FR",
+        flagImage: "/flags/FR.png",
+      },
+      {
+        pseudo: "Bloupe",
+        pronouns: "il / he",
+        nationality: "FR",
+        flagImage: "/flags/FR.png",
+      },
+      {
+        pseudo: "elfosoo",
+        pronouns: "il / he",
+        nationality: "FR",
+        flagImage: "/flags/FR.png",
+      },
+
+      {
+        pseudo: "xagro",
+        pronouns: "il / he",
+        nationality: "FR",
+        flagImage: "/flags/FR.png",
+      },
+    ],
+    subs: [],
+    coach: null,
+    result: null,
+  },
+  {
     id: "team-1",
     editionId: "ep-1",
     name: "VÉRITABLES PROLÉTAIRES",
@@ -582,7 +678,7 @@ export const teams = [
         flagImage: "/flags/FR.png",
       },
       {
-        pseudo: "Xagro",
+        pseudo: "xagro",
         pronouns: "il / he",
         nationality: "FR",
         flagImage: "/flags/FR.png",
@@ -663,8 +759,8 @@ export const teams = [
       {
         pseudo: "Maxine",
         pronouns: "elle / she",
-        nationality: "FR",
-        flagImage: "/flags/FR.png",
+        nationality: "FR-NORM",
+        flagImage: "/flags/FR-NORM.png",
       },
       {
         pseudo: "Rabenas",
@@ -858,35 +954,12 @@ export const teams = [
     logo: "/team-logos/tbd.png",
     players: [
       {
-        pseudo: "AST",
-        pronouns: "she / elle",
-        nationality: "FR",
-        flagImage: "/flags/FR.png",
-      },
-      {
         pseudo: "Alua",
         pronouns: "il / he",
         nationality: "CH",
         flagImage: "/flags/CH.png",
       },
-      {
-        pseudo: "Arjuna",
-        pronouns: "elle / she",
-        nationality: "FR",
-        flagImage: "/flags/FR.png",
-      },
-      {
-        pseudo: "Bloupe",
-        pronouns: "il / he",
-        nationality: "FR",
-        flagImage: "/flags/FR.png",
-      },
-      {
-        pseudo: "elfosoo",
-        pronouns: "il / he",
-        nationality: "FR",
-        flagImage: "/flags/FR.png",
-      },
+
       {
         pseudo: "Gebonimo",
         pronouns: "il / he",
@@ -912,6 +985,18 @@ export const teams = [
         flagImage: "/flags/FR.png",
       },
       {
+        pseudo: "NaturalSelectixn",
+        pronouns: "il / he",
+        nationality: "FR",
+        flagImage: "/flags/FR.png",
+      },
+         {
+        pseudo: "ORDOME",
+        pronouns: "il / he",
+        nationality: "CM",
+        flagImage: "/flags/CM.png",
+      },
+      {
         pseudo: "Sasha",
         pronouns: "il / he",
         nationality: "RS",
@@ -925,12 +1010,6 @@ export const teams = [
       },
       {
         pseudo: "phiVe",
-        pronouns: "il / he",
-        nationality: "FR",
-        flagImage: "/flags/FR.png",
-      },
-      {
-        pseudo: "xagro",
         pronouns: "il / he",
         nationality: "FR",
         flagImage: "/flags/FR.png",
@@ -954,34 +1033,10 @@ export const teams = [
         flagImage: "/flags/FR-NORM.png",
       },
       {
-        pseudo: "felschrr",
-        pronouns: "il / he",
-        nationality: "FR",
-        flagImage: "/flags/FR.png",
-      },
-      {
         pseudo: "Kesscro",
         pronouns: "il / he",
         nationality: "BE",
         flagImage: "/flags/BE.png",
-      },
-      {
-        pseudo: "Liquidz",
-        pronouns: "il / he",
-        nationality: "FR-BR",
-        flagImage: "/flags/FR-BR.png",
-      },
-      {
-        pseudo: "Mael",
-        pronouns: "il / he",
-        nationality: "FR",
-        flagImage: "/flags/FR.png",
-      },
-      {
-        pseudo: "Maghrebiere",
-        pronouns: "il / he",
-        nationality: "DZ",
-        flagImage: "/flags/DZ.png",
       },
       {
         pseudo: "Static2k",
@@ -990,25 +1045,7 @@ export const teams = [
         flagImage: "/flags/FR.png",
       },
       {
-        pseudo: "steve",
-        pronouns: "il / he",
-        nationality: "FR",
-        flagImage: "/flags/FR.png",
-      },
-      {
         pseudo: "Ulyxx3",
-        pronouns: "il / he",
-        nationality: "FR",
-        flagImage: "/flags/FR.png",
-      },
-      {
-        pseudo: "wati",
-        pronouns: "il / he",
-        nationality: "FR",
-        flagImage: "/flags/FR.png",
-      },
-      {
-        pseudo: "wik",
         pronouns: "il / he",
         nationality: "FR",
         flagImage: "/flags/FR.png",
