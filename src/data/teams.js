@@ -565,8 +565,27 @@ export const teams = [
     name: "FRACTURE",
     logo: "/team-logos/fracture.png",
     players: [
+        {
+        pseudo: "Alyx Nevara",
+        pronouns: "elle / she",
+        nationality: "FR",
+        flagImage: "/flags/FR.png",
+      },
+          {
+        pseudo: "Ari",
+        pronouns: "elle / she",
+        nationality: "FR",
+        flagImage: "/flags/FR.png",
+      },
+
       {
         pseudo: "Arjuna",
+        pronouns: "elle / she",
+        nationality: "FR",
+        flagImage: "/flags/FR.png",
+      },
+       {
+        pseudo: "Darly",
         pronouns: "elle / she",
         nationality: "FR",
         flagImage: "/flags/FR.png",
