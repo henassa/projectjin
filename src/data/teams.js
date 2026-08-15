@@ -215,8 +215,8 @@ export const teams = [
       {
         pseudo: "xeno",
         pronouns: "il / he",
-        nationality: "FR",
-        flagImage: "/flags/FR.png",
+        nationality: "VEND",
+        flagImage: "/flags/VEND.png",
       },
     ],
     subs: [],
@@ -322,7 +322,7 @@ export const teams = [
     id: "team-4",
     editionId: "ep-2",
     name: "LARME À GAUCHE",
-    logo: "/team-logos/tbd.png",
+    logo: "/team-logos/larme-a-gauche.png",
     players: [
       {
         pseudo: "Chaps",
@@ -408,7 +408,7 @@ export const teams = [
     players: [
       {
         pseudo: "Avy",
-        pronouns: "il / he",
+        pronouns: "elle / she",
         nationality: "FR",
         flagImage: "/flags/FR.png",
       },
@@ -837,7 +837,7 @@ export const teams = [
         flagImage: "/flags/FR.png",
       },
       {
-        pseudo: "TheoWhy",
+        pseudo: "Avy",
         pronouns: "elle / she",
         nationality: "FR",
         flagImage: "/flags/FR.png",
@@ -955,9 +955,9 @@ export const teams = [
     players: [
       {
         pseudo: "Alua",
-        pronouns: "il / he",
-        nationality: "CH",
-        flagImage: "/flags/CH.png",
+        pronouns: "elle / she",
+        nationality: "IT",
+        flagImage: "/flags/IT.png",
       },
 
       {
