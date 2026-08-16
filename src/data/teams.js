@@ -363,7 +363,7 @@ export const teams = [
     id: "team-5",
     editionId: "ep-2",
     name: "PAUVRES N LOVÉS",
-    logo: "/team-logos/tbd.png",
+    logo: "/team-logos/pauvres-n-loves.png",
     players: [
       {
         pseudo: "abwi",
@@ -404,7 +404,7 @@ export const teams = [
     id: "team-6",
     editionId: "ep-2",
     name: "SAUCISSE MERGUEZ UNITED",
-    logo: "/team-logos/saucisse-merguez.png",
+    logo: "/team-logos/saucisse-merguez-united.png",
     players: [
       {
         pseudo: "Avy",
@@ -482,6 +482,12 @@ export const teams = [
     name: "CYPRIEN GAMING",
     logo: "/team-logos/cyprien-gaming.png",
     players: [
+        {
+        pseudo: "Alua",
+        pronouns: "elle / she",
+        nationality: "IT",
+        flagImage: "/flags/IT.png",
+      },
       {
         pseudo: "Konai",
         pronouns: "il / he",
@@ -520,7 +526,7 @@ export const teams = [
     id: "team-9",
     editionId: "ep-2",
     name: "FREE ELO BOOST PEEK",
-    logo: "/team-logos/tbd.png",
+    logo: "/team-logos/free-elo-boost-peek.png",
     players: [
       {
         pseudo: "aspppen (à confirmer)",
@@ -616,8 +622,8 @@ export const teams = [
       {
         pseudo: "elfosoo",
         pronouns: "il / he",
-        nationality: "FR",
-        flagImage: "/flags/FR.png",
+        nationality: "LKA",
+        flagImage: "/flags/LKA.png",
       },
 
       {
@@ -972,13 +978,6 @@ export const teams = [
     pool: true,
     logo: "/team-logos/tbd.png",
     players: [
-      {
-        pseudo: "Alua",
-        pronouns: "elle / she",
-        nationality: "IT",
-        flagImage: "/flags/IT.png",
-      },
-
       {
         pseudo: "Gebonimo",
         pronouns: "il / he",
