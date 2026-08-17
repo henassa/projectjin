@@ -546,15 +546,9 @@ export const teams = [
         nationality: "FR",
         flagImage: "/flags/FR.png",
       },
-      {
-        pseudo: "Emerald (à confirmer)",
-        pronouns: "elle / she",
-        nationality: "FR",
-        flagImage: "/flags/FR.png",
-      },
 
       {
-        pseudo: "injuxta",
+        pseudo: "injuxta  ",
         pronouns: "il / he",
         nationality: "KR",
         flagImage: "/flags/KR.png",
