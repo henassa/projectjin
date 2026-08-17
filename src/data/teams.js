@@ -243,20 +243,20 @@ export const teams = [
       {
         pseudo: "chichi",
         pronouns: "elle / she",
-        nationality: "TR",
-        flagImage: "/flags/TR.png",
+        nationality: "DE",
+        flagImage: "/flags/DE.png",
       },
       {
-        pseudo: "Herra",
+        pseudo: "Clotilde",
         pronouns: "elle / she",
         nationality: "FR",
         flagImage: "/flags/FR.png",
       },
       {
-        pseudo: "jud",
-        pronouns: "il / he",
-        nationality: "FR",
-        flagImage: "/flags/FR.png",
+        pseudo: "matriix",
+        pronouns: "she / elle",
+        nationality: "BE",
+        flagImage: "/flags/BE.png",
       },
 
       {
@@ -268,10 +268,10 @@ export const teams = [
     ],
     subs: [
       {
-        pseudo: "matrix",
-        pronouns: "elle / she",
-        nationality: "BE",
-        flagImage: "/flags/BE.png",
+        pseudo: "Jud",
+        pronouns: "il / he",
+        nationality: "FR",
+        flagImage: "/flags/FR.png",
       },
     ],
     coach: null,
@@ -541,7 +541,7 @@ export const teams = [
         flagImage: "/flags/FR.png",
       },
       {
-        pseudo: "Blh1te (à confirmer)",
+        pseudo: "Blh1te",
         pronouns: "il / he",
         nationality: "FR",
         flagImage: "/flags/FR.png",
@@ -554,14 +554,14 @@ export const teams = [
       },
 
       {
-        pseudo: "injuxta (à confirmer)",
+        pseudo: "injuxta",
         pronouns: "il / he",
         nationality: "KR",
         flagImage: "/flags/KR.png",
       },
 
       {
-        pseudo: "Togrqm (à confirmer)",
+        pseudo: "Togrqm",
         pronouns: "elle / she",
         nationality: "FR-BR",
         flagImage: "/flags/FR-BR.png",
