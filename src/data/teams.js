@@ -447,12 +447,7 @@ export const teams = [
     name: "SICK 7",
     logo: "/team-logos/sick-7.png",
     players: [
-      {
-        pseudo: "Awful",
-        pronouns: "il / he",
-        nationality: "FR",
-        flagImage: "/flags/FR.png",
-      },
+ 
       {
         pseudo: "Jupiter",
         pronouns: "il / he",
@@ -476,6 +471,12 @@ export const teams = [
         pronouns: "il / he",
         nationality: "FR",
         flagImage: "/flags/FR.png",
+      },
+           {
+        pseudo: "Vital",
+        pronouns: "il / he",
+        nationality: "BE",
+        flagImage: "/flags/BE.png",
       },
     ],
     subs: [],
