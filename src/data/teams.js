@@ -625,7 +625,7 @@ export const teams = [
       {
         pseudo: "elfosoo",
         pronouns: "il / he",
-        flagImage: "/flags/flag_lka.png",
+        flagImage: "/flags/flag_ltte.png",
         steamId: "",
       },
 
