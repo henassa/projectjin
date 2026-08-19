@@ -284,7 +284,7 @@ export const teams = [
     id: "team-3",
     editionId: "ep-2",
     name: "ACAB ACADEMY",
-    logo: "/team-logos/team-academy.png",
+    logo: "/team-logos/acab-academy.png",
     players: [
       {
         pseudo: "Liquidz",
