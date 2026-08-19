@@ -257,7 +257,7 @@ export const teams = [
       },
       {
         pseudo: "matriix",
-        pronouns: "she / elle",
+        pronouns: "elle / she",
         flagImage: "/flags/flag_be.png",
         steamId: "",
       },
