@@ -166,7 +166,6 @@ export const teams = [
         pseudo: "Liquidz",
         pronouns: "il / he",
         flagImage: "/flags/flag_fr-br.png",
-        steamId: "76561198935677261",
       },
       {
         pseudo: "Mael",
@@ -174,6 +173,52 @@ export const teams = [
         flagImage: "/flags/flag_fr.png",
       },
     ],
+    subs: [],
+    coach: null,
+    result: null,
+  },
+  {
+    id: "team-7",
+    editionId: "ep-3",
+    name: "PIPI SOUS LA DOUCHE",
+    logo: "/team-logos/pipi-sous-la-douche.png",
+    players: [
+      {
+        pseudo: "aynashaa",
+        pronouns: "elle / she",
+        flagImage: "/flags/flag_fr.png",
+      },
+      {
+        pseudo: "Birouf",
+        pronouns: "il / he",
+        flagImage: "/flags/flag_fr.png",
+      },
+      {
+        pseudo: "hedrostage",
+        pronouns: "il / he",
+        flagImage: "/flags/flag_fr.png",
+      },
+      {
+        pseudo: "lumiky",
+        pronouns: "elle / she",
+        flagImage: "/flags/flag_fr.png",
+      },
+      {
+        pseudo: "sluje",
+        pronouns: "il / he",
+        flagImage: "/flags/flag_fr.png",
+      },
+    ],
+    subs: [],
+    coach: null,
+    result: null,
+  },
+    {
+    id: "team-8",
+    editionId: "ep-3",
+    name: "TAHM KUNZ",
+    logo: "/team-logos/tbd.png",
+    players: [],
     subs: [],
     coach: null,
     result: null,
@@ -646,7 +691,7 @@ export const teams = [
         flagImage: "/flags/flag_ltte.png",
         steamId: "76561198409214986",
       },
-          {
+      {
         pseudo: "Wobu",
         pronouns: "elle / she",
         flagImage: "/flags/flag_fr.png",
@@ -1063,7 +1108,6 @@ export const teams = [
         pseudo: "Colevag",
         pronouns: "il / he",
         flagImage: "/flags/flag_fr-norm.png",
-        steamId: "76561198119141964",
       },
       {
         pseudo: "Kesscro",
