@@ -281,10 +281,10 @@ export const teams = [
     result: null,
   },
   {
-    id: "ACAB ACADEMY",
+    id: "team-3",
     editionId: "ep-2",
-    name: "ÉQUIPE 3",
-    logo: "/team-logos/tbd.png",
+    name: "ACAB ACADEMY",
+    logo: "/team-logos/team-academy.png",
     players: [
       {
         pseudo: "Liquidz",
