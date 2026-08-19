@@ -24,7 +24,7 @@ function RosterRow({ person, role, t }) {
   return (
     <li className="flex items-center justify-between gap-2 px-3 py-2.5 text-sm text-text">
       <span className="flex min-w-0 items-center gap-2">
-        {person.nationality && <Flag code={person.nationality} image={person.flagImage} />}
+        <Flag image={person.flagImage} />
         <span className="truncate">
           <PlayerName pseudo={person.pseudo} steamId={person.steamId} />
         </span>
@@ -77,7 +77,7 @@ function TeamCard({ team, statsFor, t }) {
                 className="flex items-center justify-between gap-2 px-3 py-2.5 text-sm text-text"
               >
                 <span className="flex min-w-0 items-center gap-2">
-                  <Flag code={p.nationality} image={p.flagImage} />
+                  <Flag image={p.flagImage} />
                   <span className="truncate">
                     <PlayerName pseudo={p.pseudo} steamId={p.steamId} />
                   </span>
@@ -257,7 +257,7 @@ export default function EditionDetail() {
                 >
                   <td className="whitespace-nowrap px-4 py-3 text-text">
                     <span className="flex items-center gap-2">
-                      <Flag code={row.nationality} image={row.flagImage} />
+                      <Flag image={row.flagImage} />
                       <PlayerName pseudo={row.pseudo} steamId={findSteamId(row.pseudo)} />
                       {isWinningTeam(row.team) && (
                         <span className="chip-mvp whitespace-nowrap px-2 py-0.5 text-[9px] uppercase tracking-widest">

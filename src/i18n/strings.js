@@ -94,13 +94,6 @@ export const strings = {
   col_titles: { fr: "Titres", en: "Titles" },
   palmares_by_edition_title: { fr: "Par édition", en: "By edition" },
   label_winner: { fr: "Vainqueur", en: "Winner" },
-
-  // Nationalités
-  nationalities_title: { fr: "Nationalités représentées", en: "Represented nationalities" },
-  nationalities_intro: {
-    fr: "Toutes les personnes ayant participé, toutes éditions confondues, une fois chacune.",
-    en: "Everyone who has taken part, across all editions, counted once each.",
-  },
 };
 
 export function t(key, lang) {

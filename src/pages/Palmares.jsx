@@ -25,48 +25,24 @@ export default function Palmares() {
     return { edition: ed, winner, mvps, evps };
   });
 
-  // Une personne comptée une seule fois (dédupliquée par pseudo), même
-  // si elle a joué plusieurs éditions ou changé d'équipe.
-  const nationalities = useMemo(() => {
-    const seen = new Set();
-    const counts = {};
-
-    teams.forEach((team) => {
-      const people = [
-        ...(team.players || []).filter(Boolean),
-        ...(team.subs || []).filter(Boolean),
-        ...(team.coach ? [team.coach] : []),
-      ];
-      people.forEach((p) => {
-        if (!p.nationality || seen.has(p.pseudo)) return;
-        seen.add(p.pseudo);
-        counts[p.nationality] ??= { code: p.nationality, flagImage: p.flagImage, count: 0 };
-        counts[p.nationality].count += 1;
-      });
-    });
-
-    return Object.values(counts).sort((a, b) => b.count - a.count);
-  }, []);
-  const maxNationalityCount = Math.max(1, ...nationalities.map((n) => n.count));
-
   const leaderboardRaw = useMemo(() => {
     const record = {};
 
-    function ensure(pseudo, nationality, flagImage) {
-      record[pseudo] ??= { pseudo, nationality, flagImage, wins: 0, mvp: 0, evp: 0 };
+    function ensure(pseudo, flagImage) {
+      record[pseudo] ??= { pseudo, flagImage, wins: 0, mvp: 0, evp: 0 };
       return record[pseudo];
     }
 
     teams.forEach((team) => {
       if (team.result === "Vainqueur") {
         (team.players || []).filter(Boolean).forEach((p) => {
-          ensure(p.pseudo, p.nationality, p.flagImage).wins += 1;
+          ensure(p.pseudo, p.flagImage).wins += 1;
         });
       }
     });
 
     playerStats.forEach((r) => {
-      const entry = ensure(r.pseudo, r.nationality, r.flagImage);
+      const entry = ensure(r.pseudo, r.flagImage);
       if (r.mvp) entry.mvp += 1;
       if (r.evp) entry.evp += 1;
     });
@@ -136,7 +112,7 @@ export default function Palmares() {
                   >
                     <td className="whitespace-nowrap px-4 py-2 text-text">
                       <span className="flex items-center gap-2">
-                        <Flag code={r.nationality} image={r.flagImage} />
+                        <Flag image={r.flagImage} />
                         <PlayerName pseudo={r.pseudo} steamId={findSteamId(r.pseudo)} />
                       </span>
                     </td>
@@ -238,34 +214,6 @@ export default function Palmares() {
           ))}
         </div>
       </div>
-
-      {/* NATIONALITÉS */}
-      {nationalities.length > 0 && (
-        <div className="mt-16">
-          <h2 className="font-display text-2xl font-bold">{t("nationalities_title")}</h2>
-          <p className="mt-2 max-w-2xl text-sm text-text-muted">{t("nationalities_intro")}</p>
-
-          <div className="surface mt-6 divide-y divide-border px-5">
-            {nationalities.map((n) => (
-              <div key={n.code} className="flex items-center gap-4 py-3">
-                <Flag code={n.code} image={n.flagImage} height="1.3em" />
-                <span className="w-20 flex-shrink-0 font-body text-xs uppercase tracking-widest text-text-muted">
-                  {n.code}
-                </span>
-                <div className="h-2 flex-1 bg-bg-elevated">
-                  <div
-                    className="h-2 bg-accent"
-                    style={{ width: `${(n.count / maxNationalityCount) * 100}%` }}
-                  />
-                </div>
-                <span className="w-6 flex-shrink-0 text-right font-mono text-sm text-text">
-                  {n.count}
-                </span>
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
     </div>
   );
 }
