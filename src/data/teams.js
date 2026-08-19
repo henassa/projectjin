@@ -215,7 +215,14 @@ export const teams = [
         steamId: "76561198329257038",
       },
     ],
-    subs: [],
+    subs: [
+            {
+        pseudo: "kaori",
+        pronouns: "elle / she",
+        flagImage: "/flags/flag_fr.png",
+        steamId: "76561199025470669",
+      },
+    ],
     coach: {
       pseudo: "vyia",
       pronouns: "elle / she",
