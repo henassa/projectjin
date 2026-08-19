@@ -670,8 +670,8 @@ export const teams = [
   {
     id: "team-11",
     editionId: "ep-2",
-    name: "ÉQUIPE 11",
-    logo: "/team-logos/tbd.png",
+    name: "95RPZ",
+    logo: "/team-logos/95rpz.png",
     players: [
       {
         pseudo: "AST",
