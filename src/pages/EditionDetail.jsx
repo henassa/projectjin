@@ -48,7 +48,7 @@ function TeamCard({ team, statsFor, t }) {
   const subs = (team.subs || []).filter(Boolean);
 
   return (
-    <div className="surface flex flex-col overflow-hidden">
+    <div className="surface flex h-full flex-col overflow-hidden">
       <div className="flex items-start gap-3 p-5">
         <TeamBadge name={team.name} logo={team.logo} size="md" />
         <div className="min-w-0 flex-1">
@@ -105,12 +105,12 @@ function TeamCard({ team, statsFor, t }) {
               </li>
             );
           })}
-          {team.coach && (
-            <RosterRow person={team.coach} role={team.coach.role || t("tag_coach")} t={t} />
-          )}
           {subs.map((s) => (
             <RosterRow key={s.pseudo} person={s} role={s.role || t("tag_sub")} t={t} />
           ))}
+          {team.coach && (
+            <RosterRow person={team.coach} role={team.coach.role || t("tag_coach")} t={t} />
+          )}
         </ul>
       )}
     </div>
@@ -218,7 +218,7 @@ export default function EditionDetail() {
       {editionTeams.length === 0 ? (
         <p className="mt-6 text-text-muted">{t("no_teams_yet")}</p>
       ) : (
-        <div className="mt-6 grid items-start gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {editionTeams.map((team) => (
             <TeamCard key={team.id} team={team} statsFor={statsFor} t={t} />
           ))}
