@@ -1,8 +1,9 @@
 import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import Flag from "../components/Flag";
-import { editions } from "../data/editions";
-import { teams } from "../data/teams";
+import PlayerName from "../components/PlayerName";
+import { editions, editionDateLabel } from "../data/editions";
+import { teams, findSteamId } from "../data/teams";
 import { playerStats } from "../data/stats";
 import { useLanguage } from "../i18n/LanguageContext";
 
@@ -136,7 +137,7 @@ export default function Palmares() {
                     <td className="whitespace-nowrap px-4 py-2 text-text">
                       <span className="flex items-center gap-2">
                         <Flag code={r.nationality} image={r.flagImage} />
-                        {r.pseudo}
+                        <PlayerName pseudo={r.pseudo} steamId={findSteamId(r.pseudo)} />
                       </span>
                     </td>
                     <td className="whitespace-nowrap px-4 py-2">
@@ -181,7 +182,7 @@ export default function Palmares() {
               <div>
                 <h3 className="font-display text-lg font-bold">{edition.label}</h3>
                 <p className="mt-0.5 text-xs uppercase tracking-widest text-text-muted">
-                  {edition.date}
+                  {editionDateLabel(edition)}
                 </p>
               </div>
 

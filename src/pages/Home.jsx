@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import RojLogo from "../components/RojLogo";
 import { siteConfig } from "../data/config";
-import { editions } from "../data/editions";
+import { editions, editionDateLabel } from "../data/editions";
 import { teams } from "../data/teams";
 import { useLanguage } from "../i18n/LanguageContext";
 
@@ -73,7 +73,7 @@ export default function Home() {
             { label: t("stat_editions_run"), value: String(editions.length).padStart(2, "0") },
             { label: t("stat_teams"), value: String(teamsCount).padStart(2, "0") },
             { label: t("stat_unique_players"), value: String(uniquePlayers.size).padStart(2, "0") },
-            { label: t("stat_next_edition"), value: latest?.date ?? "—" },
+            { label: t("stat_next_edition"), value: latest ? editionDateLabel(latest) : "—" },
           ].map((stat) => (
             <div key={stat.label} className="surface px-5 py-4">
               <div className="font-mono text-2xl font-semibold text-accent">{stat.value}</div>

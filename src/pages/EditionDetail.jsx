@@ -2,8 +2,9 @@ import { useMemo, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import TeamBadge from "../components/TeamBadge";
 import Flag from "../components/Flag";
-import { editions } from "../data/editions";
-import { teams } from "../data/teams";
+import PlayerName from "../components/PlayerName";
+import { editions, editionDateLabel } from "../data/editions";
+import { teams, findSteamId } from "../data/teams";
 import { playerStats } from "../data/stats";
 import { credits } from "../data/credits";
 import { useLanguage } from "../i18n/LanguageContext";
@@ -24,7 +25,9 @@ function RosterRow({ person, role, t }) {
     <li className="flex items-center justify-between gap-2 px-3 py-2.5 text-sm text-text">
       <span className="flex min-w-0 items-center gap-2">
         {person.nationality && <Flag code={person.nationality} image={person.flagImage} />}
-        <span className="truncate">{person.pseudo}</span>
+        <span className="truncate">
+          <PlayerName pseudo={person.pseudo} steamId={person.steamId} />
+        </span>
         {role && (
           <span className="whitespace-nowrap font-mono text-[10px] uppercase tracking-widest text-text-muted">
             {role}
@@ -75,7 +78,9 @@ function TeamCard({ team, statsFor, t }) {
               >
                 <span className="flex min-w-0 items-center gap-2">
                   <Flag code={p.nationality} image={p.flagImage} />
-                  <span className="truncate">{p.pseudo}</span>
+                  <span className="truncate">
+                    <PlayerName pseudo={p.pseudo} steamId={p.steamId} />
+                  </span>
                   {p.role && (
                     <span className="whitespace-nowrap font-mono text-[10px] uppercase tracking-widest text-text-muted">
                       {p.role}
@@ -203,7 +208,7 @@ export default function EditionDetail() {
           {t(statusKeys[edition.status] ?? "status_upcoming")}
         </span>
       </div>
-      <p className="mt-3 text-text-muted">{edition.date}</p>
+      <p className="mt-3 text-text-muted">{editionDateLabel(edition)}</p>
 
       {/* ÉQUIPES */}
       <div className="mt-16">
@@ -253,7 +258,7 @@ export default function EditionDetail() {
                   <td className="whitespace-nowrap px-4 py-3 text-text">
                     <span className="flex items-center gap-2">
                       <Flag code={row.nationality} image={row.flagImage} />
-                      {row.pseudo}
+                      <PlayerName pseudo={row.pseudo} steamId={findSteamId(row.pseudo)} />
                       {isWinningTeam(row.team) && (
                         <span className="chip-mvp whitespace-nowrap px-2 py-0.5 text-[9px] uppercase tracking-widest">
                           {t("tag_winner")}

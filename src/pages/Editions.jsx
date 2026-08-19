@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { editions } from "../data/editions";
+import { editions, editionDateLabel } from "../data/editions";
 import { teams } from "../data/teams";
 import { useLanguage } from "../i18n/LanguageContext";
 
@@ -46,7 +46,7 @@ export default function Editions() {
                 <div>
                   <h2 className="font-display text-lg font-bold">{ed.label}</h2>
                   <p className="mt-0.5 text-xs uppercase tracking-widest text-text-muted">
-                    {ed.date} · {teamsCount} {t(teamsCount > 1 ? "team_plural" : "team_singular")}
+                    {editionDateLabel(ed)} · {teamsCount} {t(teamsCount > 1 ? "team_plural" : "team_singular")}
                   </p>
                 </div>
                 <span className="chip-badge whitespace-nowrap px-3 py-1 text-[10px] uppercase tracking-widest text-accent">

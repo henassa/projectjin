@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { useParams } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import RojLogo from "../components/RojLogo";
-import { editions } from "../data/editions";
+import { editions, editionDateLabel } from "../data/editions";
 
 // Widget destiné à être utilisé comme source navigateur dans OBS Studio
 // (overlay de stream). Page nue : pas de Nav, pas de grain, fond
@@ -97,7 +97,7 @@ export default function Overlay() {
                   PROJECT JÎN
                 </div>
                 <div className="mt-1.5 text-base uppercase tracking-wide text-text-muted">
-                  {latest.label} · {latest.date}
+                  {latest.label} · {editionDateLabel(latest)}
                 </div>
               </motion.div>
             )}

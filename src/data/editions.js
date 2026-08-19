@@ -1,9 +1,7 @@
-// ─────────────────────────────────────────────────────────────
-// ÉDITIONS DU TOURNOI — une entrée par édition. Les équipes et les
-// stats sont dans des fichiers séparés (teams.js et stats.js), reliées
-// via `editionId`.
-// ─────────────────────────────────────────────────────────────
-
+// `date` : début (ou date unique si l'édition dure 1 jour).
+// `dateEnd` (optionnel) : fin, si l'édition dure plusieurs jours.
+// Utilise `editionDateLabel(ed)` pour l'affichage, elle gère les deux
+// cas automatiquement — n'accède jamais à `ed.date` seul pour afficher.
 export const editions = [
   {
     id: "ep-3",
@@ -11,6 +9,7 @@ export const editions = [
     label: "ÉPISODE 3",
     game: "COUNTER-STRIKE 2",
     date: "29 août",
+    dateEnd: null,
     status: "à venir",
     poster: "/edition-posters/ep-3.png",
   },
@@ -20,6 +19,7 @@ export const editions = [
     label: "ÉPISODE 2",
     game: "COUNTER-STRIKE 2",
     date: "22 août",
+    dateEnd: "23 août",
     status: "à venir",
     poster: "/edition-posters/ep-2.png",
   },
@@ -29,11 +29,15 @@ export const editions = [
     label: "ÉPISODE 1",
     game: "COUNTER-STRIKE 2",
     date: "18 juillet",
-    status: "terminée", // "à venir" | "en cours" | "terminée"
-    poster: "/edition-posters/ep-1.jpg", // visuel d'annonce ; laisse `null` si tu n'en as pas encore
+    dateEnd: null,
+    status: "terminée",
+    poster: "/edition-posters/ep-1.jpg",
   },
-
-  // Ajoute une nouvelle édition ici quand le tournoi suivant est lancé.
-  // `game` : le nom du jeu affiché sur l'édition (ex. "COUNTER-STRIKE 2",
-  // "LEAGUE OF LEGENDS"...) — utile le jour où le format change de jeu.
 ];
+
+// Formate la date d'une édition pour l'affichage : "22 août" si un seul
+// jour, "22 – 23 août" si `dateEnd` est renseigné.
+export function editionDateLabel(ed) {
+  if (!ed) return "";
+  return ed.dateEnd ? `${ed.date} – ${ed.dateEnd}` : ed.date;
+}
