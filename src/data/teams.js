@@ -5,8 +5,11 @@
 //   que tu n'as pas le fichier : un badge avec les initiales du NOM
 //   s'affiche à la place.
 // - `players` : le roster titulaire. Chaque personne a un pseudo, ses
-//   pronoms, et un drapeau via `flagImage: "/flags/flag_fr.png"`
-//   (fichiers nommés "flag_XX.png" dans `public/flags/`).
+//   pronoms et sa nationalité (code pays ISO à 2 lettres, ex. "FR", "BE",
+//   "CH" — affiché en emoji par défaut). Si tu préfères une image de
+//   drapeau personnalisée, ajoute `flagImage: "/flags/flag_fr.png"`
+//   (fichiers nommés "flag_XX.png" dans `public/flags/`) : elle
+//   remplacera automatiquement l'emoji.
 // - `steamId` (optionnel) : le SteamID64 de la personne. S'il est
 //   renseigné, son pseudo devient cliquable partout sur le site et
 //   ouvre son profil Steam dans un nouvel onglet. Sans ce champ, le
@@ -218,7 +221,7 @@ export const teams = [
         pseudo: "xeno",
         pronouns: "il / he",
         flagImage: "/flags/flag_vend.png",
-        steamId: "",
+        steamId: "76561198329257038",
       },
     ],
     subs: [],
@@ -226,7 +229,7 @@ export const teams = [
       pseudo: "vyia",
       pronouns: "elle / she",
       flagImage: "/flags/flag_pt.png",
-      steamId: "",
+      steamId: "76561198358098002",
     },
     result: null,
   },
@@ -240,7 +243,7 @@ export const teams = [
         pseudo: "Charlon",
         pronouns: "il / he",
         flagImage: "/flags/flag_fr.png",
-        steamId: "",
+        steamId: "76561199054204778",
       },
       {
         pseudo: "chichi",
@@ -295,7 +298,7 @@ export const teams = [
         pseudo: "MaasKyyy",
         pronouns: "il / he",
         flagImage: "/flags/flag_ch.png",
-        steamId: "",
+        steamId: "76561198310735136",
       },
       {
         pseudo: "Maxine",
@@ -330,13 +333,13 @@ export const teams = [
         pseudo: "Chaps",
         pronouns: "elle / she",
         flagImage: "/flags/flag_fr.png",
-        steamId: "",
+        steamId: "76561199037636924",
       },
       {
         pseudo: "Shaana",
         pronouns: "elle / she",
         flagImage: "/flags/flag_amaz.png",
-        steamId: "",
+        steamId: "76561198876538726",
       },
       {
         pseudo: "Shyz",
@@ -348,16 +351,23 @@ export const teams = [
         pseudo: "Slatacos",
         pronouns: "elle / she",
         flagImage: "/flags/flag_amaz.png",
-        steamId: "",
+        steamId: "76561198121367038",
       },
       {
         pseudo: "Static2k",
         pronouns: "il / he",
         flagImage: "/flags/flag_fr.png",
-        steamId: "",
+        steamId: "76561198178774414",
       },
     ],
-    subs: [],
+    subs: [
+       {
+        pseudo: "amanek",
+        pronouns: "il / he",
+        flagImage: "/flags/flag_fr.png",
+        steamId: "76561198068944951",
+      },
+    ],
     coach: null,
     result: null,
   },
@@ -377,7 +387,7 @@ export const teams = [
         pseudo: "davy",
         pronouns: "elle / she",
         flagImage: "/flags/flag_kh.png",
-        steamId: "",
+        steamId: "76561198351001632",
       },
       {
         pseudo: "Nepo",
@@ -460,7 +470,7 @@ export const teams = [
         pseudo: "sharko",
         pronouns: "il / he",
         flagImage: "/flags/flag_amaz.png",
-        steamId: "",
+        steamId: "76561198180431419",
       },
       {
         pseudo: "SirDaewen",
@@ -478,7 +488,7 @@ export const teams = [
         pseudo: "Vital",
         pronouns: "il / he",
         flagImage: "/flags/flag_be.png",
-        steamId: "",
+        steamId: "76561198128717257",
       },
     ],
     subs: [],
@@ -495,31 +505,31 @@ export const teams = [
         pseudo: "Alua",
         pronouns: "elle / she",
         flagImage: "/flags/flag_it.png",
-        steamId: "",
+        steamId: "76561198975050006",
       },
       {
         pseudo: "Konai",
         pronouns: "il / he",
         flagImage: "/flags/flag_fr.png",
-        steamId: "",
+        steamId: "76561198796469890",
       },
       {
         pseudo: "Porco",
         pronouns: "il / he",
         flagImage: "/flags/flag_fr.png",
-        steamId: "",
+        steamId: "76561198333390618",
       },
       {
         pseudo: "wati",
         pronouns: "elle / she",
         flagImage: "/flags/flag_fr.png",
-        steamId: "",
+        steamId: "76561199204977143",
       },
       {
         pseudo: "Wik",
         pronouns: "il / he",
         flagImage: "/flags/flag_jp.png",
-        steamId: "",
+        steamId: "76561198306215753",
       },
     ],
     subs: [],
@@ -527,7 +537,7 @@ export const teams = [
       pseudo: "Finite",
       pronouns: "il / he",
       flagImage: "/flags/flag_occ.png",
-      steamId: "",
+      steamId: "76561198217350221",
     },
     result: null,
   },
@@ -549,12 +559,17 @@ export const teams = [
         flagImage: "/flags/flag_fr.png",
         steamId: "",
       },
-
+    {
+        pseudo: "Emerald",
+        pronouns: "elle / she",
+        flagImage: "/flags/flag_fr.png",
+        steamId: "76561198044601695",
+      },
       {
-        pseudo: "injuxta  ",
+        pseudo: "injuxta",
         pronouns: "il / he",
         flagImage: "/flags/flag_kr.png",
-        steamId: "",
+        steamId: "76561198836770861",
       },
 
       {
@@ -625,7 +640,7 @@ export const teams = [
       {
         pseudo: "elfosoo",
         pronouns: "il / he",
-        flagImage: "/flags/flag_ltte.png",
+        flagImage: "/flags/flag_lka.png",
         steamId: "",
       },
 
