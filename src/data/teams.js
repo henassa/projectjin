@@ -292,7 +292,7 @@ export const teams = [
         pseudo: "chichi",
         pronouns: "elle / she",
         flagImage: "/flags/flag_de.png",
-        steamId: "",
+        steamId: "76561199057059966",
       },
       {
         pseudo: "Clotilde",
@@ -304,7 +304,7 @@ export const teams = [
         pseudo: "matriix",
         pronouns: "elle / she",
         flagImage: "/flags/flag_be.png",
-        steamId: "",
+        steamId: "76561199074412034",
       },
 
       {
