@@ -7,7 +7,7 @@ import { currentEdition } from "../data/editions";
 import TeamBadge from "../components/TeamBadge";
 
 const POLL_INTERVAL_MS = 30_000;
-const MAX_SPOTLIGHT = 4;
+const MAX_SPOTLIGHT = 3;
 
 // Le paramètre "parent" de l'embed Twitch doit correspondre exactement
 // au(x) domaine(s) qui servent le site, sinon le player refuse de charger.
@@ -16,23 +16,6 @@ const EMBED_PARENTS = [window.location.hostname];
 function embedSrc(login) {
   const parentQS = EMBED_PARENTS.map((p) => `&parent=${p}`).join("");
   return `https://player.twitch.tv/?channel=${login}&muted=true${parentQS}`;
-}
-
-function ExpandIcon({ className = "" }) {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      className={className}
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.75"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-    >
-      <path d="M9 3H3v6M15 21h6v-6M21 3l-7 7M3 21l7-7" />
-    </svg>
-  );
 }
 
 function CloseIcon({ className = "" }) {
@@ -123,15 +106,16 @@ function SpotlightTile({ entry, liveInfo, isOfficial, onRemove, t }) {
         ) : (
           <span />
         )}
-        <button
-          type="button"
-          onClick={onRemove}
-          aria-label={t("multipov_remove_from_spotlight")}
-          className="flex items-center gap-1.5 font-body text-xs text-text-muted transition-colors hover:text-text"
-        >
-          <CloseIcon className="h-3.5 w-3.5" />
-          {t("multipov_remove_from_spotlight")}
-        </button>
+        {!isOfficial && (
+          <button
+            type="button"
+            onClick={onRemove}
+            aria-label={t("multipov_remove_from_spotlight")}
+            className="text-text-muted transition-colors hover:text-text"
+          >
+            <CloseIcon className="h-4 w-4" />
+          </button>
+        )}
       </div>
 
       <div className="aspect-video w-full bg-bg-elevated">
@@ -169,11 +153,11 @@ function GridTile({ entry, liveInfo, onSelect, t }) {
       transition={{ duration: 0.25, ease: [0.4, 0, 0.2, 1] }}
       onClick={onSelect}
       aria-label={`${t("multipov_feature_action")} — ${entry.pseudo || entry.login}`}
-      className={`surface group flex flex-col overflow-hidden text-left transition-colors hover:border-border-strong ${
+      className={`surface flex flex-col overflow-hidden text-left transition-colors hover:border-border-strong ${
         isLive ? "border-border-strong" : ""
       }`}
     >
-      <div className="relative aspect-video w-full bg-bg-elevated">
+      <div className="aspect-video w-full bg-bg-elevated">
         {isLive ? (
           <iframe
             title={`twitch-${entry.login}`}
@@ -185,13 +169,6 @@ function GridTile({ entry, liveInfo, onSelect, t }) {
         ) : (
           <OfflinePlaceholder entry={entry} t={t} />
         )}
-
-        <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-black/0 opacity-0 transition-all duration-150 group-hover:bg-black/40 group-hover:opacity-100">
-          <span className="flex items-center gap-2 border border-text/70 bg-bg/80 px-3 py-1.5 text-[10px] uppercase tracking-widest text-text">
-            <ExpandIcon className="h-3.5 w-3.5" />
-            {t("multipov_feature_action")}
-          </span>
-        </div>
       </div>
 
       <div className="flex items-center gap-2 px-4 py-3">
@@ -259,7 +236,10 @@ export default function MultiPOV() {
   };
 
   const removeFromSpotlight = (login) => {
-    setSpotlightLogins((prev) => prev.filter((l) => l !== login));
+    setSpotlightLogins((prev) => {
+      if (prev.length <= 1) return prev; // jamais une sélection vide
+      return prev.filter((l) => l !== login);
+    });
   };
 
   const resetSpotlight = () => {
