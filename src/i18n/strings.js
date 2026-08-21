@@ -114,6 +114,9 @@ export const strings = {
   },
   multipov_live: { fr: "Live", en: "Live" },
   multipov_main_stream: { fr: "Flux officiel", en: "Official stream" },
+  multipov_featured: { fr: "En avant", en: "Featured" },
+  multipov_back_to_main: { fr: "← Flux officiel", en: "← Official stream" },
+  multipov_feature_action: { fr: "Mettre en avant", en: "Feature this" },
   multipov_offline: { fr: "Hors ligne", en: "Offline" },
   multipov_viewers: { fr: "viewers", en: "viewers" },
   multipov_remove: { fr: "Retirer", en: "Remove" },
@@ -126,6 +129,7 @@ export const strings = {
     en: "channels followed",
   },
   multipov_count_live: { fr: "en live", en: "live" },
+  multipov_total_viewers: { fr: "viewers en direct", en: "viewers live" },
 };
 
 export function t(key, lang) {
