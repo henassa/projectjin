@@ -1,18 +1,25 @@
 // ─────────────────────────────────────────────────────────────
 // CHAÎNES TWITCH — Multi POV
-// Liste les chaînes Twitch à afficher sur la page /multi-pov.
-// Ajoute ou retire simplement une ligne pour changer la liste —
-// pas de formulaire, c'est directement ce tableau qui fait foi.
 //
-// `login` : le nom de chaîne tel qu'il apparaît dans l'URL Twitch
-// (ex. pour twitch.tv/pipipsl, login = "pipipsl"). Toujours en
-// minuscules, sans espace ni caractère spécial.
+// La liste des joueur·ses affiché·es sur /multi-pov est AUTOMATIQUE :
+// dès que tu ajoutes `twitch: "login"` à une personne dans data/teams.js
+// (pour l'édition en cours), sa chaîne apparaît toute seule sur la
+// page, avec son logo d'équipe et son pseudo. Rien à dupliquer ici.
+//
+// Ce fichier ne sert que pour deux choses :
+//
+// 1. `mainStreamLogin` : le login Twitch du STREAM PRINCIPAL (celui du
+//    cast), affiché en grand tout en haut de la page. Mets `null` si
+//    aucun stream principal pour l'instant.
+//
+// 2. `extraStreams` : des chaînes à afficher qui ne correspondent à
+//    personne dans data/teams.js — casteur·ses, staff, chaîne
+//    officielle du tournoi, etc. Même structure que teams.js aurait
+//    donné : juste `{ login: "..." }`.
 // ─────────────────────────────────────────────────────────────
 
-export const streams = [
-  // { login: "chaine1" },
-  // { login: "chaine2" },
-  { login: "henassa" },
-  { login: "hezus" },
-  { login: "b1h1tee" }
+export const mainStreamLogin = "hezus";
+
+export const extraStreams = [
+  // { login: "chaine-du-staff" },
 ];

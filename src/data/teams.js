@@ -28,6 +28,10 @@
 //   `coach` et sur `subs` : pour ces deux derniers, laisse `role` vide
 //   et "Coach"/"Sub" s'affiche par défaut, ou mets ta propre valeur
 //   (ex. role: "Coach IGL") pour la remplacer.
+// - `twitch` (optionnel) : le login Twitch de la personne (ex. "henassa"
+//   pour twitch.tv/henassa, en minuscules). Utilisé par la page Multi POV
+//   (src/data/streams.js) pour afficher le logo + nom d'équipe + pseudo
+//   à côté de son stream, au lieu du seul nom de chaîne.
 // ─────────────────────────────────────────────────────────────
 
 export const teams = [
@@ -234,6 +238,7 @@ export const teams = [
         pronouns: "il / he",
         flagImage: "/flags/flag_kr.png",
         steamId: "76561198123365503",
+        twitch: "henassa",
       },
       {
         pseudo: "kyracujoh",
@@ -336,6 +341,7 @@ export const teams = [
         pronouns: "il / he",
         flagImage: "/flags/flag_fr-br.png",
         steamId: "76561198935677261",
+        twitch: "liquidz_l9",
       },
       {
         pseudo: "MaasKyyy",
@@ -600,12 +606,14 @@ export const teams = [
         pronouns: "il / he",
         flagImage: "/flags/flag_fr.png",
         steamId: "76561198414712451",
+        twitch: "b1h1tee",
       },
       {
         pseudo: "Emerald",
         pronouns: "elle / she",
         flagImage: "/flags/flag_fr.png",
         steamId: "76561198044601695",
+        twitch:"emeraldcsgoo",
       },
       {
         pseudo: "injuxta",
@@ -1152,4 +1160,61 @@ export function findSteamId(pseudo) {
     if (found) return found.steamId;
   }
   return null;
+}
+
+// Retrouve la personne (pseudo + équipe) associée à un login Twitch, en
+// cherchant dans toutes les équipes (titulaires, remplaçant·es, coachs).
+// Utilisé par la page Multi POV pour afficher le logo d'équipe et le
+// pseudo à côté du stream, plutôt que le seul nom de chaîne Twitch.
+// Retourne `null` si personne n'a ce login renseigné.
+export function findPlayerByTwitch(login) {
+  if (!login) return null;
+  const target = login.trim().toLowerCase();
+  for (const team of teams) {
+    const people = [
+      ...(team.players || []).filter(Boolean),
+      ...(team.subs || []).filter(Boolean),
+      ...(team.coach ? [team.coach] : []),
+    ];
+    const found = people.find((p) => p.twitch && p.twitch.trim().toLowerCase() === target);
+    if (found) {
+      return {
+        pseudo: found.pseudo,
+        teamName: team.name,
+        teamLogo: team.logo,
+      };
+    }
+  }
+  return null;
+}
+
+// Liste toutes les chaînes Twitch renseignées (champ `twitch`) parmi les
+// joueur·ses, remplaçant·es et coachs d'une édition donnée. C'est ce qui
+// permet à la page Multi POV de suivre automatiquement les bonnes
+// chaînes dès qu'on ajoute `twitch: "..."` à quelqu'un dans ce fichier —
+// sans avoir à dupliquer l'info dans data/streams.js.
+export function getPlayersWithTwitch(editionId) {
+  const result = [];
+  const seen = new Set();
+  for (const team of teams) {
+    if (team.editionId !== editionId) continue;
+    const people = [
+      ...(team.players || []).filter(Boolean),
+      ...(team.subs || []).filter(Boolean),
+      ...(team.coach ? [team.coach] : []),
+    ];
+    for (const p of people) {
+      if (!p.twitch) continue;
+      const login = p.twitch.trim().toLowerCase();
+      if (!login || seen.has(login)) continue;
+      seen.add(login);
+      result.push({
+        login,
+        pseudo: p.pseudo,
+        teamName: team.name,
+        teamLogo: team.logo,
+      });
+    }
+  }
+  return result;
 }
