@@ -94,6 +94,36 @@ export const strings = {
   col_titles: { fr: "Titres", en: "Titles" },
   palmares_by_edition_title: { fr: "Par édition", en: "By edition" },
   label_winner: { fr: "Vainqueur", en: "Winner" },
+
+  // Multi POV
+  nav_multipov: { fr: "Multi POV", en: "Multi POV" },
+  multipov_title: { fr: "Multi POV", en: "Multi POV" },
+  multipov_intro: {
+    fr: "Ajoute les chaînes Twitch du tournoi pour suivre plusieurs points de vue en même temps. Les personnes en live remontent automatiquement en haut.",
+    en: "Add the tournament's Twitch channels to follow several points of view at once. Live channels automatically move to the top.",
+  },
+  multipov_input_placeholder: {
+    fr: "Nom de chaîne ou lien twitch.tv/…",
+    en: "Channel name or twitch.tv/… link",
+  },
+  multipov_add: { fr: "Ajouter", en: "Add" },
+  multipov_empty: { fr: "Aucune chaîne pour l'instant.", en: "No channel yet." },
+  multipov_error: {
+    fr: "Impossible de vérifier les chaînes en live pour le moment.",
+    en: "Couldn't check live status right now.",
+  },
+  multipov_live: { fr: "Live", en: "Live" },
+  multipov_viewers: { fr: "viewers", en: "viewers" },
+  multipov_remove: { fr: "Retirer", en: "Remove" },
+  multipov_count_channels: {
+    fr: "chaîne suivie",
+    en: "channel followed",
+  },
+  multipov_count_channels_plural: {
+    fr: "chaînes suivies",
+    en: "channels followed",
+  },
+  multipov_count_live: { fr: "en live", en: "live" },
 };
 
 export function t(key, lang) {

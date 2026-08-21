@@ -8,6 +8,7 @@ import Editions from "./pages/Editions";
 import EditionDetail from "./pages/EditionDetail";
 import Palmares from "./pages/Palmares";
 import Overlay from "./pages/Overlay";
+import MultiPOV from "./pages/MultiPOV";
 
 function AnimatedPage({ children }) {
   const reduce = useReducedMotion();
@@ -49,6 +50,7 @@ export default function App() {
             <Route path="/editions" element={<AnimatedPage><Editions /></AnimatedPage>} />
             <Route path="/editions/:editionId" element={<AnimatedPage><EditionDetail /></AnimatedPage>} />
             <Route path="/palmares" element={<AnimatedPage><Palmares /></AnimatedPage>} />
+            <Route path="/multi-pov" element={<AnimatedPage><MultiPOV /></AnimatedPage>} />
           </Routes>
         </AnimatePresence>
       </main>

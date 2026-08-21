@@ -12,6 +12,7 @@ export default function Nav() {
     { to: "/editions", label: t("nav_editions") },
     { to: "/palmares", label: t("nav_palmares") },
     { to: "/reglement", label: t("nav_rulebook") },
+    { to: "/multi-pov", label: t("nav_multipov") },
   ];
 
   return (
