@@ -7,6 +7,7 @@ import { currentEdition } from "../data/editions";
 import TeamBadge from "../components/TeamBadge";
 
 const POLL_INTERVAL_MS = 30_000;
+const MAX_SPOTLIGHT = 4;
 
 // Le paramètre "parent" de l'embed Twitch doit correspondre exactement
 // au(x) domaine(s) qui servent le site, sinon le player refuse de charger.
@@ -30,6 +31,22 @@ function ExpandIcon({ className = "" }) {
       aria-hidden="true"
     >
       <path d="M9 3H3v6M15 21h6v-6M21 3l-7 7M3 21l7-7" />
+    </svg>
+  );
+}
+
+function CloseIcon({ className = "" }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      className={className}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.75"
+      strokeLinecap="round"
+      aria-hidden="true"
+    >
+      <path d="M18 6L6 18M6 6l12 12" />
     </svg>
   );
 }
@@ -91,32 +108,30 @@ function OfflinePlaceholder({ entry, t, large = false }) {
   );
 }
 
-// Le stream mis en avant, en haut de page. Peut être le flux officiel
-// (configuré via mainStreamLogin dans data/streams.js) ou n'importe
-// quelle autre chaîne que la personne a cliquée dans la grille — dans ce
-// cas un bouton permet de revenir au flux officiel.
-function SpotlightTile({ entry, liveInfo, isOfficial, onReset, t }) {
+// Tuile dans la zone du haut : un ou plusieurs streams sélectionnés,
+// affichés côte à côte. Un bouton "✕" les retire de la sélection.
+function SpotlightTile({ entry, liveInfo, isOfficial, onRemove, t }) {
   const isLive = !!liveInfo;
 
   return (
     <motion.div layout className="surface flex flex-col overflow-hidden border-border-strong">
       <div className="flex items-center justify-between gap-2 border-b border-border px-4 py-2.5">
-        <span
-          className={`px-2.5 py-1 text-[10px] font-medium uppercase tracking-widest ${
-            isOfficial ? "chip-active" : "chip-badge text-accent"
-          }`}
-        >
-          {isOfficial ? t("multipov_main_stream") : t("multipov_featured")}
-        </span>
-        {!isOfficial && onReset && (
-          <button
-            type="button"
-            onClick={onReset}
-            className="font-body text-xs text-text-muted transition-colors hover:text-text"
-          >
-            {t("multipov_back_to_main")}
-          </button>
+        {isOfficial ? (
+          <span className="chip-active px-2.5 py-1 text-[10px] font-medium uppercase tracking-widest">
+            {t("multipov_main_stream")}
+          </span>
+        ) : (
+          <span />
         )}
+        <button
+          type="button"
+          onClick={onRemove}
+          aria-label={t("multipov_remove_from_spotlight")}
+          className="flex items-center gap-1.5 font-body text-xs text-text-muted transition-colors hover:text-text"
+        >
+          <CloseIcon className="h-3.5 w-3.5" />
+          {t("multipov_remove_from_spotlight")}
+        </button>
       </div>
 
       <div className="aspect-video w-full bg-bg-elevated">
@@ -140,8 +155,8 @@ function SpotlightTile({ entry, liveInfo, isOfficial, onReset, t }) {
   );
 }
 
-// Tuile cliquable dans la grille : un clic l'envoie en spotlight, à la
-// place du stream actuellement mis en avant (façon "PoV switcher").
+// Tuile cliquable dans la grille du bas : un clic l'ajoute à la zone du
+// haut, à côté des streams déjà sélectionnés (comme un switcher de PoV).
 function GridTile({ entry, liveInfo, onSelect, t }) {
   const isLive = !!liveInfo;
 
@@ -229,9 +244,27 @@ export default function MultiPOV() {
   }, [allEntries, mainLogin]);
   const loginsKey = combinedLogins.join(",");
 
-  // Chaîne actuellement mise en avant en haut de page. Par défaut, le
-  // flux officiel — un clic sur une tuile de la grille la fait passer ici.
-  const [spotlightLogin, setSpotlightLogin] = useState(mainLogin);
+  // Chaînes actuellement affichées côte à côte en haut de page. Le flux
+  // officiel y est par défaut ; un clic sur une tuile de la grille
+  // l'ajoute à côté (jusqu'à MAX_SPOTLIGHT en simultané), un clic sur
+  // "✕" dans la zone du haut la retire.
+  const [spotlightLogins, setSpotlightLogins] = useState(mainLogin ? [mainLogin] : []);
+
+  const addToSpotlight = (login) => {
+    setSpotlightLogins((prev) => {
+      if (prev.includes(login)) return prev;
+      if (prev.length >= MAX_SPOTLIGHT) return [...prev.slice(1), login];
+      return [...prev, login];
+    });
+  };
+
+  const removeFromSpotlight = (login) => {
+    setSpotlightLogins((prev) => prev.filter((l) => l !== login));
+  };
+
+  const resetSpotlight = () => {
+    setSpotlightLogins(mainLogin ? [mainLogin] : []);
+  };
 
   const [liveMap, setLiveMap] = useState({});
   const [error, setError] = useState(null);
@@ -270,7 +303,7 @@ export default function MultiPOV() {
   const sortLabel = (entry) => (entry.teamName || entry.pseudo || entry.login).toLowerCase();
 
   const gridEntries = combinedLogins
-    .filter((login) => login !== spotlightLogin)
+    .filter((login) => !spotlightLogins.includes(login))
     .map((login) => entriesByLogin[login])
     .sort((a, b) => {
       const aLive = liveMap[a.login];
@@ -280,7 +313,22 @@ export default function MultiPOV() {
       return sortLabel(a).localeCompare(sortLabel(b), "fr");
     });
 
-  const spotlightEntry = spotlightLogin ? entriesByLogin[spotlightLogin] : null;
+  const spotlightEntries = spotlightLogins
+    .map((login) => entriesByLogin[login])
+    .filter(Boolean);
+
+  const spotlightColsClass =
+    spotlightEntries.length <= 1
+      ? "grid-cols-1"
+      : spotlightEntries.length === 2
+      ? "grid-cols-1 md:grid-cols-2"
+      : spotlightEntries.length === 3
+      ? "grid-cols-1 md:grid-cols-3"
+      : "grid-cols-1 sm:grid-cols-2 xl:grid-cols-4";
+
+  const isDefaultSpotlight =
+    spotlightLogins.length === (mainLogin ? 1 : 0) &&
+    (mainLogin ? spotlightLogins[0] === mainLogin : true);
 
   const liveCount = combinedLogins.filter((l) => liveMap[l]).length;
   const totalViewers = combinedLogins.reduce(
@@ -296,22 +344,34 @@ export default function MultiPOV() {
       <p className="mt-4 max-w-2xl text-text-muted">{t("multipov_intro")}</p>
 
       {combinedLogins.length > 0 && (
-        <p className="mt-6 text-xs uppercase tracking-widest text-text-muted">
-          {combinedLogins.length}{" "}
-          {t(
-            combinedLogins.length > 1
-              ? "multipov_count_channels_plural"
-              : "multipov_count_channels"
+        <div className="mt-6 flex flex-wrap items-center justify-between gap-3">
+          <p className="text-xs uppercase tracking-widest text-text-muted">
+            {combinedLogins.length}{" "}
+            {t(
+              combinedLogins.length > 1
+                ? "multipov_count_channels_plural"
+                : "multipov_count_channels"
+            )}
+            {" · "}
+            {liveCount} {t("multipov_count_live")}
+            {totalViewers > 0 && (
+              <>
+                {" · "}
+                {totalViewers.toLocaleString("fr-CH")} {t("multipov_total_viewers")}
+              </>
+            )}
+          </p>
+
+          {!isDefaultSpotlight && (
+            <button
+              type="button"
+              onClick={resetSpotlight}
+              className="font-body text-xs uppercase tracking-widest text-text-muted transition-colors hover:text-text"
+            >
+              {t("multipov_reset_selection")}
+            </button>
           )}
-          {" · "}
-          {liveCount} {t("multipov_count_live")}
-          {totalViewers > 0 && (
-            <>
-              {" · "}
-              {totalViewers.toLocaleString("fr-CH")} {t("multipov_total_viewers")}
-            </>
-          )}
-        </p>
+        </div>
       )}
 
       {error && <p className="mt-3 text-xs text-text-muted">{error}</p>}
@@ -322,14 +382,21 @@ export default function MultiPOV() {
         </div>
       ) : (
         <div className="mt-10 space-y-6">
-          {spotlightEntry && (
-            <SpotlightTile
-              entry={spotlightEntry}
-              liveInfo={liveMap[spotlightEntry.login]}
-              isOfficial={spotlightEntry.login === mainLogin}
-              onReset={mainLogin ? () => setSpotlightLogin(mainLogin) : null}
-              t={t}
-            />
+          {spotlightEntries.length > 0 && (
+            <motion.div layout className={`grid gap-4 ${spotlightColsClass}`}>
+              <AnimatePresence>
+                {spotlightEntries.map((entry) => (
+                  <SpotlightTile
+                    key={entry.login}
+                    entry={entry}
+                    liveInfo={liveMap[entry.login]}
+                    isOfficial={entry.login === mainLogin}
+                    onRemove={() => removeFromSpotlight(entry.login)}
+                    t={t}
+                  />
+                ))}
+              </AnimatePresence>
+            </motion.div>
           )}
 
           {gridEntries.length > 0 && (
@@ -340,7 +407,7 @@ export default function MultiPOV() {
                     key={entry.login}
                     entry={entry}
                     liveInfo={liveMap[entry.login]}
-                    onSelect={() => setSpotlightLogin(entry.login)}
+                    onSelect={() => addToSpotlight(entry.login)}
                     t={t}
                   />
                 ))}
