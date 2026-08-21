@@ -239,13 +239,14 @@ export default function MultiPOV() {
     return () => clearInterval(pollRef.current);
   }, [fetchLiveStatus]);
 
+  const sortLabel = (entry) => (entry.teamName || entry.pseudo || entry.login).toLowerCase();
+
   const sortedSecondary = [...secondaryEntries].sort((a, b) => {
     const aLive = liveMap[a.login];
     const bLive = liveMap[b.login];
-    if (aLive && bLive) return (bLive.viewers || 0) - (aLive.viewers || 0);
-    if (aLive) return -1;
-    if (bLive) return 1;
-    return 0;
+    if (aLive && !bLive) return -1;
+    if (!aLive && bLive) return 1;
+    return sortLabel(a).localeCompare(sortLabel(b), "fr");
   });
 
   const liveCount = combinedLogins.filter((l) => liveMap[l]).length;
