@@ -217,7 +217,7 @@ export const teams = [
     coach: null,
     result: null,
   },
-    {
+  {
     id: "team-8",
     editionId: "ep-3",
     name: "TAHM KUNZ",
@@ -303,7 +303,7 @@ export const teams = [
         pseudo: "Clotilde",
         pronouns: "elle / she",
         flagImage: "/flags/flag_fr.png",
-        steamId: "",
+        steamId: "76561198154418394",
       },
       {
         pseudo: "matriix",
@@ -324,7 +324,7 @@ export const teams = [
         pseudo: "Jud",
         pronouns: "il / he",
         flagImage: "/flags/flag_fr.png",
-        steamId: "",
+        steamId: "76561198981538232",
       },
     ],
     coach: null,
@@ -437,6 +437,7 @@ export const teams = [
         pronouns: "elle / she",
         flagImage: "/flags/flag_kh.png",
         steamId: "76561198351001632",
+        twitch: "davyy_y",
       },
       {
         pseudo: "Nepo",
@@ -525,6 +526,7 @@ export const teams = [
         pronouns: "iel / they",
         flagImage: "/flags/flag_fr.png",
         steamId: "76561198369128117",
+        twitch: "sirdaewen",
       },
       {
         pseudo: "Sxcret",
@@ -554,6 +556,7 @@ export const teams = [
         pronouns: "elle / she",
         flagImage: "/flags/flag_it.png",
         steamId: "76561198975050006",
+        twitch: "AluAngePerdu",
       },
       {
         pseudo: "Konai",
@@ -613,7 +616,7 @@ export const teams = [
         pronouns: "elle / she",
         flagImage: "/flags/flag_fr.png",
         steamId: "76561198044601695",
-        twitch:"emeraldcsgoo",
+        twitch: "emeraldcsgoo",
       },
       {
         pseudo: "injuxta",
@@ -657,6 +660,7 @@ export const teams = [
         pronouns: "elle / she",
         flagImage: "/flags/flag_fr.png",
         steamId: "76561199861605243",
+        twitch: "arjuna_cs2",
       },
       {
         pseudo: "Darly",
@@ -711,6 +715,7 @@ export const teams = [
         pronouns: "il / he",
         flagImage: "/flags/flag_fr.png",
         steamId: "76561198372275494",
+        twitch: "xagrozz",
       },
     ],
     subs: [],
@@ -1176,7 +1181,9 @@ export function findPlayerByTwitch(login) {
       ...(team.subs || []).filter(Boolean),
       ...(team.coach ? [team.coach] : []),
     ];
-    const found = people.find((p) => p.twitch && p.twitch.trim().toLowerCase() === target);
+    const found = people.find(
+      (p) => p.twitch && p.twitch.trim().toLowerCase() === target,
+    );
     if (found) {
       return {
         pseudo: found.pseudo,
