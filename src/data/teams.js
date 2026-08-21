@@ -267,16 +267,16 @@ export const teams = [
     ],
     subs: [
       {
-        pseudo: "kaori",
-        pronouns: "elle / she",
-        flagImage: "/flags/flag_fr.png",
-        steamId: "76561199025470669",
-      },
-            {
         pseudo: "Hasemal",
         pronouns: "il / he",
         flagImage: "/flags/flag_arg.png",
         steamId: "76561198168674743",
+      },
+      {
+        pseudo: "kaori",
+        pronouns: "elle / she",
+        flagImage: "/flags/flag_fr.png",
+        steamId: "76561199025470669",
       },
     ],
     coach: {
@@ -1063,7 +1063,7 @@ export const teams = [
     ],
     coach: null,
     result: "7-8e place",
-  },/*
+  } /*
   {
     id: "team-99",
     editionId: "ep-2",
@@ -1117,7 +1117,7 @@ export const teams = [
     subs: [],
     coach: null,
     result: null,
-  },*/
+  },*/,
   {
     id: "team-100",
     editionId: "ep-3",
