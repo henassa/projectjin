@@ -99,8 +99,8 @@ export const strings = {
   nav_multipov: { fr: "Multi POV", en: "Multi POV" },
   multipov_title: { fr: "Multi POV", en: "Multi POV" },
   multipov_intro: {
-    fr: "Ajoute les chaînes Twitch du tournoi pour suivre plusieurs points de vue en même temps. Les personnes en live remontent automatiquement en haut.",
-    en: "Add the tournament's Twitch channels to follow several points of view at once. Live channels automatically move to the top.",
+    fr: "Toutes les chaînes qui streament cette édition du tournoi, réunies au même endroit.",
+    en: "Every channel streaming this edition of the tournament, in one place.",
   },
   multipov_input_placeholder: {
     fr: "Nom de chaîne ou lien twitch.tv/…",
@@ -113,6 +113,8 @@ export const strings = {
     en: "Couldn't check live status right now.",
   },
   multipov_live: { fr: "Live", en: "Live" },
+  multipov_main_stream: { fr: "Flux officiel", en: "Official stream" },
+  multipov_offline: { fr: "Hors ligne", en: "Offline" },
   multipov_viewers: { fr: "viewers", en: "viewers" },
   multipov_remove: { fr: "Retirer", en: "Remove" },
   multipov_count_channels: {

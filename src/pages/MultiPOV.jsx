@@ -42,6 +42,38 @@ function ChannelLabel({ entry, liveInfo, size = "sm" }) {
   );
 }
 
+// Visuel "hors ligne" maison — on n'affiche jamais la carte native de
+// Twitch (fond blanc, hors charte). Tant que la chaîne n'est pas live,
+// on ne charge même pas l'iframe : juste ce placeholder sobre.
+function OfflinePlaceholder({ entry, t, large = false }) {
+  return (
+    <div className="flex h-full w-full flex-col items-center justify-center gap-3 px-6 text-center">
+      {entry.teamLogo ? (
+        <TeamBadge name={entry.teamName} logo={entry.teamLogo} size={large ? "lg" : "md"} />
+      ) : (
+        <div
+          className={`flex items-center justify-center rounded-none border border-border text-text-muted ${
+            large ? "h-16 w-16" : "h-10 w-10"
+          }`}
+          aria-hidden="true"
+        >
+          <svg viewBox="0 0 24 24" className={large ? "h-7 w-7" : "h-5 w-5"} fill="none" stroke="currentColor" strokeWidth="1.5">
+            <path d="M4 8v8a2 2 0 002 2h9l4 3V5.5L15 8H6a2 2 0 00-2 2z" />
+          </svg>
+        </div>
+      )}
+      <div>
+        <p className={`font-display font-bold ${large ? "text-base" : "text-sm"}`}>
+          {entry.pseudo || entry.login}
+        </p>
+        <p className="mt-1 text-[10px] uppercase tracking-widest text-text-muted">
+          {t("multipov_offline")}
+        </p>
+      </div>
+    </div>
+  );
+}
+
 function MainStreamTile({ entry, liveInfo, t }) {
   const isLive = !!liveInfo;
 
@@ -60,13 +92,17 @@ function MainStreamTile({ entry, liveInfo, t }) {
       </div>
 
       <div className="aspect-video w-full bg-bg-elevated">
-        <iframe
-          title={`twitch-main-${entry.login}`}
-          src={embedSrc(entry.login)}
-          allowFullScreen
-          className="h-full w-full"
-          frameBorder="0"
-        />
+        {isLive ? (
+          <iframe
+            title={`twitch-main-${entry.login}`}
+            src={embedSrc(entry.login)}
+            allowFullScreen
+            className="h-full w-full"
+            frameBorder="0"
+          />
+        ) : (
+          <OfflinePlaceholder entry={entry} t={t} large />
+        )}
       </div>
 
       <div className="flex items-center justify-between gap-3 px-4 py-3">
@@ -99,13 +135,17 @@ function SecondaryStreamTile({ entry, liveInfo, t }) {
       }`}
     >
       <div className="aspect-video w-full bg-bg-elevated">
-        <iframe
-          title={`twitch-${entry.login}`}
-          src={embedSrc(entry.login)}
-          allowFullScreen
-          className="h-full w-full"
-          frameBorder="0"
-        />
+        {isLive ? (
+          <iframe
+            title={`twitch-${entry.login}`}
+            src={embedSrc(entry.login)}
+            allowFullScreen
+            className="h-full w-full"
+            frameBorder="0"
+          />
+        ) : (
+          <OfflinePlaceholder entry={entry} t={t} />
+        )}
       </div>
 
       <div className="flex items-center justify-between gap-2 px-4 py-3">
