@@ -320,7 +320,7 @@ export const teams = [
         steamId: "76561198154418394",
       },
       {
-        pseudo: "lights",
+        pseudo: "light",
         pronouns: "il / he",
         flagImage: "/flags/flag_tr.png",
         steamId: "76561198413078401",
