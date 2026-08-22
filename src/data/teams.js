@@ -251,6 +251,7 @@ export const teams = [
         pronouns: "il / he",
         flagImage: "/flags/flag_fr.png",
         steamId: "76561198118146069",
+        twitch: "lune33_",
       },
       {
         pseudo: "Meyru",
@@ -513,7 +514,14 @@ export const teams = [
         steamId: "76561198016931975",
       },
     ],
-    subs: [],
+    subs: [
+       {
+        pseudo: "preveen",
+        pronouns: "il / he",
+        flagImage: "/flags/flag_fr.png",
+        steamId: "76561198834504716",
+      },
+    ],
     coach: null,
     result: null,
   },
@@ -725,6 +733,7 @@ export const teams = [
         pronouns: "il / he",
         flagImage: "/flags/flag_ltte.png",
         steamId: "76561198409214986",
+        twitch: "elfosoo",
       },
       {
         pseudo: "Wobu",
