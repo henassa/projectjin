@@ -162,7 +162,7 @@ export const teams = [
     logo: "/team-logos/tbd.png",
     players: [
       {
-        pseudo: "felschrr",
+        pseudo: "félix",
         pronouns: "il / he",
         flagImage: "/flags/flag_fr.png",
       },
@@ -298,6 +298,7 @@ export const teams = [
         pronouns: "il / he",
         flagImage: "/flags/flag_fr.png",
         steamId: "76561199054204778",
+        twitch: "caldya_esport"
       },
       {
         pseudo: "chichi",
@@ -319,10 +320,10 @@ export const teams = [
       },
 
       {
-        pseudo: "Neex",
-        pronouns: "elle / she",
-        flagImage: "/flags/flag_fr.png",
-        steamId: "",
+        pseudo: "lights",
+        pronouns: "il / he",
+        flagImage: "/flags/flag_tr.png",
+        steamId: "76561198413078401",
       },
     ],
     subs: [
@@ -506,7 +507,14 @@ export const teams = [
         steamId: "76561198016931975",
       },
     ],
-    subs: [],
+    subs: [
+          {
+        pseudo: "félix",
+        pronouns: "il / he",
+        flagImage: "/flags/flag_fr.png",
+        steamId: "76561198151064204",
+      },
+    ],
     coach: null,
     result: null,
   },
@@ -590,7 +598,14 @@ export const teams = [
         steamId: "76561198306215753",
       },
     ],
-    subs: [],
+    subs: [
+       {
+        pseudo: "Théo",
+        pronouns: "il / he",
+        flagImage: "/flags/flag_fr.png",
+        steamId: "76561198355793191",
+      },
+    ],
     coach: {
       pseudo: "Finite",
       pronouns: "il / he",
