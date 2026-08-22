@@ -759,7 +759,7 @@ export const teams = [
       },
       {
         pseudo: "Hiksou",
-        pronouns: "il / he",
+        pronouns: "elle / she",
         flagImage: "/flags/flag_fr-br.png",
         steamId: "76561198107745008",
       },
@@ -1120,61 +1120,7 @@ export const teams = [
     ],
     coach: null,
     result: "7-8e place",
-  } /*
-  {
-    id: "team-99",
-    editionId: "ep-2",
-    name: "JOUEURS ET JOUEUSES LIBRES",
-    pool: true,
-    logo: "/team-logos/tbd.png",
-    players: [
-      {
-        pseudo: "Gebonimo",
-        pronouns: "il / he",
-        flagImage: "/flags/flag_fr-sa.png",
-        steamId: "",
-      },
-      {
-        pseudo: "Hugo",
-        pronouns: "il / he",
-        flagImage: "/flags/flag_fr-br.png",
-        steamId: "",
-      },
-      {
-        pseudo: "MehdiAndCo",
-        pronouns: "il / he",
-        flagImage: "/flags/flag_fr.png",
-        steamId: "",
-      },
-      {
-        pseudo: "NaturalSelectixn",
-        pronouns: "il / he",
-        flagImage: "/flags/flag_fr.png",
-        steamId: "",
-      },
-      {
-        pseudo: "ORDOME",
-        pronouns: "il / he",
-        flagImage: "/flags/flag_cm.png",
-        steamId: "",
-      },
-      {
-        pseudo: "TOM",
-        pronouns: "il / he",
-        flagImage: "/flags/flag_fr.png",
-        steamId: "",
-      },
-      {
-        pseudo: "phiVe",
-        pronouns: "il / he",
-        flagImage: "/flags/flag_fr.png",
-        steamId: "",
-      },
-    ],
-    subs: [],
-    coach: null,
-    result: null,
-  },*/,
+  } ,
   {
     id: "team-100",
     editionId: "ep-3",
