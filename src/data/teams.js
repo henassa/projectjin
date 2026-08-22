@@ -678,6 +678,7 @@ export const teams = [
         pronouns: "elle / she",
         flagImage: "/flags/flag_fr.png",
         steamId: "76561198090810272",
+        twitch: "alyx_nevara",
       },
       {
         pseudo: "Ari",
