@@ -278,6 +278,12 @@ export const teams = [
         flagImage: "/flags/flag_fr.png",
         steamId: "76561199025470669",
       },
+       {
+        pseudo: "Katkame",
+        pronouns: "il / he",
+        flagImage: "/flags/flag_fr.png",
+        steamId: "76561198037161388",
+      },
     ],
     coach: {
       pseudo: "vyia",
@@ -298,7 +304,7 @@ export const teams = [
         pronouns: "il / he",
         flagImage: "/flags/flag_fr.png",
         steamId: "76561199054204778",
-        twitch: "caldya_esport"
+        twitch: "caldya_esport",
       },
       {
         pseudo: "chichi",
@@ -313,17 +319,16 @@ export const teams = [
         steamId: "76561198154418394",
       },
       {
-        pseudo: "matriix",
-        pronouns: "elle / she",
-        flagImage: "/flags/flag_be.png",
-        steamId: "76561199074412034",
-      },
-
-      {
         pseudo: "lights",
         pronouns: "il / he",
         flagImage: "/flags/flag_tr.png",
         steamId: "76561198413078401",
+      },
+      {
+        pseudo: "matriix",
+        pronouns: "elle / she",
+        flagImage: "/flags/flag_be.png",
+        steamId: "76561199074412034",
       },
     ],
     subs: [
@@ -415,6 +420,7 @@ export const teams = [
         pronouns: "il / he",
         flagImage: "/flags/flag_fr.png",
         steamId: "76561198178774414",
+        twitch: "staticig_",
       },
     ],
     subs: [
@@ -508,7 +514,7 @@ export const teams = [
       },
     ],
     subs: [
-          {
+      {
         pseudo: "félix",
         pronouns: "il / he",
         flagImage: "/flags/flag_fr.png",
@@ -599,7 +605,7 @@ export const teams = [
       },
     ],
     subs: [
-       {
+      {
         pseudo: "Théo",
         pronouns: "il / he",
         flagImage: "/flags/flag_fr.png",
@@ -611,6 +617,7 @@ export const teams = [
       pronouns: "il / he",
       flagImage: "/flags/flag_occ.png",
       steamId: "76561198217350221",
+      twitch: "finitetgb",
     },
     result: null,
   },
