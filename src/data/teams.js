@@ -278,7 +278,7 @@ export const teams = [
         flagImage: "/flags/flag_fr.png",
         steamId: "76561199025470669",
       },
-       {
+      {
         pseudo: "Katkame",
         pronouns: "il / he",
         flagImage: "/flags/flag_fr.png",
@@ -513,14 +513,7 @@ export const teams = [
         steamId: "76561198016931975",
       },
     ],
-    subs: [
-      {
-        pseudo: "félix",
-        pronouns: "il / he",
-        flagImage: "/flags/flag_fr.png",
-        steamId: "76561198151064204",
-      },
-    ],
+    subs: [],
     coach: null,
     result: null,
   },
@@ -746,6 +739,48 @@ export const teams = [
         flagImage: "/flags/flag_fr.png",
         steamId: "76561198372275494",
         twitch: "xagrozz",
+      },
+    ],
+    subs: [],
+    coach: null,
+    result: null,
+  },
+  {
+    id: "team-12",
+    editionId: "ep-2",
+    name: "IMPROMAX",
+    logo: "/team-logos/impromax.png",
+    players: [
+      {
+        pseudo: "félix",
+        pronouns: "il / he",
+        flagImage: "/flags/flag_fr.png",
+        steamId: "76561198151064204",
+      },
+      {
+        pseudo: "Hiksou",
+        pronouns: "il / he",
+        flagImage: "/flags/flag_fr-br.png",
+        steamId: "76561198107745008",
+      },
+
+      {
+        pseudo: "Jade",
+        pronouns: "elle / she",
+        flagImage: "/flags/flag_fr-br.png",
+        steamId: "76561199231621197",
+      },
+      {
+        pseudo: "NaturalSelectixn",
+        pronouns: "il / he",
+        flagImage: "/flags/flag_fr.png",
+        steamId: "76561198223273952",
+      },
+      {
+        pseudo: "rikast",
+        pronouns: "il / he",
+        flagImage: "/flags/flag_fr.png",
+        steamId: "76561198061217154",
       },
     ],
     subs: [],
