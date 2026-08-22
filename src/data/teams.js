@@ -494,6 +494,7 @@ export const teams = [
         pronouns: "il / he",
         flagImage: "/flags/flag_fr-fc.png",
         steamId: "76561198207125751",
+        twitch: "Detrake_",
       },
       {
         pseudo: "Lockjaw",
