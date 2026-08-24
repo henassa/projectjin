@@ -787,7 +787,26 @@ export const teams = [
         steamId: "76561198061217154",
       },
     ],
-    subs: [],
+    subs: [
+      {
+        pseudo: "MaKse",
+        pronouns: "il / he",
+        flagImage: "/flags/flag_fr.png",
+        steamId: "76561198374835478",
+      },
+      {
+        pseudo: "Sab",
+        pronouns: "elle / she",
+        flagImage: "/flags/flag_dz.png",
+        steamId: "76561198083593684",
+      },
+      {
+        pseudo: "Sheepcantdie",
+        pronouns: "il / he",
+        flagImage: "/flags/flag_fr.png",
+        steamId: "76561197963277267",
+      },
+    ],
     coach: null,
     result: null,
   },
