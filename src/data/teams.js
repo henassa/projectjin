@@ -1188,6 +1188,21 @@ export const teams = [
 // pour rendre un pseudo cliquable même sur des pages où seul le pseudo
 // est disponible (tableau de stats, classement), sans devoir dupliquer
 // le SteamID dans stats.js.
+// Convertit un `result` d'équipe ("Vainqueur", "Finaliste", "1/2 finale",
+// "1/4 finale", "9e place", "10-12e place"...) en un rang numérique, pour
+// pouvoir trier les équipes du 1er au dernier peu importe le libellé
+// exact. Les équipes sans résultat (édition pas encore jouée) sont
+// envoyées à la fin.
+export function resultRank(result) {
+  if (!result) return Infinity;
+  if (result === "Vainqueur") return 1;
+  if (result === "Finaliste") return 2;
+  if (result === "1/2 finale") return 3;
+  if (result === "1/4 finale") return 5;
+  const match = result.match(/\d+/);
+  return match ? parseInt(match[0], 10) : Infinity;
+}
+
 export function findSteamId(pseudo) {
   for (const team of teams) {
     const people = [

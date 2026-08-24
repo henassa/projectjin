@@ -4,7 +4,7 @@ import TeamBadge from "../components/TeamBadge";
 import Flag from "../components/Flag";
 import PlayerName from "../components/PlayerName";
 import { editions, editionDateLabel } from "../data/editions";
-import { teams, findSteamId } from "../data/teams";
+import { teams, findSteamId, resultRank } from "../data/teams";
 import { playerStats } from "../data/stats";
 import { credits } from "../data/credits";
 import { useLanguage } from "../i18n/LanguageContext";
@@ -20,7 +20,7 @@ function resultChipClass(result) {
   return "chip-badge text-accent";
 }
 
-function RosterRow({ person, role, t }) {
+function RosterRow({ person, role, stat, t }) {
   return (
     <li className="flex items-center justify-between gap-2 px-3 py-2.5 text-sm text-text">
       <span className="flex min-w-0 items-center gap-2">
@@ -31,6 +31,16 @@ function RosterRow({ person, role, t }) {
         {role && (
           <span className="whitespace-nowrap font-mono text-[10px] uppercase tracking-widest text-text-muted">
             {role}
+          </span>
+        )}
+        {stat?.mvp && (
+          <span className="chip-mvp whitespace-nowrap px-2 py-0.5 text-[9px] uppercase tracking-widest">
+            {t("tag_mvp")}
+          </span>
+        )}
+        {stat?.evp && (
+          <span className="chip-evp whitespace-nowrap px-2 py-0.5 text-[9px] uppercase tracking-widest">
+            {t("tag_evp")}
           </span>
         )}
       </span>
@@ -106,10 +116,21 @@ function TeamCard({ team, statsFor, t }) {
             );
           })}
           {subs.map((s) => (
-            <RosterRow key={s.pseudo} person={s} role={s.role || t("tag_sub")} t={t} />
+            <RosterRow
+              key={s.pseudo}
+              person={s}
+              role={s.role || t("tag_sub")}
+              stat={statsFor(team.name, s.pseudo)}
+              t={t}
+            />
           ))}
           {team.coach && (
-            <RosterRow person={team.coach} role={team.coach.role || t("tag_coach")} t={t} />
+            <RosterRow
+              person={team.coach}
+              role={team.coach.role || t("tag_coach")}
+              stat={statsFor(team.name, team.coach.pseudo)}
+              t={t}
+            />
           )}
         </ul>
       )}
@@ -136,7 +157,10 @@ export default function EditionDetail() {
   const edition = editions.find((e) => e.id === editionId);
   const editionCredits = credits[editionId] ?? null;
   const editionTeams = useMemo(
-    () => teams.filter((tm) => tm.editionId === editionId),
+    () =>
+      teams
+        .filter((tm) => tm.editionId === editionId)
+        .sort((a, b) => resultRank(a.result) - resultRank(b.result)),
     [editionId]
   );
   const rows = useMemo(() => {
