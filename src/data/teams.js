@@ -292,7 +292,7 @@ export const teams = [
       flagImage: "/flags/flag_pt.png",
       steamId: "76561198358098002",
     },
-    result: null,
+    result: "Finaliste",
   },
   {
     id: "team-2",
@@ -340,7 +340,7 @@ export const teams = [
       },
     ],
     coach: null,
-    result: null,
+    result: "9e place",
   },
   {
     id: "team-3",
@@ -383,7 +383,7 @@ export const teams = [
     ],
     subs: [],
     coach: null,
-    result: null,
+    result: "Vainqueur",
   },
   {
     id: "team-4",
@@ -432,7 +432,7 @@ export const teams = [
       },
     ],
     coach: null,
-    result: null,
+    result: "1/4 finale",
   },
   {
     id: "team-5",
@@ -474,7 +474,7 @@ export const teams = [
     ],
     subs: [],
     coach: null,
-    result: null,
+    result: "1/2 finale",
   },
   {
     id: "team-6",
@@ -522,7 +522,7 @@ export const teams = [
       },
     ],
     coach: null,
-    result: null,
+    result: "10-12e place",
   },
   {
     id: "team-7",
@@ -564,7 +564,7 @@ export const teams = [
     ],
     subs: [],
     coach: null,
-    result: null,
+    result: "1/4 finale",
   },
   {
     id: "team-8",
@@ -617,7 +617,7 @@ export const teams = [
       flagImage: "/flags/flag_occ.png",
       steamId: "76561198217350221",
     },
-    result: null,
+    result: "10-12e place",
   },
   {
     id: "team-9",
@@ -661,7 +661,7 @@ export const teams = [
     ],
     subs: [],
     coach: null,
-    result: null,
+    result: "1/2 finale",
   },
   {
     id: "team-10",
@@ -703,7 +703,7 @@ export const teams = [
     ],
     subs: [],
     coach: null,
-    result: null,
+    result: "10-12e place",
   },
   {
     id: "team-11",
@@ -747,7 +747,7 @@ export const teams = [
     ],
     subs: [],
     coach: null,
-    result: null,
+    result: "1/4 finale",
   },
   {
     id: "team-12",
@@ -808,7 +808,7 @@ export const teams = [
       },
     ],
     coach: null,
-    result: null,
+    result: "1/4 finale",
   },
   {
     id: "team-1",

@@ -72,6 +72,7 @@ export const strings = {
   tag_sub: { fr: "Sub", en: "Sub" },
   tag_mvp: { fr: "MVP", en: "MVP" },
   tag_evp: { fr: "EVP", en: "EVP" },
+  tag_finalist: { fr: "Finaliste", en: "Finalist" },
   tag_winner: { fr: "Vainqueur", en: "Winner" },
   edition_not_found: { fr: "Cette édition n'existe pas.", en: "This edition doesn't exist." },
   back_to_editions_full: { fr: "← Retour aux éditions", en: "← Back to editions" },

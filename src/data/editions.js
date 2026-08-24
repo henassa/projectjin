@@ -20,7 +20,7 @@ export const editions = [
     game: "COUNTER-STRIKE 2",
     date: "22 août",
     dateEnd: "23 août",
-    status: "à venir",
+    status: "terminée",
     poster: "/edition-posters/ep-2.png",
   },
   {

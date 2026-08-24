@@ -29,7 +29,7 @@ export default function Palmares() {
     const record = {};
 
     function ensure(pseudo, flagImage) {
-      record[pseudo] ??= { pseudo, flagImage, wins: 0, mvp: 0, evp: 0 };
+      record[pseudo] ??= { pseudo, flagImage, wins: 0, finals: 0, mvp: 0, evp: 0 };
       return record[pseudo];
     }
 
@@ -37,6 +37,11 @@ export default function Palmares() {
       if (team.result === "Vainqueur") {
         (team.players || []).filter(Boolean).forEach((p) => {
           ensure(p.pseudo, p.flagImage).wins += 1;
+        });
+      }
+      if (team.result === "Finaliste") {
+        (team.players || []).filter(Boolean).forEach((p) => {
+          ensure(p.pseudo, p.flagImage).finals += 1;
         });
       }
     });
@@ -47,7 +52,7 @@ export default function Palmares() {
       if (r.evp) entry.evp += 1;
     });
 
-    return Object.values(record).filter((r) => r.wins + r.mvp + r.evp > 0);
+    return Object.values(record).filter((r) => r.wins + r.finals + r.mvp + r.evp > 0);
   }, []);
 
   const leaderboard = useMemo(() => {
@@ -73,6 +78,7 @@ export default function Palmares() {
   const columns = [
     { key: "pseudo", label: t("col_player") },
     { key: "wins", label: t("col_titles") },
+    { key: "finals", label: t("tag_finalist") },
     { key: "mvp", label: t("tag_mvp") },
     { key: "evp", label: t("tag_evp") },
   ];
@@ -120,6 +126,13 @@ export default function Palmares() {
                       {r.wins > 0 && (
                         <span className="chip-mvp px-2 py-0.5 text-[10px] uppercase tracking-widest">
                           {r.wins}×
+                        </span>
+                      )}
+                    </td>
+                    <td className="whitespace-nowrap px-4 py-2">
+                      {r.finals > 0 && (
+                        <span className="chip-badge px-2 py-0.5 text-[10px] uppercase tracking-widest">
+                          {r.finals}×
                         </span>
                       )}
                     </td>
