@@ -89,7 +89,7 @@ export const playerStats = [
   { editionId: "ep-2", pseudo: "Wik", flagImage: "/flags/flag_jp.png", mvp: false, evp: false, team: "CYPRIEN GAMING", maps: 3, rounds: 51, kdDiff: -15, kd: 0.7, rating: 0.84 },
   { editionId: "ep-2", pseudo: "aspppen", flagImage: "/flags/flag_ga.png", mvp: false, evp: true, team: "FREE ELO BOOST PEEK", maps: 5, rounds: 92, kdDiff: 28, kd: 1.4, rating: 1.55 },
   { editionId: "ep-2", pseudo: "Blh1te", flagImage: "/flags/flag_fr.png", mvp: false, evp: false, team: "FREE ELO BOOST PEEK", maps: 5, rounds: 92, kdDiff: 4, kd: 1.1, rating: 1.13 },
-  { editionId: "ep-2", pseudo: "Emerald", flagImage: "/flags/flag_fr.png", mvp: false, evp: false, team: "FREE ELO BOOST PEEK", maps: 5, rounds: 92, kdDiff: 36, kd: 1.7, rating: 1.6 },
+  { editionId: "ep-2", pseudo: "Emerald", flagImage: "/flags/flag_fr.png", mvp: false, evp: true, team: "FREE ELO BOOST PEEK", maps: 5, rounds: 92, kdDiff: 36, kd: 1.7, rating: 1.6 },
   { editionId: "ep-2", pseudo: "injuxta", flagImage: "/flags/flag_kr.png", mvp: false, evp: false, team: "FREE ELO BOOST PEEK", maps: 5, rounds: 92, kdDiff: 2, kd: 1.0, rating: 1.28 },
   { editionId: "ep-2", pseudo: "Togrqm", flagImage: "/flags/flag_fr-br.png", mvp: false, evp: false, team: "FREE ELO BOOST PEEK", maps: 5, rounds: 92, kdDiff: -14, kd: 0.8, rating: 1.03 },
   { editionId: "ep-2", pseudo: "Alyx Nevara", flagImage: "/flags/flag_fr.png", mvp: false, evp: false, team: "FRACTURE", maps: 3, rounds: 52, kdDiff: -10, kd: 0.8, rating: 0.84 },
