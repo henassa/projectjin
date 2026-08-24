@@ -95,7 +95,14 @@ export default function Palmares() {
           <p className="mt-4 text-text-muted">{t("palmares_no_data")}</p>
         ) : (
           <div className="surface mt-6 overflow-x-auto">
-            <table className="w-full min-w-[560px] border-collapse font-body text-sm">
+            <table className="w-full min-w-[560px] table-fixed border-collapse font-body text-sm">
+              <colgroup>
+                <col className="w-[40%]" />
+                <col className="w-[15%]" />
+                <col className="w-[15%]" />
+                <col className="w-[15%]" />
+                <col className="w-[15%]" />
+              </colgroup>
               <thead>
                 <tr className="border-b border-border-strong bg-bg-elevated text-left text-text-muted">
                   {columns.map((col) => (
@@ -105,7 +112,10 @@ export default function Palmares() {
                       className="cursor-pointer select-none whitespace-nowrap px-4 py-2 text-xs uppercase tracking-widest hover:text-text"
                     >
                       {col.label}
-                      {sortKey === col.key ? (sortDir === "asc" ? " ↑" : " ↓") : ""}
+                      <span className={sortKey === col.key ? "" : "invisible"}>
+                        {" "}
+                        {sortDir === "asc" ? "↑" : "↓"}
+                      </span>
                     </th>
                   ))}
                 </tr>
