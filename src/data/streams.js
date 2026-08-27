@@ -18,7 +18,7 @@
 //    donné : juste `{ login: "..." }`.
 // ─────────────────────────────────────────────────────────────
 
-export const mainStreamLogin = "hezus";
+export const mainStreamLogin;
 
 export const extraStreams = [
   // { login: "chaine-du-staff" },

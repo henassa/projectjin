@@ -77,7 +77,7 @@ export const teams = [
       {
         pseudo: "skiddo",
         pronouns: "elle / she",
-        flagImage: "/flags/flag_fr.png",
+        flagImage: "/flags/flag_kh.png",
       },
     ],
     coach: null,
@@ -103,7 +103,7 @@ export const teams = [
       },
       {
         pseudo: "Lumen",
-        pronouns: "il / he",
+        pronouns: "elle / she",
         flagImage: "/flags/flag_fr.png",
         role: "MID",
       },
@@ -1171,43 +1171,6 @@ export const teams = [
     ],
     coach: null,
     result: "7-8e place",
-  },
-  {
-    id: "team-100",
-    editionId: "ep-3",
-    name: "JOUEURS ET JOUEUSES LIBRES",
-    pool: true,
-    logo: "/team-logos/tbd.png",
-    players: [
-      {
-        pseudo: "Colevag",
-        pronouns: "il / he",
-        flagImage: "/flags/flag_fr-norm.png",
-      },
-      {
-        pseudo: "Kesscro",
-        pronouns: "il / he",
-        flagImage: "/flags/flag_be.png",
-      },
-      {
-        pseudo: "Static2k",
-        pronouns: "il / he",
-        flagImage: "/flags/flag_fr.png",
-      },
-      {
-        pseudo: "Ulyxx3",
-        pronouns: "il / he",
-        flagImage: "/flags/flag_fr.png",
-      },
-      {
-        pseudo: "Zweely",
-        pronouns: "il / he",
-        flagImage: "/flags/flag_fr.png",
-      },
-    ],
-    subs: [],
-    coach: null,
-    result: null,
   },
 ];
 
