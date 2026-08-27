@@ -35,55 +35,91 @@
 // ─────────────────────────────────────────────────────────────
 
 export const teams = [
-  /* {
-    
+  {
     id: "team-1",
     editionId: "ep-3",
-    name: "ROUX NATION",
-    logo: "/team-logos/tbd.png",
+    name: "MIMI CORP",
+    logo: "/team-logos/mimicorp.png",
     players: [
       {
-        pseudo: "Lunattack",
-        pronouns: "elle / she",
-        flagImage: "/flags/flag_fr.png",
-        steamId: "",
-      },
-      {
-        pseudo: "Kyo",
+        pseudo: "Dazarx",
         pronouns: "il / he",
         flagImage: "/flags/flag_fr.png",
-        steamId: "",
+        role: "ADC",
       },
       {
-        pseudo: "Lilith",
+        pseudo: "Faker Herself",
+        pronouns: "elle / she",
+        flagImage: "/flags/flag_de.png",
+        role: "MID",
+      },
+      {
+        pseudo: "morphinexyzz",
+        pronouns: "elle / she",
+        flagImage: "/flags/flag_ma.png",
+        role: "JGL",
+      },
+
+      {
+        pseudo: "Sakuya",
         pronouns: "elle / she",
         flagImage: "/flags/flag_fr.png",
-        steamId: "",
+        role: "SUP",
       },
       {
-        pseudo: "roux",
-        pronouns: "iel / they",
-        flagImage: "/flags/flag_fr.png",
-        steamId: "",
-      },
-      {
-        pseudo: "Melinoë",
-        pronouns: "elle / she",
-        flagImage: "/flags/flag_fr.png",
-        steamId: "",
+        pseudo: "Shawn",
+        pronouns: "il / he",
+        flagImage: "/flags/flag_dz.png",
+        role: "TOP",
       },
     ],
-    subs: [],
+    subs: [
+      {
+        pseudo: "skiddo",
+        pronouns: "elle / she",
+        flagImage: "/flags/flag_fr.png",
+      },
+    ],
     coach: null,
     result: null,
   },
-  */
   {
     id: "team-2",
     editionId: "ep-3",
-    name: "CALDYA ESPORT",
-    logo: "/team-logos/caldya-esport.png",
-    players: [],
+    name: "CRYPTANA",
+    logo: "/team-logos/tbd.png",
+    players: [
+      {
+        pseudo: "Aurore",
+        pronouns: "elle / she",
+        flagImage: "/flags/flag_fr.png",
+        role: "TOP",
+      },
+      {
+        pseudo: "Cace",
+        pronouns: "il / he",
+        flagImage: "/flags/flag_be.png",
+        role: "JGL",
+      },
+      {
+        pseudo: "Lumen",
+        pronouns: "il / he",
+        flagImage: "/flags/flag_fr.png",
+        role: "MID",
+      },
+      {
+        pseudo: "Moon",
+        pronouns: "elle / she",
+        flagImage: "/flags/flag_fr.png",
+        role: "ADC",
+      },
+      {
+        pseudo: "Noe",
+        pronouns: "il / he",
+        flagImage: "/flags/flag_fr.png",
+        role: "SUP",
+      },
+    ],
     subs: [],
     coach: null,
     result: null,
@@ -91,11 +127,11 @@ export const teams = [
   {
     id: "team-3",
     editionId: "ep-3",
-    name: "ÉQUIPE 3",
+    name: "???",
     logo: "/team-logos/tbd.png",
     players: [
       {
-        pseudo: "Aos Sith (à confirmer)",
+        pseudo: "Aos Sith",
         pronouns: "elle / she",
         flagImage: "/flags/flag_fr.png",
       },
@@ -109,25 +145,21 @@ export const teams = [
         pronouns: "il / he",
         flagImage: "/flags/flag_fr.png",
       },
+      {
+        pseudo: "Yukiko",
+        pronouns: "elle / she",
+        flagImage: "/flags/flag_fr.png",
+      },
     ],
     subs: [],
     coach: null,
     result: null,
   },
+
   {
     id: "team-4",
     editionId: "ep-3",
-    name: "MIMI CORP",
-    logo: "/team-logos/tbd.png",
-    players: [],
-    subs: [],
-    coach: null,
-    result: null,
-  },
-  {
-    id: "team-5",
-    editionId: "ep-3",
-    name: "ÉQUIPE 5",
+    name: "???",
     logo: "/team-logos/tbd.png",
     players: [
       {
@@ -156,9 +188,9 @@ export const teams = [
     result: null,
   },
   {
-    id: "team-6",
+    id: "team-5",
     editionId: "ep-3",
-    name: "ÉQUIPE 6",
+    name: "???",
     logo: "/team-logos/tbd.png",
     players: [
       {
@@ -182,51 +214,47 @@ export const teams = [
     result: null,
   },
   {
-    id: "team-7",
+    id: "team-6",
     editionId: "ep-3",
     name: "PIPI SOUS LA DOUCHE",
     logo: "/team-logos/pipi-sous-la-douche.png",
     players: [
       {
-        pseudo: "aynashaa",
+        pseudo: "Aynashaa",
         pronouns: "elle / she",
         flagImage: "/flags/flag_fr.png",
+        rôle: "SUP",
       },
       {
         pseudo: "Birouf",
         pronouns: "il / he",
         flagImage: "/flags/flag_fr.png",
+        rôle: "ADC",
       },
       {
-        pseudo: "hedrostage",
+        pseudo: "Hedro",
         pronouns: "il / he",
         flagImage: "/flags/flag_fr.png",
+        rôle: "TOP",
       },
       {
-        pseudo: "lumiky",
+        pseudo: "Lumiky",
         pronouns: "elle / she",
         flagImage: "/flags/flag_fr.png",
+        rôle: "MID",
       },
       {
         pseudo: "sluje",
         pronouns: "il / he",
         flagImage: "/flags/flag_fr.png",
+        rôle: "JGL",
       },
     ],
     subs: [],
     coach: null,
     result: null,
   },
-  {
-    id: "team-8",
-    editionId: "ep-3",
-    name: "TAHM KUNZ",
-    logo: "/team-logos/tbd.png",
-    players: [],
-    subs: [],
-    coach: null,
-    result: null,
-  },
+
   {
     id: "team-1",
     editionId: "ep-2",
@@ -514,7 +542,7 @@ export const teams = [
       },
     ],
     subs: [
-       {
+      {
         pseudo: "preveen",
         pronouns: "il / he",
         flagImage: "/flags/flag_fr.png",
@@ -1143,7 +1171,7 @@ export const teams = [
     ],
     coach: null,
     result: "7-8e place",
-  } ,
+  },
   {
     id: "team-100",
     editionId: "ep-3",
